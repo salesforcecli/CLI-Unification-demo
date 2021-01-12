@@ -1,9 +1,9 @@
 {
-  "name": "@salesforce/plugin-template",
-  "description": "A template repository for sfdx plugins",
-  "version": "1.0.0",
+  "name": "clidoscope-demo",
+  "description": "A prototype to test clidoscope taxonomy and usage.",
+  "version": "1.0.1",
   "author": "Salesforce",
-  "bugs": "https://github.com/forcedotcom/cli/issues",
+  "bugs": "https://github.com/salesforcecli/clidoscope-demo/issues",
   "dependencies": {
     "@oclif/config": "^1",
     "@salesforce/command": "^3.0.3",
@@ -55,18 +55,12 @@
     "/messages",
     "/oclif.manifest.json"
   ],
-  "homepage": "https://github.com/salesforcecli/plugin-template",
-  "keywords": [
-    "force",
-    "salesforce",
-    "sfdx",
-    "salesforcedx",
-    "sfdx-plugin"
-  ],
+  "homepage": "https://github.com/salesforcecli/clidoscope-demo",
+  "keywords": [],
   "license": "BSD-3-Clause",
   "oclif": {
     "commands": "./lib/commands",
-    "bin": "sfdx",
+    "bin": "sf",
     "devPlugins": [
       "@oclif/plugin-help",
       "@oclif/plugin-command-snapshot",
@@ -78,7 +72,7 @@
       }
     }
   },
-  "repository": "salesforcecli/plugin-template",
+  "repository": "salesforcecli/clidoscope-demo",
   "scripts": {
     "build": "sf-build",
     "clean": "sf-clean",
@@ -91,7 +85,7 @@
     "postpack": "shx rm -f oclif.manifest.json",
     "posttest": "yarn lint && yarn test:deprecation-policy && yarn test:command-reference",
     "test:deprecation-policy": "./bin/run snapshot:compare",
-    "test:command-reference": "./bin/run commandreference:generate -p @salesforce/plugin-template --erroronwarnings",
+    "test:command-reference": "./bin/run commandreference:generate -p @salesforce/clidoscope-demo --erroronwarnings",
     "prepack": "sf-build",
     "prepare": "sf-install",
     "pretest": "sf-compile-test",
