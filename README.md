@@ -90,6 +90,6 @@ EXAMPLES
      Hello myname! This is org: MyOrg and I will be around until Tue Mar 20 2018!
 ```
 
-_See code: [src/commands/hello/org.ts](https://github.com/salesforcecli/clidoscope-demo/blob/v1.0.1/src/commands/hello/org.ts)_
+_See code: [src/commands/hello/org.ts](https://github.com/salesforcecli/clidoscope-demo/blob/v1.0.2/src/commands/hello/org.ts)_
 
 <!-- commandsstop -->

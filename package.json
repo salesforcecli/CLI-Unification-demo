@@ -1,9 +1,12 @@
 {
   "name": "clidoscope-demo",
   "description": "A prototype to test clidoscope taxonomy and usage.",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "author": "Salesforce",
   "bugs": "https://github.com/salesforcecli/clidoscope-demo/issues",
+  "bin": {
+    "sf": "bin/run"
+  },
   "dependencies": {
     "@oclif/config": "^1",
     "@salesforce/command": "^3.0.3",
@@ -51,7 +54,8 @@
   "files": [
     "/lib",
     "/messages",
-    "/oclif.manifest.json"
+    "/oclif.manifest.json",
+    "/bin"
   ],
   "homepage": "https://github.com/salesforcecli/clidoscope-demo",
   "keywords": [],
