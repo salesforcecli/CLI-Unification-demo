@@ -23,6 +23,7 @@
   "oclif": {
     "commands": "./lib/commands",
     "bin": "sf",
+    "topicSeparator": " ",
     "topics": {
       "env": {
         "description": "Commands to work with enviornments."
