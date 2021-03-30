@@ -1,52 +1,15 @@
 {
-  "name": "clidoscope-demo",
-  "description": "A prototype to test clidoscope taxonomy and usage.",
+  "name": "@salesforce/clidoscope",
+  "description": "An experiment to explore a new taxonomy for all Salesforce clouds.",
   "version": "1.0.2",
   "author": "Salesforce",
-  "bugs": "https://github.com/salesforcecli/clidoscope-demo/issues",
+  "keywords": [],
+  "license": "BSD-3-Clause",
+  "repository": "salesforcecli/cli-taxonomy-experiment",
+  "homepage": "https://github.com/salesforcecli/cli-taxonomy-experiment",
+  "bugs": "https://github.com/salesforcecli/cli-taxonomy-experiment/issues",
   "bin": {
     "sf": "bin/run"
-  },
-  "dependencies": {
-    "@oclif/config": "^1",
-    "@salesforce/command": "^3.0.3",
-    "@salesforce/core": "^2.15.4",
-    "tslib": "^1"
-  },
-  "devDependencies": {
-    "@oclif/dev-cli": "^1",
-    "@salesforce/dev-config": "^2.0.0",
-    "@salesforce/dev-scripts": "0.6.2",
-    "@salesforce/prettier-config": "^0.0.1",
-    "@salesforce/ts-sinon": "1.1.3",
-    "@typescript-eslint/eslint-plugin": "^2.30.0",
-    "@typescript-eslint/parser": "^2.30.0",
-    "chai": "^4.2.0",
-    "cz-conventional-changelog": "^3.2.0",
-    "eslint": "^6.8.0",
-    "eslint-config-prettier": "^6.11.0",
-    "eslint-config-salesforce": "^0.1.0",
-    "eslint-config-salesforce-license": "^0.1.0",
-    "eslint-config-salesforce-typescript": "^0.1.0",
-    "eslint-plugin-header": "^3.0.0",
-    "eslint-plugin-import": "^2.20.2",
-    "eslint-plugin-jsdoc": "^27.0.3",
-    "eslint-plugin-prettier": "^3.1.3",
-    "husky": "^4.2.5",
-    "lint-staged": "^10.2.2",
-    "mocha": "^7.2.0",
-    "nyc": "^15.1.0",
-    "prettier": "^2.0.5",
-    "pretty-quick": "^2.0.1",
-    "shx": "0.2.2",
-    "sinon": "^9.0.2",
-    "ts-node": "^8.10.2",
-    "typescript": "^3.9.3"
-  },
-  "config": {
-    "commitizen": {
-      "path": "cz-conventional-changelog"
-    }
   },
   "engines": {
     "node": ">=12.0.0"
@@ -57,26 +20,62 @@
     "/oclif.manifest.json",
     "/bin"
   ],
-  "homepage": "https://github.com/salesforcecli/clidoscope-demo",
-  "keywords": [],
-  "license": "BSD-3-Clause",
   "oclif": {
     "commands": "./lib/commands",
     "bin": "sf",
-    "devPlugins": [
-      "@oclif/plugin-help"
-    ],
     "topics": {
-      "hello": {
-        "description": "Commands to say hello."
+      "env": {
+        "description": "Commands to work with enviornments."
+      },
+      "login": {
+        "description": "Commands for specialized login flows."
       }
     }
   },
-  "repository": "salesforcecli/clidoscope-demo",
+  "dependencies": {
+    "@oclif/core": "^0.4.0",
+    "@salesforce/core": "^2.15.4",
+    "tslib": "^1"
+  },
+  "devDependencies": {
+    "@oclif/dev-cli": "^1",
+    "@salesforce/dev-config": "^2.1.0",
+    "@salesforce/dev-scripts": "0.9.1",
+    "@salesforce/prettier-config": "^0.0.2",
+    "@salesforce/ts-sinon": "1.1.3",
+    "@typescript-eslint/eslint-plugin": "^4.2.0",
+    "@typescript-eslint/parser": "^4.2.0",
+    "chai": "^4.2.0",
+    "cz-conventional-changelog": "^3.2.0",
+    "eslint": "^6.8.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-config-salesforce": "^0.1.0",
+    "eslint-config-salesforce-license": "^0.1.0",
+    "eslint-config-salesforce-typescript": "^0.2.0",
+    "eslint-plugin-header": "^3.0.0",
+    "eslint-plugin-import": "^2.20.2",
+    "eslint-plugin-jsdoc": "^27.0.3",
+    "eslint-plugin-prettier": "^3.1.3",
+    "husky": "^4.2.5",
+    "lint-staged": "^10.2.2",
+    "mocha": "^8.3.0",
+    "nyc": "^15.1.0",
+    "prettier": "^2.0.5",
+    "pretty-quick": "^2.0.1",
+    "shx": "0.2.2",
+    "sinon": "^9.0.2",
+    "ts-node": "^8.10.2",
+    "typescript": "^4.1.3"
+  },
+  "config": {
+    "commitizen": {
+      "path": "cz-conventional-changelog"
+    }
+  },
   "scripts": {
     "build": "sf-build",
     "clean": "sf-clean",
-    "clean-all": "-clean all",
+    "clean-all": "sf-clean all",
     "clean:lib": "shx rm -rf lib && shx rm -rf coverage && shx rm -rf .nyc_output && shx rm -f oclif.manifest.json",
     "compile": "sf-compile",
     "docs": "sf-docs",
@@ -84,7 +83,7 @@
     "lint": "sf-lint",
     "postpack": "shx rm -f oclif.manifest.json",
     "posttest": "yarn lint",
-    "prepack": "sf-build",
+    "prepack": "sf-prepack",
     "prepare": "sf-install",
     "pretest": "sf-compile-test",
     "test": "sf-test",
