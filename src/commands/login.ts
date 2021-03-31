@@ -103,7 +103,7 @@ export default class Login extends Command {
       });
     } else {
       const hub = accounts.get('hub');
-  
+
       if (!hub && !user.includes('sandbox')) {
         // Set remote environments not connected too.
         accounts.set('hub', {

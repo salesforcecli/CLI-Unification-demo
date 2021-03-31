@@ -63,14 +63,15 @@ export default class EnvList extends Command {
       const type = name === 'heroku' ? 'compute' : 'org';
       const accountEnvironments = account.environments.map((environmentsName) =>
         this.convertEnvironment(environmentsName, {
-          type, 
-          context: name === 'heroku'
-          ? environmentsName.includes('heroku')
-            ? 'heroku app'
-            : 'functions'
-          : environmentsName.includes('scratch')
-            ? 'scratch'
-            : 'sandbox',
+          type,
+          context:
+            name === 'heroku'
+              ? environmentsName.includes('heroku')
+                ? 'heroku app'
+                : 'functions'
+              : environmentsName.includes('scratch')
+              ? 'scratch'
+              : 'sandbox',
         })
       );
 
@@ -82,7 +83,7 @@ export default class EnvList extends Command {
     const { flags, args } = await this.parse(EnvList);
 
     const heroku = this.accounts.get('heroku');
-    const connectedEnvironments = this.environments.entries().map(entry => this.convertEnvironmentEntry(entry));
+    const connectedEnvironments = this.environments.entries().map((entry) => this.convertEnvironmentEntry(entry));
 
     let allEnvironments = connectedEnvironments;
 
