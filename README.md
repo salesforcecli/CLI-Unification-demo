@@ -1,11 +1,11 @@
 # clidoscope-demo
 
-A prototype to test clidoscope taxonomy and usage.
+An experiment to explore a new taxonomy for all Salesforce clouds.
 
 ## Install
 
 ```bash
-npm install --global clidoscope-demo
+npm install --global @salesforce/clidoscope
 sf help
 ```
 
@@ -34,14 +34,14 @@ To build the plugin locally, make sure to have yarn installed and run the follow
 
 ```bash
 # Clone the repository
-git clone git@github.com:salesforcecli/clidoscope-demo
+git clone git@github.com:salesforcecli/cli-taxonomy-experiment
 
 # Install the dependencies and compile
 yarn install
 yarn build
 ```
 
-To use your plugin, run using the local `./bin/run` or `./bin/run.cmd` file.
+To use your plugin, run using the local `./bin/dev` or `./bin/dev.cmd` file. To run off compiled code, use `./bin/run` or `./bin/run.cmd`.
 
 ```bash
 # Run using local run file.
@@ -52,44 +52,118 @@ To use your plugin, run using the local `./bin/run` or `./bin/run.cmd` file.
 
 <!-- commands -->
 
-- [`sf hello:org [-n <string>] [-f] [-v <string>] [-u <string>] [--apiversion <string>] [--json] [--loglevel trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]`](#sf-helloorg--n-string--f--v-string--u-string---apiversion-string---json---loglevel-tracedebuginfowarnerrorfataltracedebuginfowarnerrorfatal)
+- [`sf env:list`](#sf-envlist)
+- [`sf login`](#sf-login)
+- [`sf login:jwt`](#sf-loginjwt)
+- [`sf reset`](#sf-reset)
+- [`sf whoami`](#sf-whoami)
 
-## `sf hello:org [-n <string>] [-f] [-v <string>] [-u <string>] [--apiversion <string>] [--json] [--loglevel trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]`
+## `sf env:list`
 
-print a greeting and your org IDs
+list connected enviornment
 
 ```
 USAGE
-  $ sf hello:org [-n <string>] [-f] [-v <string>] [-u <string>] [--apiversion <string>] [--json] [--loglevel
-  trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]
+  $ sf env:list
 
 OPTIONS
-  -f, --force                                                                       example boolean flag
-  -n, --name=name                                                                   name to print
+  -x, --extended          show extra columns
+  --columns=columns       only show provided columns (comma-separated)
+  --csv                   output is csv format [alias: --output=csv]
+  --filter=filter         filter property by partial string matching, ex: name=foo
+  --no-header             hide table header from output
+  --no-truncate           do not truncate output to fit screen
+  --output=csv|json|yaml  output in a more machine friendly format
+  --remote                include enviornments not yet connected
+  --sort=sort             property to sort by (prepend '-' for descending)
 
-  -u, --targetusername=targetusername                                               username or alias for the target
-                                                                                    org; overrides default target org
-
-  -v, --targetdevhubusername=targetdevhubusername                                   username or alias for the dev hub
-                                                                                    org; overrides default dev hub org
-
-  --apiversion=apiversion                                                           override the api version used for
-                                                                                    api requests made by this command
-
-  --json                                                                            format output as json
-
-  --loglevel=(trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL)  [default: warn] logging level for
-                                                                                    this command invocation
+DESCRIPTION
+  List connected environment including Salesforce orgs, heroku apps, and compute enviornments (functions). Use --remote
+  to display all environments you have access to.
 
 EXAMPLES
-  $ sfdx hello:org --targetusername myOrg@example.com --targetdevhubusername devhub@org.com
-     Hello world! This is org: MyOrg and I will be around until Tue Mar 20 2018!
-     My hub org id is: 00Dxx000000001234
-
-  $ sfdx hello:org --name myname --targetusername myOrg@example.com
-     Hello myname! This is org: MyOrg and I will be around until Tue Mar 20 2018!
+  sf env list
+  sf env list --remote
 ```
 
-_See code: [src/commands/hello/org.ts](https://github.com/salesforcecli/clidoscope-demo/blob/v1.0.2/src/commands/hello/org.ts)_
+_See code: [src/commands/env/list.ts](https://github.com/salesforcecli/cli-taxonomy-experiment/blob/v1.0.2/src/commands/env/list.ts)_
+
+## `sf login`
+
+login to a Salesforce account or enviornment
+
+```
+USAGE
+  $ sf login
+
+OPTIONS
+  -i, --client-id=client-id  OAuth client ID (sometimes called the consumer key)
+  -r, --login-url=login-url  [default: https://login.salesforce.com] the login url of the auth provider
+  --alias=alias              set an alias for the environment - see all aliases using `sf env alias list`
+  --browser=browser          browser to open SSO with (example: "firefox", "safari")
+  --expires-in=expires-in    duration of token in seconds if supported by the auth provider (default 1 year)
+
+DESCRIPTION
+  Login to https://login.salesforce.com in a browser. To login to different providers (Salesforce org, heroku, commerce
+  cloud, mulesoft, etc) sepecify the domain or login url of the service. For example, '--instance-url=heroku.com'.
+
+EXAMPLES
+  sf login --instance-url https://<mydomain>.my.salesforce.com
+  sf login --instance-url heroku.com
+```
+
+_See code: [src/commands/login.ts](https://github.com/salesforcecli/cli-taxonomy-experiment/blob/v1.0.2/src/commands/login.ts)_
+
+## `sf login:jwt`
+
+headlessly login to a Salesforce organization using JSON Web Tokens
+
+```
+USAGE
+  $ sf login:jwt
+
+OPTIONS
+  -f, --private-key-file=private-key-file  (required) path to a file containing the private key
+  -i, --client-id=client-id                (required) OAuth client ID (sometimes called the consumer key)
+  -r, --login-url=login-url                [default: https://login.salesforce.com] the login url of the auth provider
+  -u, --username=username                  (required) authentication username
+  --alias=alias                            set an alias for the account or environment
+
+DESCRIPTION
+  headlessly login to a Salesforce organization using JSON Web Tokens
+
+     Login using a JSON Web Tokens from a provided username, client id, and private key. Only Salesforce organizations
+  support this flow.
+
+EXAMPLE
+  sf login -i <client-id> -f <path-to-key-file> -u <username> -r https://<mydomain>.my.salesforce.com
+```
+
+_See code: [src/commands/login/jwt.ts](https://github.com/salesforcecli/cli-taxonomy-experiment/blob/v1.0.2/src/commands/login/jwt.ts)_
+
+## `sf reset`
+
+reset data created by this CLI
+
+```
+USAGE
+  $ sf reset
+```
+
+_See code: [src/commands/reset.ts](https://github.com/salesforcecli/cli-taxonomy-experiment/blob/v1.0.2/src/commands/reset.ts)_
+
+## `sf whoami`
+
+who the CLI thinks you are
+
+```
+USAGE
+  $ sf whoami
+
+DESCRIPTION
+  Get information on accounts that have been logged into.
+```
+
+_See code: [src/commands/whoami.ts](https://github.com/salesforcecli/cli-taxonomy-experiment/blob/v1.0.2/src/commands/whoami.ts)_
 
 <!-- commandsstop -->

@@ -5,9 +5,9 @@
  * For full license text, see LICENSE.txt file in the repo root or https://opensource.org/licenses/BSD-3-Clause
  */
 
-import { tmpdir } from 'os';
 import { join } from 'path';
 import { ConfigFile } from '@salesforce/core';
+import { CLI_CONFIG_PATH } from './constants';
 
 export default class Aliases extends ConfigFile<undefined> {
   public static getFileName(): string {
@@ -15,6 +15,6 @@ export default class Aliases extends ConfigFile<undefined> {
   }
 
   public getPath(): string {
-    return join(tmpdir(), Aliases.getFileName());
+    return join(CLI_CONFIG_PATH, Aliases.getFileName());
   }
 }

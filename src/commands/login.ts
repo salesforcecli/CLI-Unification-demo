@@ -9,7 +9,9 @@ import { URL } from 'url';
 import { Flags, Command } from '@oclif/core';
 import { AnyJson } from '@salesforce/ts-types';
 
-import Aliases from '../alias';
+import Aliases from '../configs/aliases';
+import Enviornments from '../configs/environments';
+import Accounts from '../configs/account';
 
 export default class Login extends Command {
   public static description = `login to a Salesforce account or enviornment
@@ -47,10 +49,25 @@ export default class Login extends Command {
     const { flags, args } = await this.parse(Login);
 
     const browser = flags.browser || 'browser';
-    this.log(`Opening ${browser} at ${flags['login-url']}...\n`);
+    const loginUrl = flags['login-url'].startsWith('http') ? flags['login-url'] : `https://${flags['login-url']}`;
 
-    const domain = new URL(flags['login-url']).host;
-    const user = `myuser-${domain}@mycompany.com`;
+    if (!loginUrl.endsWith('salesforce.com') && !loginUrl.endsWith('heroku.com')) {
+      throw new Error('Salesforce CLI only supports logging into salesforce.com and heroku.com');
+    }
+
+    this.log(`Opening ${browser} at ${loginUrl}...\n`);
+
+    const accounts = await Accounts.create({});
+    const env = await Enviornments.create({});
+
+    const domain = new URL(loginUrl).host;
+    let user = `myuser-${domain}@mycompany.com`;
+
+    // If this is the second time running login an an org, regerster it as a sandbox
+    if (env.get(user) || domain.includes('test')) {
+      user += '.sandbox';
+    }
+
     let status = `Logged in as ${user}`;
     if (flags.alias) {
       status += `\n   with alias ${flags.alias}`;
@@ -69,6 +86,49 @@ export default class Login extends Command {
       }
     }
     this.log(status);
+
+    if (domain.includes('heroku')) {
+      accounts.set('heroku', {
+        user,
+        expires: flags['expires-in'],
+        // Set remote environments not connected too.
+        environments: [
+          'heroku-app-1',
+          'heroku-app-2',
+          'heroku-app-3',
+          'functions-env-1',
+          'functions-env-2',
+          'functions-env-3',
+        ],
+      });
+    } else {
+      const hub = accounts.get('hub');
+  
+      if (!hub && !user.includes('sandbox')) {
+        // Set remote environments not connected too.
+        accounts.set('hub', {
+          user,
+          environments: [
+            `${user}.scratch1`,
+            `${user}.scratch2`,
+            `${user}.scratch3`,
+            `${user.replace('login', 'test')}.sandbox`,
+          ],
+        });
+      }
+
+      // A heroku account doesn't show up as an enviornment, so only do for orgs.
+      env.set(user, {
+        connected: true,
+        status: 'Connected',
+        type: 'org',
+        // You could imagine a post auth step to get this sort of information from the enviornment.
+        context: !user.includes('sandbox') ? 'hub' : 'sandbox',
+      });
+      await env.write();
+    }
+    await accounts.write();
+
     return { flags, args, domain, user };
   }
 }

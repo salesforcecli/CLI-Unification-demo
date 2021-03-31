@@ -9,7 +9,7 @@ import { URL } from 'url';
 import { Flags, Command } from '@oclif/core';
 import { AnyJson } from '@salesforce/ts-types';
 
-import Aliases from '../../alias';
+import Aliases from '../../configs/aliases';
 
 export default class JWT extends Command {
   public static description = `
