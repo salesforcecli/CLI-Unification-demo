@@ -1,5 +1,5 @@
 {
-  "name": "@salesforce/clidoscope",
+  "name": "@salesforce/sf-demo",
   "description": "An experiment to explore a new taxonomy for all Salesforce clouds.",
   "version": "1.0.2",
   "author": "Salesforce",
