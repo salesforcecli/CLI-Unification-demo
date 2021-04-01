@@ -51,12 +51,11 @@ To use your plugin, run using the local `./bin/dev` or `./bin/dev.cmd` file. To 
 ## Commands
 
 <!-- commands -->
-
-- [`sf env:list`](#sf-envlist)
-- [`sf login`](#sf-login)
-- [`sf login:jwt`](#sf-loginjwt)
-- [`sf reset`](#sf-reset)
-- [`sf whoami`](#sf-whoami)
+* [`sf env:list`](#sf-envlist)
+* [`sf login`](#sf-login)
+* [`sf login:jwt`](#sf-loginjwt)
+* [`sf reset`](#sf-reset)
+* [`sf whoami`](#sf-whoami)
 
 ## `sf env:list`
 
@@ -78,7 +77,7 @@ OPTIONS
   --sort=sort             property to sort by (prepend '-' for descending)
 
 DESCRIPTION
-  List connected environment including Salesforce orgs, heroku apps, and compute enviornments (functions). Use --remote
+  List connected environment including Salesforce orgs, heroku apps, and compute enviornments (functions). Use --remote 
   to display all environments you have access to.
 
 EXAMPLES
@@ -104,7 +103,7 @@ OPTIONS
   --expires-in=expires-in    duration of token in seconds if supported by the auth provider (default 1 year)
 
 DESCRIPTION
-  Login to https://login.salesforce.com in a browser. To login to different providers (Salesforce org, heroku, commerce
+  Login to https://login.salesforce.com in a browser. To login to different providers (Salesforce org, heroku, commerce 
   cloud, mulesoft, etc) sepecify the domain or login url of the service. For example, '--instance-url=heroku.com'.
 
 EXAMPLES
@@ -132,7 +131,7 @@ OPTIONS
 DESCRIPTION
   headlessly login to a Salesforce organization using JSON Web Tokens
 
-     Login using a JSON Web Tokens from a provided username, client id, and private key. Only Salesforce organizations
+     Login using a JSON Web Tokens from a provided username, client id, and private key. Only Salesforce organizations 
   support this flow.
 
 EXAMPLE
@@ -165,5 +164,4 @@ DESCRIPTION
 ```
 
 _See code: [src/commands/whoami.ts](https://github.com/salesforcecli/cli-taxonomy-experiment/blob/v1.0.2/src/commands/whoami.ts)_
-
 <!-- commandsstop -->
