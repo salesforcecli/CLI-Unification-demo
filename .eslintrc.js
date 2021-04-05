@@ -6,4 +6,8 @@
  */
 module.exports = {
   extends: ['eslint-config-salesforce-typescript', 'eslint-config-salesforce-license'],
+  rules: {
+    '@typescript-eslint/require-await': 0,
+    'no-console': 0, // Demo cli, allow console logs
+  },
 };

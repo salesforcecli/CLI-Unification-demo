@@ -1,0 +1,198 @@
+{
+  "version": "1.0.2",
+  "commands": {
+    "login": {
+      "id": "login",
+      "description": "login to a Salesforce account or enviornment\n\n  Login to https://login.salesforce.com in a browser. To login to different providers (Salesforce org, heroku, commerce cloud, mulesoft, etc) sepecify the domain or login url of the service. For example, '--instance-url=heroku.com'. \n  ",
+      "pluginName": "@salesforce/clidoscope",
+      "pluginType": "core",
+      "aliases": [],
+      "examples": [
+        "sf login --instance-url https://<mydomain>.my.salesforce.com",
+        "sf login --instance-url heroku.com"
+      ],
+      "flags": {
+        "alias": {
+          "name": "alias",
+          "type": "option",
+          "description": "set an alias for the environment - see all aliases using `sf env alias list`"
+        },
+        "browser": {
+          "name": "browser",
+          "type": "option",
+          "description": "browser to open SSO with (example: \"firefox\", \"safari\")"
+        },
+        "client-id": {
+          "name": "client-id",
+          "type": "option",
+          "char": "i",
+          "description": "OAuth client ID (sometimes called the consumer key)"
+        },
+        "expires-in": {
+          "name": "expires-in",
+          "type": "option",
+          "description": "duration of token in seconds if supported by the auth provider (default 1 year)"
+        },
+        "login-url": {
+          "name": "login-url",
+          "type": "option",
+          "char": "r",
+          "description": "the login url of the auth provider",
+          "default": "https://login.salesforce.com"
+        }
+      },
+      "args": []
+    },
+    "reset": {
+      "id": "reset",
+      "description": "reset data created by this CLI",
+      "pluginName": "@salesforce/clidoscope",
+      "pluginType": "core",
+      "aliases": [],
+      "flags": {},
+      "args": []
+    },
+    "whoami": {
+      "id": "whoami",
+      "description": "who the CLI thinks you are\n\n  Get information on accounts that have been logged into.\n  ",
+      "pluginName": "@salesforce/clidoscope",
+      "pluginType": "core",
+      "aliases": [],
+      "flags": {},
+      "args": []
+    },
+    "env:connect": {
+      "id": "env:connect",
+      "description": "connecte to a remote enviornment\n\n  \n  ",
+      "pluginName": "@salesforce/clidoscope",
+      "pluginType": "core",
+      "aliases": [],
+      "examples": [],
+      "flags": {
+        "name": {
+          "name": "name",
+          "type": "option",
+          "description": "name of the remote environment to connect to",
+          "required": true
+        },
+        "alias": { "name": "alias", "type": "option", "description": "alias to give to the environment" }
+      },
+      "args": []
+    },
+    "env:list": {
+      "id": "env:list",
+      "description": "list connected enviornment\n\n  List connected environment including Salesforce orgs, heroku apps, and compute enviornments (functions). Use --remote to display all environments you have access to.\n  ",
+      "pluginName": "@salesforce/clidoscope",
+      "pluginType": "core",
+      "aliases": [],
+      "examples": ["sf env list", "sf env list --remote"],
+      "flags": {
+        "remote": {
+          "name": "remote",
+          "type": "boolean",
+          "description": "include enviornments not yet connected",
+          "allowNo": false
+        },
+        "columns": {
+          "name": "columns",
+          "type": "option",
+          "description": "only show provided columns (comma-separated)"
+        },
+        "sort": { "name": "sort", "type": "option", "description": "property to sort by (prepend '-' for descending)" },
+        "filter": {
+          "name": "filter",
+          "type": "option",
+          "description": "filter property by partial string matching, ex: name=foo"
+        },
+        "csv": {
+          "name": "csv",
+          "type": "boolean",
+          "description": "output is csv format [alias: --output=csv]",
+          "allowNo": false
+        },
+        "output": {
+          "name": "output",
+          "type": "option",
+          "description": "output in a more machine friendly format",
+          "options": ["csv", "json", "yaml"]
+        },
+        "extended": {
+          "name": "extended",
+          "type": "boolean",
+          "char": "x",
+          "description": "show extra columns",
+          "allowNo": false
+        },
+        "no-truncate": {
+          "name": "no-truncate",
+          "type": "boolean",
+          "description": "do not truncate output to fit screen",
+          "allowNo": false
+        },
+        "no-header": {
+          "name": "no-header",
+          "type": "boolean",
+          "description": "hide table header from output",
+          "allowNo": false
+        }
+      },
+      "args": []
+    },
+    "login:jwt": {
+      "id": "login:jwt",
+      "description": "\n  headlessly login to a Salesforce organization using JSON Web Tokens\n\n  Login using a JSON Web Tokens from a provided username, client id, and private key. Only Salesforce organizations support this flow.\n  ",
+      "pluginName": "@salesforce/clidoscope",
+      "pluginType": "core",
+      "aliases": [],
+      "examples": [
+        "sf login -i <client-id> -f <path-to-key-file> -u <username> -r https://<mydomain>.my.salesforce.com"
+      ],
+      "flags": {
+        "alias": { "name": "alias", "type": "option", "description": "set an alias for the account or environment" },
+        "client-id": {
+          "name": "client-id",
+          "type": "option",
+          "char": "i",
+          "description": "OAuth client ID (sometimes called the consumer key)",
+          "required": true
+        },
+        "login-url": {
+          "name": "login-url",
+          "type": "option",
+          "char": "r",
+          "description": "the login url of the auth provider",
+          "default": "https://login.salesforce.com"
+        },
+        "private-key-file": {
+          "name": "private-key-file",
+          "type": "option",
+          "char": "f",
+          "description": "path to a file containing the private key",
+          "required": true
+        },
+        "username": {
+          "name": "username",
+          "type": "option",
+          "char": "u",
+          "description": "authentication username",
+          "required": true
+        }
+      },
+      "args": []
+    },
+    "project:deploy": {
+      "id": "project:deploy",
+      "description": "deploy a Salesforce project\n\n  Deploy a project, including org metadata and functions. Be default, the deploy analyize your project and assume sensible defaults when possible, otherwise it will prompt. To always prompt and not assume defaults, use \"--interctive\".\n\n  To run specialized deploys, especially when interactivity isn't an option like continuious deployment, used the scoped deploy commands like \"sf project deploy org\" or \"sf project deploy functions\"\n  ",
+      "pluginName": "@salesforce/clidoscope",
+      "pluginType": "core",
+      "aliases": [],
+      "examples": ["sf env list", "sf env list --remote"],
+      "flags": {
+        "directory": { "name": "directory", "type": "option", "description": "directory to deploy" },
+        "target-env": { "name": "target-env", "type": "option", "description": "set " },
+        "interactive": { "name": "interactive", "type": "boolean", "description": "set ", "allowNo": false }
+      },
+      "args": []
+    }
+  }
+}

@@ -7,7 +7,7 @@
 
 import { join } from 'path';
 import { ConfigFile } from '@salesforce/core';
-import { Optional } from '@salesforce/ts-types';
+import { Dictionary, Optional } from '@salesforce/ts-types';
 import { CLI_CONFIG_PATH } from './constants';
 
 export type Account = {
@@ -16,7 +16,17 @@ export type Account = {
   environments: string[];
 };
 
-export default class Accounts extends ConfigFile<undefined> {
+export default class Accounts extends ConfigFile<Dictionary<string>> {
+  public static instance: Accounts;
+
+  public static getInstance(): Accounts {
+    if (!this.instance) {
+      this.instance = new Accounts({});
+      this.instance.readSync();
+    }
+    return this.instance;
+  }
+
   public static getFileName(): string {
     return 'accounts.json';
   }

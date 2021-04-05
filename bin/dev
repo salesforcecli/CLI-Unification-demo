@@ -1,5 +1,10 @@
 #!/usr/bin/env node
 
+const g = global.oclif = global.oclif || {};
+
+// In dev mode, always show stack traces
+global.oclif.debug = true;
+
 require('ts-node').register()
 
 require('@oclif/core').run()

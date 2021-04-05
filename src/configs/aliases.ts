@@ -7,9 +7,31 @@
 
 import { join } from 'path';
 import { ConfigFile } from '@salesforce/core';
+import { Dictionary } from '@salesforce/ts-types';
 import { CLI_CONFIG_PATH } from './constants';
 
-export default class Aliases extends ConfigFile<undefined> {
+export default class Aliases extends ConfigFile<Dictionary<string>> {
+  public static instance: Aliases;
+
+  public static getInstance(): Aliases {
+    if (!this.instance) {
+      this.instance = new Aliases({});
+      this.instance.readSync();
+    }
+    return this.instance;
+  }
+
+  public static getAliases(value: string): string[] {
+    const aliases = this.getInstance();
+    return aliases.getKeysByValue(value);
+  }
+
+  public static set(key: string, value: string): void {
+    const aliases = this.getInstance();
+    aliases.set(key, value);
+    aliases.writeSync();
+  }
+
   public static getFileName(): string {
     return 'aliases.json';
   }

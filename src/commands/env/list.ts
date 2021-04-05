@@ -5,16 +5,15 @@
  * For full license text, see LICENSE.txt file in the repo root or https://opensource.org/licenses/BSD-3-Clause
  */
 
-import { Flags, Command, Interfaces } from '@oclif/core';
+import { Flags, Interfaces } from '@oclif/core';
 import { AnyJson } from '@salesforce/ts-types';
 import { cli } from 'cli-ux';
 import { bold, green, red } from 'chalk';
-import Accounts from '../../configs/account';
-import Aliases from '../../configs/aliases';
-import Enviornments, { Enviornment } from '../../configs/environments';
+import SfCommand from '../../sf-command';
+import { Environment } from '../../configs/environments';
 
-type DisplayEnvironment = Enviornment & { name: string; aliases: string };
-export default class EnvList extends Command {
+type DisplayEnvironment = Environment & { aliases: string };
+export default class EnvList extends SfCommand {
   public static description = `list connected enviornment
 
   List connected environment including Salesforce orgs, heroku apps, and compute enviornments (functions). Use --remote to display all environments you have access to.
@@ -30,18 +29,14 @@ export default class EnvList extends Command {
     ...((cli.table.flags() as unknown) as Interfaces.FlagInput<unknown>),
   };
 
-  private accounts: Accounts;
-  private environments: Enviornments;
-  private aliases: Aliases;
-
-  public convertEnvironmentEntry(entry: [string, Enviornment]): DisplayEnvironment {
+  public convertEnvironmentEntry(entry: [string, Environment]): DisplayEnvironment {
     return this.convertEnvironment(entry[0], entry[1]);
   }
 
   public convertEnvironment(
     name: string,
-    environment: Enviornment,
-    defaults: Enviornment = {
+    environment: Environment,
+    defaults: Partial<Environment> = {
       connected: false,
       status: 'Not Connected',
     }
@@ -63,6 +58,7 @@ export default class EnvList extends Command {
       const type = name === 'heroku' ? 'compute' : 'org';
       const accountEnvironments = account.environments.map((environmentsName) =>
         this.convertEnvironment(environmentsName, {
+          name: environmentsName,
           type,
           context:
             name === 'heroku'
@@ -119,13 +115,5 @@ export default class EnvList extends Command {
     );
 
     return { flags, args };
-  }
-
-  protected async init(): Promise<void> {
-    await super.init();
-
-    this.accounts = await Accounts.create({});
-    this.environments = await Enviornments.create({});
-    this.aliases = await Aliases.create({});
   }
 }
