@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.1.0](https://github.com/salesforcecli/cli-taxonomy-experiment/compare/v1.0.2...v1.1.0) (2021-04-05)
+
+
+### Features
+
+* add new commands and interactivity ([a205f2c](https://github.com/salesforcecli/cli-taxonomy-experiment/commit/a205f2c9cec90df8c36f9c6792c4d05835c74328))
+
 ### 1.0.2 (2021-04-01)
 
 

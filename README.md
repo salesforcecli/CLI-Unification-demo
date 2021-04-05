@@ -51,11 +51,28 @@ To use your plugin, run using the local `./bin/dev` or `./bin/dev.cmd` file. To 
 ## Commands
 
 <!-- commands -->
+* [`sf env:connect`](#sf-envconnect)
 * [`sf env:list`](#sf-envlist)
 * [`sf login`](#sf-login)
 * [`sf login:jwt`](#sf-loginjwt)
+* [`sf project:deploy`](#sf-projectdeploy)
 * [`sf reset`](#sf-reset)
 * [`sf whoami`](#sf-whoami)
+
+## `sf env:connect`
+
+connecte to a remote enviornment
+
+```
+USAGE
+  $ sf env:connect
+
+OPTIONS
+  --alias=alias  alias to give to the environment
+  --name=name    (required) name of the remote environment to connect to
+
+DESCRIPTION
+```
 
 ## `sf env:list`
 
@@ -85,8 +102,6 @@ EXAMPLES
   sf env list --remote
 ```
 
-_See code: [src/commands/env/list.ts](https://github.com/salesforcecli/cli-taxonomy-experiment/blob/v1.0.2/src/commands/env/list.ts)_
-
 ## `sf login`
 
 login to a Salesforce account or enviornment
@@ -110,8 +125,6 @@ EXAMPLES
   sf login --instance-url https://<mydomain>.my.salesforce.com
   sf login --instance-url heroku.com
 ```
-
-_See code: [src/commands/login.ts](https://github.com/salesforcecli/cli-taxonomy-experiment/blob/v1.0.2/src/commands/login.ts)_
 
 ## `sf login:jwt`
 
@@ -138,7 +151,31 @@ EXAMPLE
   sf login -i <client-id> -f <path-to-key-file> -u <username> -r https://<mydomain>.my.salesforce.com
 ```
 
-_See code: [src/commands/login/jwt.ts](https://github.com/salesforcecli/cli-taxonomy-experiment/blob/v1.0.2/src/commands/login/jwt.ts)_
+## `sf project:deploy`
+
+deploy a Salesforce project
+
+```
+USAGE
+  $ sf project:deploy
+
+OPTIONS
+  --directory=directory    directory to deploy
+  --interactive            set
+  --target-env=target-env  set
+
+DESCRIPTION
+  Deploy a project, including org metadata and functions. Be default, the deploy analyize your project and assume 
+  sensible defaults when possible, otherwise it will prompt. To always prompt and not assume defaults, use 
+  "--interctive".
+
+     To run specialized deploys, especially when interactivity isn't an option like continuious deployment, used the 
+  scoped deploy commands like "sf project deploy org" or "sf project deploy functions"
+
+EXAMPLES
+  sf env list
+  sf env list --remote
+```
 
 ## `sf reset`
 
@@ -148,8 +185,6 @@ reset data created by this CLI
 USAGE
   $ sf reset
 ```
-
-_See code: [src/commands/reset.ts](https://github.com/salesforcecli/cli-taxonomy-experiment/blob/v1.0.2/src/commands/reset.ts)_
 
 ## `sf whoami`
 
@@ -162,6 +197,4 @@ USAGE
 DESCRIPTION
   Get information on accounts that have been logged into.
 ```
-
-_See code: [src/commands/whoami.ts](https://github.com/salesforcecli/cli-taxonomy-experiment/blob/v1.0.2/src/commands/whoami.ts)_
 <!-- commandsstop -->
