@@ -109,6 +109,10 @@ export default class Environments extends ConfigFile<Dictionary<string>> {
     return super.set(name, value) as Environment;
   }
 
+  public unset(name: string): boolean {
+    return super.unset(name);
+  }
+
   public entries(): Array<[string, Environment]> {
     const entries = super.entries() as Array<[string, Environment]>;
     entries.forEach(([, env]) => (env.aliases = Aliases.getAliases(env.name)));

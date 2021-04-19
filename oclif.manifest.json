@@ -1,10 +1,10 @@
 {
-  "version": "1.0.2",
+  "version": "1.1.0",
   "commands": {
     "login": {
       "id": "login",
       "description": "login to a Salesforce account or enviornment\n\n  Login to https://login.salesforce.com in a browser. To login to different providers (Salesforce org, heroku, commerce cloud, mulesoft, etc) sepecify the domain or login url of the service. For example, '--instance-url=heroku.com'. \n  ",
-      "pluginName": "@salesforce/clidoscope",
+      "pluginName": "@salesforce/sf-demo",
       "pluginType": "core",
       "aliases": [],
       "examples": [
@@ -43,10 +43,37 @@
       },
       "args": []
     },
+    "logout": {
+      "id": "logout",
+      "description": "logout of a Salesforce account or enviornment\n\n  Logout of https://login.salesforce.com. To logout of different providers (Salesforce org, heroku, commerce cloud, mulesoft, etc) sepecify the domain or login url of the service. For example, '--instance-url=heroku.com'. \n  ",
+      "pluginName": "@salesforce/sf-demo",
+      "pluginType": "core",
+      "aliases": [],
+      "examples": [
+        "sf logout --instance-url https://<mydomain>.my.salesforce.com",
+        "sf logout --instance-url heroku.com"
+      ],
+      "flags": {
+        "client-id": {
+          "name": "client-id",
+          "type": "option",
+          "char": "i",
+          "description": "OAuth client ID (sometimes called the consumer key)"
+        },
+        "instance-url": {
+          "name": "instance-url",
+          "type": "option",
+          "char": "r",
+          "description": "the instance url of the auth provider",
+          "default": "https://login.salesforce.com"
+        }
+      },
+      "args": []
+    },
     "reset": {
       "id": "reset",
       "description": "reset data created by this CLI",
-      "pluginName": "@salesforce/clidoscope",
+      "pluginName": "@salesforce/sf-demo",
       "pluginType": "core",
       "aliases": [],
       "flags": {},
@@ -55,7 +82,7 @@
     "whoami": {
       "id": "whoami",
       "description": "who the CLI thinks you are\n\n  Get information on accounts that have been logged into.\n  ",
-      "pluginName": "@salesforce/clidoscope",
+      "pluginName": "@salesforce/sf-demo",
       "pluginType": "core",
       "aliases": [],
       "flags": {},
@@ -63,8 +90,8 @@
     },
     "env:connect": {
       "id": "env:connect",
-      "description": "connecte to a remote enviornment\n\n  \n  ",
-      "pluginName": "@salesforce/clidoscope",
+      "description": "connect to a remote enviornment\n\n  \n  ",
+      "pluginName": "@salesforce/sf-demo",
       "pluginType": "core",
       "aliases": [],
       "examples": [],
@@ -82,7 +109,7 @@
     "env:list": {
       "id": "env:list",
       "description": "list connected enviornment\n\n  List connected environment including Salesforce orgs, heroku apps, and compute enviornments (functions). Use --remote to display all environments you have access to.\n  ",
-      "pluginName": "@salesforce/clidoscope",
+      "pluginName": "@salesforce/sf-demo",
       "pluginType": "core",
       "aliases": [],
       "examples": ["sf env list", "sf env list --remote"],
@@ -141,7 +168,7 @@
     "login:jwt": {
       "id": "login:jwt",
       "description": "\n  headlessly login to a Salesforce organization using JSON Web Tokens\n\n  Login using a JSON Web Tokens from a provided username, client id, and private key. Only Salesforce organizations support this flow.\n  ",
-      "pluginName": "@salesforce/clidoscope",
+      "pluginName": "@salesforce/sf-demo",
       "pluginType": "core",
       "aliases": [],
       "examples": [
@@ -183,10 +210,10 @@
     "project:deploy": {
       "id": "project:deploy",
       "description": "deploy a Salesforce project\n\n  Deploy a project, including org metadata and functions. Be default, the deploy analyize your project and assume sensible defaults when possible, otherwise it will prompt. To always prompt and not assume defaults, use \"--interctive\".\n\n  To run specialized deploys, especially when interactivity isn't an option like continuious deployment, used the scoped deploy commands like \"sf project deploy org\" or \"sf project deploy functions\"\n  ",
-      "pluginName": "@salesforce/clidoscope",
+      "pluginName": "@salesforce/sf-demo",
       "pluginType": "core",
       "aliases": [],
-      "examples": ["sf env list", "sf env list --remote"],
+      "examples": ["sf project deploy", "sf project deploy --target-env=devhub"],
       "flags": {
         "directory": { "name": "directory", "type": "option", "description": "directory to deploy" },
         "target-env": { "name": "target-env", "type": "option", "description": "set " },

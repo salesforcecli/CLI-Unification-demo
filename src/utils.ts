@@ -62,6 +62,22 @@ export async function login(
   return environments.get(user);
 }
 
+export async function logout(domain = 'https://login.salesforce.com', user: string): Promise<Environment> {
+  const environments = Environments.getInstance();
+  const accounts = Accounts.getInstance();
+  if (domain.includes('heroku')) {
+    accounts.unset('heroku');
+  } else {
+    accounts.unset('hub');
+
+    // A heroku account doesn't show up as an enviornment, so only do for orgs.
+    environments.unset(user);
+    await environments.write();
+  }
+  await accounts.write();
+  return environments.get(user);
+}
+
 export function generateTableChoices<T>(
   columns: Dictionary<string>,
   choices: Array<Dictionary<string | T>>,
