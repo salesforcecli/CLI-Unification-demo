@@ -404,10 +404,10 @@
     is-wsl "^2.1.1"
     tslib "^2.0.0"
 
-"@oclif/core@^0.4.0":
-  version "0.4.0"
-  resolved "https://registry.yarnpkg.com/@oclif/core/-/core-0.4.0.tgz#5b4eb905c4ce8b4956918088cf18b446e17c88ec"
-  integrity sha512-vUxDukUN0slQVrX/KaP1hguTrQuSHFzfA+3Dt/kFgzRPb64TsDsiEoyWjip/YRh/Mxb/Qwcfn9YkKQLMF4yL+g==
+"@oclif/core@^0.5.3":
+  version "0.5.3"
+  resolved "https://registry.yarnpkg.com/@oclif/core/-/core-0.5.3.tgz#ac360e9a37aa8d57c93081906292a13d2c41bd52"
+  integrity sha512-MtaSCv6O3NagFPHPHYssYSHZ/K2BExI/zB6exaWA9kjycTYgnLABwUjw5kaHmX9WkXDNGOyjaHBhqmoRSozfOA==
   dependencies:
     "@oclif/linewrap" "^1.0.0"
     chalk "^4.1.0"
@@ -1648,7 +1648,7 @@ cli-ux@^4.9.0:
     treeify "^1.1.0"
     tslib "^1.9.3"
 
-cli-ux@^5.1.0, cli-ux@^5.5.1:
+cli-ux@^5.1.0, cli-ux@^5.2.1, cli-ux@^5.5.1:
   version "5.5.1"
   resolved "https://registry.yarnpkg.com/cli-ux/-/cli-ux-5.5.1.tgz#99d28dae0c3ef7845fa2ea56e066a1d5fcceca9e"
   integrity sha512-t3DT1U1C3rArLGYLpKa3m9dr/8uKZRI8HRm/rXKL7UTjm4c+Yd9zHNWg1tP8uaJkUbhmvx5SQHwb3VWpPUVdHQ==
@@ -1665,38 +1665,6 @@ cli-ux@^5.1.0, cli-ux@^5.5.1:
     cli-progress "^3.4.0"
     extract-stack "^2.0.0"
     fs-extra "^8.1"
-    hyperlinker "^1.0.0"
-    indent-string "^4.0.0"
-    is-wsl "^2.2.0"
-    js-yaml "^3.13.1"
-    lodash "^4.17.11"
-    natural-orderby "^2.0.1"
-    object-treeify "^1.1.4"
-    password-prompt "^1.1.2"
-    semver "^7.3.2"
-    string-width "^4.2.0"
-    strip-ansi "^6.0.0"
-    supports-color "^7.1.0"
-    supports-hyperlinks "^2.1.0"
-    tslib "^2.0.0"
-
-cli-ux@^5.2.1:
-  version "5.4.10"
-  resolved "https://registry.npmjs.org/cli-ux/-/cli-ux-5.4.10.tgz#b4d5ed438a3fd6956c3f74f07d18f7dae02643d9"
-  integrity sha512-s48Efw04VtGyQEwXDrERobMc2DF2DyYQ+2nmNsM7clxOVDtbRI9OjbXRwPeS6G2aFuHy0bB8GUq5MzkmkYt7yw==
-  dependencies:
-    "@oclif/command" "^1.6.0"
-    "@oclif/errors" "^1.2.1"
-    "@oclif/linewrap" "^1.0.0"
-    "@oclif/screen" "^1.0.3"
-    ansi-escapes "^4.3.0"
-    ansi-styles "^4.2.0"
-    cardinal "^2.1.1"
-    chalk "^4.1.0"
-    clean-stack "^3.0.0"
-    cli-progress "^3.4.0"
-    extract-stack "^2.0.0"
-    fs-extra "^9.0.1"
     hyperlinker "^1.0.0"
     indent-string "^4.0.0"
     is-wsl "^2.2.0"
