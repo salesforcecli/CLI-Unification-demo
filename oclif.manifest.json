@@ -344,6 +344,46 @@
       },
       "args": []
     },
+    "package:create": {
+      "id": "package:create",
+      "description": "create packages\n\n  Create packages.\n  ",
+      "pluginName": "@salesforce/sf-demo",
+      "pluginType": "core",
+      "aliases": [],
+      "examples": ["sf package create"],
+      "flags": {},
+      "args": []
+    },
+    "package:install": {
+      "id": "package:install",
+      "description": "install packages\n\n  Install packages.\n  ",
+      "pluginName": "@salesforce/sf-demo",
+      "pluginType": "core",
+      "aliases": [],
+      "examples": ["sf package install"],
+      "flags": {},
+      "args": []
+    },
+    "package:list": {
+      "id": "package:list",
+      "description": "list packages\n\n  List packages.\n  ",
+      "pluginName": "@salesforce/sf-demo",
+      "pluginType": "core",
+      "aliases": [],
+      "examples": ["sf package list"],
+      "flags": {},
+      "args": []
+    },
+    "package:update": {
+      "id": "package:update",
+      "description": "update packages\n\n  Update packages.\n  ",
+      "pluginName": "@salesforce/sf-demo",
+      "pluginType": "core",
+      "aliases": [],
+      "examples": ["sf package update"],
+      "flags": {},
+      "args": []
+    },
     "project:deploy": {
       "id": "project:deploy",
       "description": "deploy a Salesforce project\n\n  Deploy a project, including org metadata and functions. Be default, the deploy analyize your project and assume sensible defaults when possible, otherwise it will prompt. To always prompt and not assume defaults, use \"--interctive\".\n\n  To run specialized deploys, especially when interactivity isn't an option like continuious deployment, used the scoped deploy commands like \"sf project deploy org\" or \"sf project deploy functions\"\n  ",
@@ -381,6 +421,23 @@
           "type": "option",
           "char": "t",
           "description": "The environment to set an alias for"
+        }
+      },
+      "args": [{ "name": "alias" }]
+    },
+    "env:alias:unset": {
+      "id": "env:alias:unset",
+      "description": "Unset env alias\n\n  Unset an alias for an environment.\n  ",
+      "pluginName": "@salesforce/sf-demo",
+      "pluginType": "core",
+      "aliases": [],
+      "examples": ["sf env alias unset [alias] -t [env]"],
+      "flags": {
+        "targetEnv": {
+          "name": "targetEnv",
+          "type": "option",
+          "char": "t",
+          "description": "The environment to unset an alias for"
         }
       },
       "args": [{ "name": "alias" }]
