@@ -79,6 +79,15 @@
       "flags": {},
       "args": []
     },
+    "usage": {
+      "id": "usage",
+      "description": "show usage and limits across all Salesforce accounts\n  \n  Show usage and limits across all Salesforce accounts.\n  ",
+      "pluginName": "@salesforce/sf-demo",
+      "pluginType": "core",
+      "aliases": [],
+      "flags": { "json": { "name": "json", "type": "option", "description": "format output as json" } },
+      "args": []
+    },
     "whoami": {
       "id": "whoami",
       "description": "who the CLI thinks you are\n\n  Get information on accounts that have been logged into.\n  ",
@@ -162,6 +171,18 @@
           "description": "hide table header from output",
           "allowNo": false
         }
+      },
+      "args": []
+    },
+    "env:usage": {
+      "id": "env:usage",
+      "description": "show usage and limits for a specific environment\n  \n  Show usage and limits for a specific environment.\n  ",
+      "pluginName": "@salesforce/sf-demo",
+      "pluginType": "core",
+      "aliases": [],
+      "flags": {
+        "json": { "name": "json", "type": "option", "description": "format output as json" },
+        "targetEnv": { "name": "targetEnv", "type": "option", "char": "t", "description": "target environment" }
       },
       "args": []
     },
