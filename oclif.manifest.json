@@ -137,6 +137,46 @@
       "flags": {},
       "args": []
     },
+    "data:export": {
+      "id": "data:export",
+      "description": "export data\n\n  Export data.\n  ",
+      "pluginName": "@salesforce/sf-demo",
+      "pluginType": "core",
+      "aliases": [],
+      "examples": ["sf data export"],
+      "flags": {},
+      "args": []
+    },
+    "data:import": {
+      "id": "data:import",
+      "description": "import data\n\n  import data.\n  ",
+      "pluginName": "@salesforce/sf-demo",
+      "pluginType": "core",
+      "aliases": [],
+      "examples": ["sf data import"],
+      "flags": {},
+      "args": []
+    },
+    "data:query": {
+      "id": "data:query",
+      "description": "query data\n\n  Query data.\n  ",
+      "pluginName": "@salesforce/sf-demo",
+      "pluginType": "core",
+      "aliases": [],
+      "examples": ["sf data query"],
+      "flags": {},
+      "args": []
+    },
+    "data:record": {
+      "id": "data:record",
+      "description": "record data\n\n  Record data.\n  ",
+      "pluginName": "@salesforce/sf-demo",
+      "pluginType": "core",
+      "aliases": [],
+      "examples": ["sf data record"],
+      "flags": {},
+      "args": []
+    },
     "env:connect": {
       "id": "env:connect",
       "description": "connect to a remote enviornment\n\n  \n  ",
@@ -296,6 +336,16 @@
         "target-env": { "name": "target-env", "type": "option", "description": "set " },
         "interactive": { "name": "interactive", "type": "boolean", "description": "set ", "allowNo": false }
       },
+      "args": []
+    },
+    "data:schema:describe": {
+      "id": "data:schema:describe",
+      "description": "describe the data schema\n\n  Describe the data schema.\n  ",
+      "pluginName": "@salesforce/sf-demo",
+      "pluginType": "core",
+      "aliases": [],
+      "examples": ["sf data schema describe"],
+      "flags": {},
       "args": []
     }
   }
