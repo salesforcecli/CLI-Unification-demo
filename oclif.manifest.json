@@ -302,6 +302,46 @@
       },
       "args": []
     },
+    "event:list": {
+      "id": "event:list",
+      "description": "list events\n\n  List events.\n  ",
+      "pluginName": "@salesforce/sf-demo",
+      "pluginType": "core",
+      "aliases": [],
+      "examples": ["sf event list"],
+      "flags": {},
+      "args": []
+    },
+    "event:send": {
+      "id": "event:send",
+      "description": "send events\n\n  Send events.\n  ",
+      "pluginName": "@salesforce/sf-demo",
+      "pluginType": "core",
+      "aliases": [],
+      "examples": ["sf event send"],
+      "flags": {},
+      "args": []
+    },
+    "event:subscribe": {
+      "id": "event:subscribe",
+      "description": "subscribe to an event\n\n  Subscribe to an event.\n  ",
+      "pluginName": "@salesforce/sf-demo",
+      "pluginType": "core",
+      "aliases": [],
+      "examples": ["sf event subscribe"],
+      "flags": {},
+      "args": []
+    },
+    "event:unsubscribe": {
+      "id": "event:unsubscribe",
+      "description": "unsubscribe to an event\n\n  Unsubscribe to an event.\n  ",
+      "pluginName": "@salesforce/sf-demo",
+      "pluginType": "core",
+      "aliases": [],
+      "examples": ["sf event unsubscribe"],
+      "flags": {},
+      "args": []
+    },
     "login:jwt": {
       "id": "login:jwt",
       "description": "\n  headlessly login to a Salesforce organization using JSON Web Tokens\n\n  Login using a JSON Web Tokens from a provided username, client id, and private key. Only Salesforce organizations support this flow.\n  ",
@@ -459,6 +499,26 @@
       "pluginType": "core",
       "aliases": [],
       "examples": ["sf env create org"],
+      "flags": {},
+      "args": []
+    },
+    "event:create:event": {
+      "id": "event:create:event",
+      "description": "create an event\n\n  Create an event.\n  ",
+      "pluginName": "@salesforce/sf-demo",
+      "pluginType": "core",
+      "aliases": [],
+      "examples": ["sf event create event"],
+      "flags": {},
+      "args": []
+    },
+    "event:create:topic": {
+      "id": "event:create:topic",
+      "description": "create an event topic\n\n  Create an event topic.\n  ",
+      "pluginName": "@salesforce/sf-demo",
+      "pluginType": "core",
+      "aliases": [],
+      "examples": ["sf event create topic"],
       "flags": {},
       "args": []
     }
