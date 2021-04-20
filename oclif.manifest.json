@@ -97,6 +97,46 @@
       "flags": {},
       "args": []
     },
+    "config:get": {
+      "id": "config:get",
+      "description": "get the configs\n\n  Get the configs.\n  ",
+      "pluginName": "@salesforce/sf-demo",
+      "pluginType": "core",
+      "aliases": [],
+      "examples": ["sf config get"],
+      "flags": {},
+      "args": []
+    },
+    "config:list": {
+      "id": "config:list",
+      "description": "list the configs\n\n  List the configs.\n  ",
+      "pluginName": "@salesforce/sf-demo",
+      "pluginType": "core",
+      "aliases": [],
+      "examples": ["sf config list"],
+      "flags": {},
+      "args": []
+    },
+    "config:set": {
+      "id": "config:set",
+      "description": "set configs\n\n  Set configs.\n  ",
+      "pluginName": "@salesforce/sf-demo",
+      "pluginType": "core",
+      "aliases": [],
+      "examples": ["sf config set"],
+      "flags": {},
+      "args": []
+    },
+    "config:unset": {
+      "id": "config:unset",
+      "description": "unset configs\n\n  Unset configs.\n  ",
+      "pluginName": "@salesforce/sf-demo",
+      "pluginType": "core",
+      "aliases": [],
+      "examples": ["sf config unset"],
+      "flags": {},
+      "args": []
+    },
     "env:connect": {
       "id": "env:connect",
       "description": "connect to a remote enviornment\n\n  \n  ",
