@@ -195,6 +195,16 @@
       },
       "args": []
     },
+    "env:display": {
+      "id": "env:display",
+      "description": "display env\n\n  Display environment.\n  ",
+      "pluginName": "@salesforce/sf-demo",
+      "pluginType": "core",
+      "aliases": [],
+      "examples": ["sf env display"],
+      "flags": {},
+      "args": []
+    },
     "env:list": {
       "id": "env:list",
       "description": "list connected enviornment\n\n  List connected environment including Salesforce orgs, heroku apps, and compute enviornments (functions). Use --remote to display all environments you have access to.\n  ",
@@ -268,6 +278,16 @@
           "description": "browser to open env with (example: \"firefox\", \"safari\")"
         }
       },
+      "args": []
+    },
+    "env:setup": {
+      "id": "env:setup",
+      "description": "setup env\n\n  Setup environment.\n  ",
+      "pluginName": "@salesforce/sf-demo",
+      "pluginType": "core",
+      "aliases": [],
+      "examples": ["sf env setup"],
+      "flags": {},
       "args": []
     },
     "env:usage": {
@@ -345,6 +365,43 @@
       "pluginType": "core",
       "aliases": [],
       "examples": ["sf data schema describe"],
+      "flags": {},
+      "args": []
+    },
+    "env:alias:set": {
+      "id": "env:alias:set",
+      "description": "set env alias\n\n  Set an alias for an environment.\n  ",
+      "pluginName": "@salesforce/sf-demo",
+      "pluginType": "core",
+      "aliases": [],
+      "examples": ["sf env alias set [alias] -t [env]"],
+      "flags": {
+        "targetEnv": {
+          "name": "targetEnv",
+          "type": "option",
+          "char": "t",
+          "description": "The environment to set an alias for"
+        }
+      },
+      "args": [{ "name": "alias" }]
+    },
+    "env:create:compute": {
+      "id": "env:create:compute",
+      "description": "create a compute env\n\n  Create a compute environment.\n  ",
+      "pluginName": "@salesforce/sf-demo",
+      "pluginType": "core",
+      "aliases": [],
+      "examples": ["sf env create compute"],
+      "flags": {},
+      "args": []
+    },
+    "env:create:org": {
+      "id": "env:create:org",
+      "description": "create a Salesforce org\n\n  Create a Salesforce org.\n  ",
+      "pluginName": "@salesforce/sf-demo",
+      "pluginType": "core",
+      "aliases": [],
+      "examples": ["sf env create org"],
       "flags": {},
       "args": []
     }

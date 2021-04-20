@@ -9,7 +9,7 @@
 
 import SfCommand from '../../sf-command';
 
-export default class List extends SfCommand {
+export default class ConfigList extends SfCommand {
   public static description = `list the configs
 
   List the configs.
@@ -18,7 +18,7 @@ export default class List extends SfCommand {
   public static examples = ['sf config list'];
 
   public async run(): Promise<void> {
-    // const { flags, args } = await this.parse(Open);
+    // const { flags, args } = await this.parse(ConfigList);
 
     this.log('List Configs...\n');
   }

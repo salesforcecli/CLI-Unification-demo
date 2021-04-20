@@ -9,7 +9,7 @@ import { Flags } from '@oclif/core';
 
 import SfCommand from '../../sf-command';
 
-export default class Open extends SfCommand {
+export default class EnvOpen extends SfCommand {
   public static description = `open an envioronment on the browser
 
   Open an envioronment on the browser.
@@ -24,7 +24,7 @@ export default class Open extends SfCommand {
   };
 
   public async run(): Promise<void> {
-    const { flags /* , args */ } = await this.parse(Open);
+    const { flags /* , args */ } = await this.parse(EnvOpen);
 
     const browser = flags.browser || 'browser';
 

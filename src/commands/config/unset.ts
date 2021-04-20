@@ -9,7 +9,7 @@
 
 import SfCommand from '../../sf-command';
 
-export default class Unset extends SfCommand {
+export default class ConfigUnset extends SfCommand {
   public static description = `unset configs
 
   Unset configs.
@@ -18,7 +18,7 @@ export default class Unset extends SfCommand {
   public static examples = ['sf config unset'];
 
   public async run(): Promise<void> {
-    // const { flags, args } = await this.parse(Open);
+    // const { flags, args } = await this.parse(ConfigUnset);
 
     this.log('Unsetting Config...\n');
   }

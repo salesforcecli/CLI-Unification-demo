@@ -9,7 +9,7 @@
 
 import SfCommand from '../../sf-command';
 
-export default class Record extends SfCommand {
+export default class DataRecord extends SfCommand {
   public static description = `record data
 
   Record data.
@@ -18,7 +18,7 @@ export default class Record extends SfCommand {
   public static examples = ['sf data record'];
 
   public async run(): Promise<void> {
-    // const { flags, args } = await this.parse(Open);
+    // const { flags, args } = await this.parse(DataRecord);
 
     this.log('Recording data...\n');
   }

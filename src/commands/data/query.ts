@@ -9,7 +9,7 @@
 
 import SfCommand from '../../sf-command';
 
-export default class Query extends SfCommand {
+export default class DataQuery extends SfCommand {
   public static description = `query data
 
   Query data.
@@ -18,7 +18,7 @@ export default class Query extends SfCommand {
   public static examples = ['sf data query'];
 
   public async run(): Promise<void> {
-    // const { flags, args } = await this.parse(Open);
+    // const { flags, args } = await this.parse(DataQuery);
 
     this.log('Querying data...\n');
   }

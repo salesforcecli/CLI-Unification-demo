@@ -9,17 +9,17 @@
 
 import SfCommand from '../../sf-command';
 
-export default class ConfigGet extends SfCommand {
-  public static description = `get the configs
+export default class EnvSetup extends SfCommand {
+  public static description = `setup env
 
-  Get the configs.
+  Setup environment.
   `;
 
-  public static examples = ['sf config get'];
+  public static examples = ['sf env setup'];
 
   public async run(): Promise<void> {
-    // const { flags, args } = await this.parse(ConfigGet);
+    // const { flags, args } = await this.parse(EnvSetup);
 
-    this.log('Get Configs...\n');
+    this.log('Setting up env...\n');
   }
 }

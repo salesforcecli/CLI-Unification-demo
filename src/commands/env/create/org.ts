@@ -9,17 +9,17 @@
 
 import SfCommand from '../../../sf-command';
 
-export default class DataSchemaDescribe extends SfCommand {
-  public static description = `describe the data schema
+export default class EnvCreateOrg extends SfCommand {
+  public static description = `create a Salesforce org
 
-  Describe the data schema.
+  Create a Salesforce org.
   `;
 
-  public static examples = ['sf data schema describe'];
+  public static examples = ['sf env create org'];
 
   public async run(): Promise<void> {
-    // const { flags, args } = await this.parse(DataSchemaDescribe);
+    // const { flags, args } = await this.parse(EnvCreateOrg);
 
-    this.log('Describing the data schema...\n');
+    this.log('Creating Salesforce org...\n');
   }
 }

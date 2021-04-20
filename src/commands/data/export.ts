@@ -9,7 +9,7 @@
 
 import SfCommand from '../../sf-command';
 
-export default class Export extends SfCommand {
+export default class DataExport extends SfCommand {
   public static description = `export data
 
   Export data.
@@ -18,7 +18,7 @@ export default class Export extends SfCommand {
   public static examples = ['sf data export'];
 
   public async run(): Promise<void> {
-    // const { flags, args } = await this.parse(Open);
+    // const { flags, args } = await this.parse(DataExport);
 
     this.log('Exporting data...\n');
   }
