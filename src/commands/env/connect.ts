@@ -13,7 +13,7 @@ import Environments from '../../configs/environments';
 import Aliases from '../../configs/aliases';
 
 export default class EnvConnect extends SfCommand {
-  public static description = `connecte to a remote enviornment
+  public static description = `connect to a remote enviornment
 
   
   `;

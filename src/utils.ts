@@ -62,6 +62,21 @@ export async function login(
   return environments.get(user);
 }
 
+export async function logout(user?: string): Promise<boolean> {
+  const environments = Environments.getInstance();
+  const accounts = Accounts.getInstance();
+
+  if (!user) {
+    accounts.clear();
+    environments.clear();
+  } else {
+    // TODO: Logout from specific user
+  }
+  await accounts.write();
+  await environments.write();
+  return true;
+}
+
 export function generateTableChoices<T>(
   columns: Dictionary<string>,
   choices: Array<Dictionary<string | T>>,

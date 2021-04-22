@@ -25,7 +25,7 @@ export default class ProjectDeploy extends SfCommand {
   To run specialized deploys, especially when interactivity isn't an option like continuious deployment, used the scoped deploy commands like "sf project deploy org" or "sf project deploy functions"
   `;
 
-  public static examples = ['sf env list', 'sf env list --remote'];
+  public static examples = ['sf project deploy', 'sf project deploy --target-env=devhub'];
 
   public static flags = {
     directory: Flags.string({

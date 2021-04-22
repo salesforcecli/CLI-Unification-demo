@@ -43,6 +43,10 @@ export default class Accounts extends ConfigFile<Dictionary<string>> {
     return super.set(key, value) as Optional<Account>;
   }
 
+  public unset(key: string): boolean {
+    return super.unset(key);
+  }
+
   public entries(): Array<[string, Account]> {
     return super.entries() as Array<[string, Account]>;
   }
