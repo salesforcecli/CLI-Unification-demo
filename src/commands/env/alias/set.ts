@@ -7,6 +7,7 @@
 
 import { AnyJson } from '@salesforce/ts-types';
 import { Flags } from '@oclif/core';
+import Environments from '../../../configs/environments';
 
 import SfCommand from '../../../sf-command';
 
@@ -29,8 +30,21 @@ export default class EnvAliasSet extends SfCommand {
 
   public async run(): Promise<AnyJson> {
     const { flags, args } = await this.parse(EnvAliasSet);
+    const environments = Environments.getInstance();
+    // console.log(environments);
+    console.log('ENVIRONMENT KEYS', environments.keys());
+    console.log('FLAGS TARGETENV    ', flags.targetEnv);
+    console.log('ENVIRONMENTS GET', environments.get(flags.targetEnv));
+    console.log(typeof flags.targetEnv);
 
-    this.log(`Setting ${args.alias as string} as ${flags.targetEnv}...\n`);
+    try {
+      const env = environments.get(flags.targetEnv);
+      env.aliases.push(args.alias);
+      this.log(`Set ${args.alias as string} as ${flags.targetEnv}\n`);
+    } catch (e) {
+      this.log(`Failed to set ${args.alias as string} as ${flags.targetEnv}\n`);
+      this.error(e, { exit: 1 });
+    }
 
     return { flags, args };
   }

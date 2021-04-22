@@ -7,6 +7,7 @@
 
 import { AnyJson } from '@salesforce/ts-types';
 import { Flags } from '@oclif/core';
+import Environments from '../../../configs/environments';
 
 import SfCommand from '../../../sf-command';
 
@@ -29,8 +30,16 @@ export default class EnvAliasUnset extends SfCommand {
 
   public async run(): Promise<AnyJson> {
     const { flags, args } = await this.parse(EnvAliasUnset);
+    const environments = Environments.getInstance();
 
-    this.log(`Unsetting ${args.alias as string} as ${flags.targetEnv}...\n`);
+    try {
+      const env = environments.get(flags.targetEnv);
+      env.aliases = env.aliases.filter((alias) => alias !== args.alias);
+      this.log(`Removing alias "${args.alias as string}" from ${flags.targetEnv}\n`);
+    } catch (e) {
+      this.log(`Failed to remove alias "${args.alias as string}" from ${flags.targetEnv}\n`);
+      this.error(e, { exit: 1 });
+    }
 
     return { flags, args };
   }

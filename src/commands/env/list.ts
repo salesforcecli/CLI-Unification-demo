@@ -117,7 +117,7 @@ export default class EnvList extends SfCommand {
     }
 
     if (allEnvironments.length === 0) {
-      this.log('No environements connected. Use "sf login" or "sf env connect" to connected enviornments.');
+      this.log('No environements connected. Use "sf login" or "sf env connect" to connected environments.');
 
       if (heroku) {
         this.log('Use "--remote" to see available envionments.');

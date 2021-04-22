@@ -31,13 +31,14 @@
     {
       "type": "pwa-node",
       "request": "launch",
-      "name": "Run command",
-      "program": "./bin/dev",
-      "args": ["env", "list"],
+      "name": "Run Command",
+      "program": "${workspaceFolder}/bin/dev.cmd",
+      "args": ["env, alias, set, myhub, -t, myuser-login.salesforce.com@mycompany.com"],
       "env": {
         "NODE_ENV": "development",
         "SFDX_ENV": "development"
       },
+      "skipFiles": ["<node_internals>/**"],
       "sourceMaps": true,
       "smartStep": true,
       "internalConsoleOptions": "openOnSessionStart"

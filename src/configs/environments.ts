@@ -100,6 +100,7 @@ export default class Environments extends ConfigFile<Dictionary<string>> {
   }
 
   public get(name: string): Optional<Environment> {
+    console.log('SUPER KEYS      ', super.keys());
     const environement = super.get(name) as Environment;
     if (environement) {
       environement.aliases = Aliases.getAliases(name);
