@@ -7,6 +7,8 @@
 
 // import { Flags } from '@oclif/core';
 
+import Environments from '../../../configs/environments';
+import { Environment, OrgEnvironment } from '../../../configs/environments';
 import SfCommand from '../../../sf-command';
 
 export default class EnvCreateOrg extends SfCommand {
@@ -17,9 +19,31 @@ export default class EnvCreateOrg extends SfCommand {
 
   public static examples = ['sf env create org'];
 
-  public async run(): Promise<void> {
-    // const { flags, args } = await this.parse(EnvCreateOrg);
+  public static args = [{ name: 'envName' }];
 
-    this.log('Creating Salesforce org...\n');
+  public async run(): Promise<OrgEnvironment> {
+    const { args } = await this.parse(EnvCreateOrg);
+    const environments = Environments.getInstance();
+
+    const env: Environment = {
+      name: args.envName as string,
+      aliases: [],
+      connected: false,
+      status: 'not connected',
+      type: 'org',
+      context: '',
+      token: '',
+    };
+
+    try {
+      environments.set(args.envName, env);
+      await environments.write();
+      this.log(`Created ${args.envName as string}\n`);
+    } catch (e) {
+      this.log(`Failed to create ${args.envName as string}\n`);
+      this.error(e, { exit: 1 });
+    }
+
+    return env as OrgEnvironment;
   }
 }

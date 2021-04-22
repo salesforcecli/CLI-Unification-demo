@@ -7,8 +7,9 @@
 
 // import { Flags } from '@oclif/core';
 
+import Environments from '../../../configs/environments';
+import { Environment, ComputeEnvironment } from '../../../configs/environments';
 import SfCommand from '../../../sf-command';
-
 export default class EnvCreateCompute extends SfCommand {
   public static description = `create a compute env
 
@@ -17,9 +18,31 @@ export default class EnvCreateCompute extends SfCommand {
 
   public static examples = ['sf env create compute'];
 
-  public async run(): Promise<void> {
-    // const { flags, args } = await this.parse(EnvCreateCompute);
+  public static args = [{ name: 'envName' }];
 
-    this.log('Creating a compute env...\n');
+  public async run(): Promise<ComputeEnvironment> {
+    const { args } = await this.parse(EnvCreateCompute);
+    const environments = Environments.getInstance();
+
+    const env: Environment = {
+      name: args.envName as string,
+      aliases: [],
+      connected: false,
+      status: 'not connected',
+      type: 'compute',
+      context: '',
+      token: '',
+    };
+
+    try {
+      environments.set(args.envName, env);
+      await environments.write();
+      this.log(`Created ${args.envName as string}\n`);
+    } catch (e) {
+      this.log(`Failed to create ${args.envName as string}\n`);
+      this.error(e, { exit: 1 });
+    }
+
+    return env as ComputeEnvironment;
   }
 }
