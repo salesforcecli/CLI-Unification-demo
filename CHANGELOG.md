@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.3.0](https://github.com/salesforcecli/cli-taxonomy-experiment/compare/v1.2.0...v1.3.0) (2021-04-27)
+
+
+### Features
+
+* add login functions ([789121a](https://github.com/salesforcecli/cli-taxonomy-experiment/commit/789121a1dc8e90f153fd88a52a8de62f6e227e97))
+
 ## [1.2.0](https://github.com/salesforcecli/cli-taxonomy-experiment/compare/v1.1.0...v1.2.0) (2021-04-22)
 
 
