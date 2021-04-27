@@ -55,7 +55,7 @@ export default class EnvList extends SfCommand {
   public retrieveRemoteEnvironments(): DisplayEnvironment[] {
     // No server interactions in this experiement, so use a fake remote env list stored locally in the auth file.
     return this.accounts.entries().reduce((list, [name, account]) => {
-      const type = name === 'heroku' || name === 'functions' ? 'compute' : 'org';
+      const type = (name === 'heroku' || name === 'functions') ? 'compute' : 'org';
       const accountEnvironments = account.environments.map((environmentsName) => {
         let context = 'sandbox';
 
