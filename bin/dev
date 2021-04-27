@@ -1,12 +1,14 @@
 #!/usr/bin/env node
 
-const g = global.oclif = global.oclif || {};
+const oclif = require('@oclif/core');
 
 // In dev mode, always show stack traces
-global.oclif.debug = true;
+oclif.settings.debug = true;
+oclif.settings.tsnodeEnabled = true;
+
 
 require('ts-node').register()
 
-require('@oclif/core').run()
+oclif.run()
 .then(require('@oclif/core/flush'))
 .catch(require('@oclif/core/handle'))
