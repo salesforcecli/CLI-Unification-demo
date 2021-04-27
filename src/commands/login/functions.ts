@@ -13,23 +13,25 @@ import SfCommand from '../../sf-command';
 import { login } from '../../utils';
 
 export default class FunctionsLogin extends SfCommand {
-  public static description = `login to a Salesforce account or enviornment
-
-  Login to https://login.salesforce.com in a browser. To login to different providers (Salesforce org, heroku, commerce cloud, mulesoft, etc) sepecify the domain or login url of the service. For example, '--instance-url=heroku.com'. 
-  `;
+  public static description = 'login to a Salesforce functions account';
 
   public static examples = [
     'sf login functions',
-    'sf login functions --client-id XXXXXXXXXXXXXXX',
+    'sf login functions --jwt-file=./jwt.key --client-id XXXXXXXXXXXXXXX',
   ];
 
   public static flags = {
     browser: Flags.string({
       description: 'browser to open SSO with (example: "firefox", "safari")',
     }),
+    'jwt-file': Flags.boolean({
+      char: 'f',
+      description: 'file containing the JWT private key',
+    }),
     'client-id': Flags.string({
       char: 'i',
       description: 'OAuth client ID (sometimes called the consumer key)',
+      dependsOn: ['jwt-file'],
     }),
   };
 
