@@ -19,8 +19,8 @@ export default class FunctionsLogin extends SfCommand {
   `;
 
   public static examples = [
-    'sf login --instance-url https://<mydomain>.my.salesforce.com',
-    'sf login --instance-url heroku.com',
+    'sf login functions',
+    'sf login functions --client-id XXXXXXXXXXXXXXX',
   ];
 
   public static flags = {
