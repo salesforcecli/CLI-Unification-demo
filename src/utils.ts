@@ -17,19 +17,19 @@ export async function login(
 ): Promise<Environment> {
   const environments = Environments.getInstance();
   const accounts = Accounts.getInstance();
-  if (domain.includes('heroku')) {
+  if (domain.includes('functions')) {
+    accounts.set('functions', {
+      user,
+      expires,
+      // Set remote environments not connected too.
+      environments: ['functions-env-1', 'functions-env-2', 'functions-env-3'],
+    });
+  } else if (domain.includes('heroku')) {
     accounts.set('heroku', {
       user,
       expires,
       // Set remote environments not connected too.
-      environments: [
-        'heroku-app-1',
-        'heroku-app-2',
-        'heroku-app-3',
-        'functions-env-1',
-        'functions-env-2',
-        'functions-env-3',
-      ],
+      environments: ['heroku-app-1', 'heroku-app-2', 'heroku-app-3'],
     });
   } else {
     const hub = accounts.get('hub');
