@@ -5,7 +5,7 @@ An experiment to explore a new taxonomy for all Salesforce clouds.
 ## Install
 
 ```bash
-npm install --global @salesforce/clidoscope
+npm install --global @salesforce/sf-demo
 sf help
 ```
 
