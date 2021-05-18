@@ -9,37 +9,43 @@ import { Flags } from '@oclif/core';
 import { AnyJson } from '@salesforce/ts-types';
 
 import SfCommand from '../../sf-command';
-import { loginFunctions } from '../../utils';
+import { loginOrg } from '../../utils';
 
-export default class FunctionsLogin extends SfCommand {
+export default class OrgLogin extends SfCommand {
   public static description = 'login to a Salesforce functions account';
 
-  public static examples = [
-    'sf login functions',
-    'sf login functions --jwt-file=./jwt.key --client-id XXXXXXXXXXXXXXX',
-  ];
+  public static examples = ['sf login org --instance-url https://<mydomain>.my.salesforce.com'];
 
   public static flags = {
+    alias: Flags.string({
+      description: 'set an alias for the environment - see all aliases using `sf env alias list`',
+    }),
     browser: Flags.string({
       description: 'browser to open SSO with (example: "firefox", "safari")',
-    }),
-    'jwt-file': Flags.string({
-      char: 'f',
-      description: 'file containing the JWT private key',
     }),
     'client-id': Flags.string({
       char: 'i',
       description: 'OAuth client ID (sometimes called the consumer key)',
-      dependsOn: ['jwt-file'],
+    }),
+    'expires-in': Flags.integer({
+      description: 'duration of token in seconds if supported by the auth provider (default 1 year)',
+    }),
+    'login-url': Flags.string({
+      char: 'r',
+      description: 'the login url of the auth provider',
+      default: 'https://login.salesforce.com',
     }),
   };
 
   public async run(): Promise<AnyJson> {
-    const { flags } = await this.parse(FunctionsLogin);
-    return loginFunctions({
+    const { flags } = await this.parse(OrgLogin);
+
+    return loginOrg({
+      alias: flags.alias,
       browser: flags.browser,
       clientId: flags['client-id'],
-      jwtFile: flags['jwt-file'],
+      expiresIn: flags['expires-in'],
+      loginUrl: flags['login-url'],
     });
   }
 }

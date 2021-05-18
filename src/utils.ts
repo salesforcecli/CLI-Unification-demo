@@ -5,10 +5,12 @@
  * For full license text, see LICENSE.txt file in the repo root or https://opensource.org/licenses/BSD-3-Clause
  */
 
-import { Dictionary, ensureString } from '@salesforce/ts-types';
+import { URL } from 'url';
+import { AnyJson, Dictionary, ensureString } from '@salesforce/ts-types';
 import { Separator, ChoiceBase, ChoiceOptions } from 'inquirer';
 import Accounts from './configs/account';
 import Environments, { Environment } from './configs/environments';
+import Aliases from './configs/aliases';
 
 export async function login(
   domain = 'https://login.salesforce.com',
@@ -75,6 +77,115 @@ export async function logout(user?: string): Promise<boolean> {
   await accounts.write();
   await environments.write();
   return true;
+}
+
+export type LoginArgs = {
+  browser: string;
+  expiresIn: number;
+  clientId: string;
+  alias: string;
+  loginUrl: string;
+  jwtFile?: string;
+};
+
+export async function loginOrg(args: LoginArgs): Promise<AnyJson> {
+  const environments = Environments.getInstance();
+  const aliases = Aliases.getInstance();
+  const browser = args.browser || 'browser';
+  const loginUrl = (args.loginUrl.startsWith('http') ? args.loginUrl : `https://${args.loginUrl}`).replace(/\/$/, '');
+
+  if (!loginUrl.endsWith('salesforce.com')) {
+    throw new Error('Salesforce CLI only supports logging into salesforce.com');
+  }
+
+  console.log(`Opening ${browser} at ${loginUrl}...\n`);
+
+  const domain = new URL(loginUrl).host;
+  let user = `myuser-${domain}@mycompany.com`;
+
+  // If this is the second time running login an an org, regerster it as a sandbox
+  if (environments.get(user) || domain.includes('test')) {
+    user += '.sandbox';
+  }
+
+  let status = `Logged in as ${user}`;
+  if (args.alias) {
+    status += `\n   with alias ${args.alias}`;
+
+    aliases.set(args.alias, user);
+    await aliases.write();
+  }
+  if (args.clientId) {
+    status += `\n   with connected app ${args.clientId}`;
+  }
+
+  console.log(status);
+
+  await login(domain, user, args.expiresIn);
+  return { args, domain, user };
+}
+
+export async function loginHeroku(args: LoginArgs): Promise<AnyJson> {
+  const environments = Environments.getInstance();
+  const aliases = Aliases.getInstance();
+  const browser = args.browser || 'browser';
+  const loginUrl = (args.loginUrl.startsWith('http') ? args.loginUrl : `https://${args.loginUrl}`).replace(/\/$/, '');
+
+  if (!loginUrl.endsWith('heroku.com')) {
+    throw new Error('Salesforce CLI only supports logging into heroku.com');
+  }
+
+  console.log(`Opening ${browser} at ${loginUrl}...\n`);
+
+  const domain = new URL(loginUrl).host;
+  let user = `myuser-${domain}@mycompany.com`;
+
+  // If this is the second time running login an an org, regerster it as a sandbox
+  if (environments.get(user) || domain.includes('test')) {
+    user += '.sandbox';
+  }
+
+  let status = `Logged in as ${user}`;
+  if (args.alias) {
+    status += `\n   with alias ${args.alias}`;
+
+    aliases.set(args.alias, user);
+    await aliases.write();
+  }
+  if (args.clientId) {
+    status += `\n   with connected app ${args.clientId}`;
+  }
+
+  console.log(status);
+
+  await login(domain, user, args.expiresIn);
+  return { args, domain, user };
+}
+
+export async function loginFunctions(args: Partial<LoginArgs>): Promise<AnyJson> {
+  const environments = Environments.getInstance();
+  const browser = args.browser || 'browser';
+  const loginUrl = 'https://functions.salesforce.com';
+
+  console.log(`Opening ${browser} at ${loginUrl}...\n`);
+
+  const domain = new URL(loginUrl).host;
+  let user = `myuser-${domain}@mycompany.com`;
+
+  // If this is the second time running login an an org, regerster it as a sandbox
+  if (environments.get(user) || domain.includes('test')) {
+    user += '.sandbox';
+  }
+
+  let status = `Logged in as ${user}`;
+
+  if (args.clientId) {
+    status += `\n   with connected app ${args.clientId}`;
+  }
+  console.log(status);
+
+  await login(domain, user, args.expiresIn);
+  return { args, domain, user };
 }
 
 export function generateTableChoices<T>(
