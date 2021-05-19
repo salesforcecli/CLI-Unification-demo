@@ -110,24 +110,23 @@ export default class EnvList extends SfCommand {
     }
 
     const groupedByContext = allEnvironments.reduce((x, y) => {
-      // eslint-disable-next-line @typescript-eslint/no-non-null-assertion, @typescript-eslint/no-unnecessary-type-assertion
-      const context = y.context!;
-      if (x[context]) {
-        // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-        x[context] = [...x[context], y];
+      const type = y.type || 'unknown';
+      if (x[type]) {
+        x[type] = [...x[type], y];
       } else {
-        x[y.context] = [y];
+        x[y.type] = [y];
       }
       return x;
     }, {} as Record<string, Environment[]>);
 
-    const contextToHeader = {
-      hub: 'Salesforce Orgs',
-      functions: 'Compute Environments',
+    const typeToHeader = {
+      org: 'Salesforce Orgs',
+      compute: 'Compute Environments',
+      unknown: 'Unknown',
     };
 
-    for (const [context, envionments] of Object.entries(groupedByContext)) {
-      this.log(bold(cyan(contextToHeader[context])));
+    for (const [type, envionments] of Object.entries(groupedByContext)) {
+      this.log(bold(cyan(typeToHeader[type])));
       cli.table(
         envionments,
         {
