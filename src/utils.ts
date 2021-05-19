@@ -19,14 +19,8 @@ export async function login(
 ): Promise<Environment> {
   const environments = Environments.getInstance();
   const accounts = Accounts.getInstance();
-  if (domain.includes('functions')) {
-    accounts.set('functions', {
-      user,
-      expires,
-      // Set remote environments not connected too.
-      environments: ['functions-env-1', 'functions-env-2', 'functions-env-3'],
-    });
-  } else if (domain.includes('heroku')) {
+
+  if (domain.includes('heroku')) {
     accounts.set('heroku', {
       user,
       expires,
@@ -58,6 +52,35 @@ export async function login(
       // You could imagine a post auth step to get this sort of information from the enviornment.
       context: !user.includes('sandbox') ? 'hub' : 'sandbox',
     });
+
+    accounts.set('functions', {
+      user,
+      expires,
+      // Set remote environments not connected too.
+      environments: ['functions-env-1', 'functions-env-2', 'functions-env-3'],
+    });
+    environments.set('functions-env-1', {
+      name: 'functions-env-1',
+      connected: true,
+      status: 'Connected',
+      type: 'compute',
+      context: 'functions',
+    });
+    environments.set('functions-env-2', {
+      name: 'functions-env-2',
+      connected: true,
+      status: 'Connected',
+      type: 'compute',
+      context: 'functions',
+    });
+    environments.set('functions-env-3', {
+      name: 'functions-env-3',
+      connected: true,
+      status: 'Connected',
+      type: 'compute',
+      context: 'functions',
+    });
+
     await environments.write();
   }
   await accounts.write();

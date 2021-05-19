@@ -44,6 +44,11 @@ export abstract class Deployer {
   }
 
   public async init(): Promise<void> {
+    if (!this.options.interactive) {
+      this.environment = this.options.environments[0];
+      return;
+    }
+
     let question = 'Deploy changes for ' + cyan.bold(this.appName) + ' to:';
     let response: Answers;
 

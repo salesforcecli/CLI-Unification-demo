@@ -5,8 +5,10 @@
  * For full license text, see LICENSE.txt file in the repo root or https://opensource.org/licenses/BSD-3-Clause
  */
 
+import * as path from 'path';
 import { blue } from 'chalk';
 // import { Answers, prompt } from 'inquirer';
+import { fs } from '@salesforce/core';
 import { Deployer, DeployerOptions } from './deployer';
 
 export class FunctionsDeployer extends Deployer {
@@ -14,10 +16,19 @@ export class FunctionsDeployer extends Deployer {
 
   public static async analyze(options: DeployerOptions): Promise<Deployer[]> {
     const deployers: Deployer[] = [];
+
     if (!options.path || options.path.includes('functions')) {
-      deployers.push(
-        new FunctionsDeployer('updateEstMonthlyPayments', './functions/updateEstMonthlyPayments', options)
-      );
+      const functionsPath = path.join('.', 'functions');
+      if (await fs.fileExists(functionsPath)) {
+        const localFunctions = await fs.readdir(functionsPath);
+        for (const localFunction of localFunctions) {
+          deployers.push(new FunctionsDeployer(localFunction, `./functions/${localFunction}`, options));
+        }
+      } else {
+        deployers.push(
+          new FunctionsDeployer('updateEstMonthlyPayments', './functions/updateEstMonthlyPayments', options)
+        );
+      }
     }
     return deployers;
   }
@@ -70,8 +81,8 @@ export class FunctionsDeployer extends Deployer {
   public async deploy(): Promise<string> {
     return (
       'You may invoke your function manually with ' +
-      blue('sf event send updateEstMonthlyPayments.Dreamhouse1_appspace --payload=DATA') +
-      ' or visit http://developer.salesforce.com//8shNsj8akba/functions/updateEstMonthlyPayments to view your function details'
+      blue(`sf event send ${this.appName}.Dreamhouse1_appspace --payload=DATA`) +
+      ` or visit http://developer.salesforce.com//8shNsj8akba/functions/${this.appName} to view your function details`
     );
   }
 }
