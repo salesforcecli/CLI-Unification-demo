@@ -8,7 +8,7 @@
 import { Flags, Interfaces } from '@oclif/core';
 import { AnyJson } from '@salesforce/ts-types';
 import { cli } from 'cli-ux';
-import { bold, green, red } from 'chalk';
+import { bold, cyan, green, red } from 'chalk';
 import SfCommand from '../../sf-command';
 import { Environment } from '../../configs/environments';
 
@@ -109,20 +109,40 @@ export default class EnvList extends SfCommand {
       return;
     }
 
-    cli.table(
-      allEnvironments,
-      {
-        name: {},
-        aliases: {},
-        status: {},
-        type: {},
-        context: {},
-      },
-      {
-        ...flags,
+    const groupedByContext = allEnvironments.reduce((x, y) => {
+      // eslint-disable-next-line @typescript-eslint/no-non-null-assertion, @typescript-eslint/no-unnecessary-type-assertion
+      const context = y.context!;
+      if (x[context]) {
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+        x[context] = [...x[context], y];
+      } else {
+        x[y.context] = [y];
       }
-    );
+      return x;
+    }, {} as Record<string, Environment[]>);
 
+    const contextToHeader = {
+      hub: 'Salesforce Orgs',
+      functions: 'Compute Environments',
+    };
+
+    for (const [context, envionments] of Object.entries(groupedByContext)) {
+      this.log(bold(cyan(contextToHeader[context])));
+      cli.table(
+        envionments,
+        {
+          name: {},
+          aliases: {},
+          status: {},
+          type: {},
+          context: {},
+        },
+        {
+          ...flags,
+        }
+      );
+      this.log();
+    }
     return { flags, args };
   }
 }
