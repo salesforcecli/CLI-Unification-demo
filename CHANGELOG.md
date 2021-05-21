@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.4.0](https://github.com/salesforcecli/cli-taxonomy-experiment/compare/v1.3.1...v1.4.0) (2021-05-21)
+
+
+### Features
+
+* mock functions commands ([720d452](https://github.com/salesforcecli/cli-taxonomy-experiment/commit/720d45236c1ad580d9bee6316120ef0b49ffe02c))
+* update login and add project deploy org ([663b148](https://github.com/salesforcecli/cli-taxonomy-experiment/commit/663b1483f958a639150eea0c95a312de89a719d9))
+* update login cmd ([f996201](https://github.com/salesforcecli/cli-taxonomy-experiment/commit/f996201b565404f6ff65eaaa7d0c5dc5b14e85f8))
+* updates for demo script ([55f488f](https://github.com/salesforcecli/cli-taxonomy-experiment/commit/55f488f2531c3f59a9492446126e53e091e672db))
+
+
+### Bug Fixes
+
+* split env list table ([859d538](https://github.com/salesforcecli/cli-taxonomy-experiment/commit/859d5382a7fea9801f3e0866f738701006cadd86))
+* use correct key to group environments ([7f3f3c7](https://github.com/salesforcecli/cli-taxonomy-experiment/commit/7f3f3c7449f9f590b1fade06604256440abba7ae))
+
 ### [1.3.1](https://github.com/salesforcecli/cli-taxonomy-experiment/compare/v1.3.0...v1.3.1) (2021-05-10)
 
 ## [1.3.0](https://github.com/salesforcecli/cli-taxonomy-experiment/compare/v1.2.0...v1.3.0) (2021-04-27)
