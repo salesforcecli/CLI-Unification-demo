@@ -9,19 +9,20 @@ import { Flags } from '@oclif/core';
 import { AnyJson } from '@salesforce/ts-types';
 
 import SfCommand from '../../sf-command';
-import { loginOrg } from '../../utils';
+import { Browser, loginOrg } from '../../utils';
 
 export default class OrgLogin extends SfCommand {
   public static description = 'login to a Salesforce functions account';
 
-  public static examples = ['sf login org --instance-url https://<mydomain>.my.salesforce.com'];
+  public static examples = ['sf login org --login-url https://<mydomain>.my.salesforce.com'];
 
   public static flags = {
     alias: Flags.string({
       description: 'set an alias for the environment - see all aliases using `sf env alias list`',
     }),
     browser: Flags.string({
-      description: 'browser to open SSO with (example: "firefox", "safari")',
+      description: 'browser to open SSO with',
+      options: [Browser.CHROME, Browser.FIREFOX, Browser.SAFARI],
     }),
     'client-id': Flags.string({
       char: 'i',

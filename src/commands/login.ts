@@ -13,20 +13,13 @@ import { loginFunctions, loginHeroku, loginOrg, LoginArgs } from '../utils';
 
 // eslint-disable-next-line no-shadow
 export enum LoginTarget {
-  ORG = 'org',
-  FUNCTIONS = 'functions',
-  HEROKU = 'heroku',
-}
-
-// eslint-disable-next-line no-shadow
-export enum Browser {
-  SAFARI = 'safari',
-  FIREFOX = 'firefox',
-  CHROME = 'chrome',
+  ORG = 'Salesforce Org',
+  FUNCTIONS = 'Salesforce Functions',
+  HEROKU = 'Heroku',
 }
 
 export default class Login extends SfCommand {
-  public static description = 'login to a Salesforce account or enviornment';
+  public static description = 'Log in interactively to Salesforce orgs and other services.';
 
   public static examples = ['sf login'];
 
@@ -67,7 +60,7 @@ export default class Login extends SfCommand {
     const responses = await prompt<Answers>([
       {
         name: 'target',
-        message: 'Select login target:',
+        message: 'What would you like to log into?',
         type: 'list',
         choices: [LoginTarget.ORG, LoginTarget.FUNCTIONS, LoginTarget.HEROKU],
       },
@@ -79,35 +72,16 @@ export default class Login extends SfCommand {
   private async promptUserForOrgArgs(): Promise<Answers> {
     const responses = await prompt<Answers>([
       {
-        name: 'loginUrl',
-        message: 'login url of auth provider',
-        type: 'string',
-        default: 'https://login.salesforce.com',
-      },
-      {
         name: 'alias',
-        message: 'Alias:',
+        message: 'Set an alias for the org (leave blank for no alias)',
         type: 'input',
       },
       {
-        name: 'clientId',
-        message: 'OAuth client ID (sometimes called the consumer key):',
-        type: 'string',
-      },
-      {
-        name: 'expiresIn',
-        message: 'duration of token in seconds if supported by the auth provider:',
-        type: 'number',
-        default: '1 year',
-      },
-      {
-        name: 'browser',
-        message: 'browser to open SSO with:',
-        type: 'list',
-        choices: [Browser.CHROME, Browser.FIREFOX, Browser.SAFARI],
+        name: 'setDefault',
+        message: 'Set the org as your default org?',
+        type: 'confirm',
       },
     ]);
-    if (responses.expiresin === '1 year') responses.expiresin = undefined;
     return responses;
   }
 
@@ -123,12 +97,6 @@ export default class Login extends SfCommand {
         message: 'OAuth client ID (sometimes called the consumer key):',
         type: 'string',
       },
-      {
-        name: 'browser',
-        message: 'browser to open SSO with:',
-        type: 'list',
-        choices: [Browser.CHROME, Browser.FIREFOX, Browser.SAFARI],
-      },
     ]);
     return responses;
   }
@@ -139,12 +107,6 @@ export default class Login extends SfCommand {
         name: 'alias',
         message: 'Alias:',
         type: 'input',
-      },
-      {
-        name: 'browser',
-        message: 'browser to open SSO with:',
-        type: 'list',
-        choices: [Browser.CHROME, Browser.FIREFOX, Browser.SAFARI],
       },
     ]);
     return Object.assign(responses, { loginUrl: 'https://heroku.com' });

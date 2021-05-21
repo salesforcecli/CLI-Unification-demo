@@ -12,6 +12,22 @@ import Accounts from './configs/account';
 import Environments, { Environment } from './configs/environments';
 import Aliases from './configs/aliases';
 
+// eslint-disable-next-line no-shadow
+export enum Browser {
+  SAFARI = 'safari',
+  FIREFOX = 'firefox',
+  CHROME = 'chrome',
+}
+
+export type LoginArgs = {
+  browser?: string;
+  expiresIn?: number;
+  clientId?: string;
+  alias?: string;
+  loginUrl?: string;
+  jwtFile?: string;
+};
+
 export async function login(
   domain = 'https://login.salesforce.com',
   user: string,
@@ -102,20 +118,12 @@ export async function logout(user?: string): Promise<boolean> {
   return true;
 }
 
-export type LoginArgs = {
-  browser: string;
-  expiresIn: number;
-  clientId: string;
-  alias: string;
-  loginUrl: string;
-  jwtFile?: string;
-};
-
 export async function loginOrg(args: LoginArgs): Promise<AnyJson> {
   const environments = Environments.getInstance();
   const aliases = Aliases.getInstance();
   const browser = args.browser || 'browser';
-  const loginUrl = (args.loginUrl.startsWith('http') ? args.loginUrl : `https://${args.loginUrl}`).replace(/\/$/, '');
+  const url = args.loginUrl || 'https://login.salesforce.com';
+  const loginUrl = (url.startsWith('http') ? url : `https://${url}`).replace(/\/$/, '');
 
   if (!loginUrl.endsWith('salesforce.com')) {
     throw new Error('Salesforce CLI only supports logging into salesforce.com');
@@ -152,7 +160,8 @@ export async function loginHeroku(args: LoginArgs): Promise<AnyJson> {
   const environments = Environments.getInstance();
   const aliases = Aliases.getInstance();
   const browser = args.browser || 'browser';
-  const loginUrl = (args.loginUrl.startsWith('http') ? args.loginUrl : `https://${args.loginUrl}`).replace(/\/$/, '');
+  const url = args.loginUrl || 'https://heroku.com';
+  const loginUrl = (url.startsWith('http') ? url : `https://${url}`).replace(/\/$/, '');
 
   if (!loginUrl.endsWith('heroku.com')) {
     throw new Error('Salesforce CLI only supports logging into heroku.com');

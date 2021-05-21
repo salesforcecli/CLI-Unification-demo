@@ -9,7 +9,7 @@ import { Flags } from '@oclif/core';
 import { AnyJson } from '@salesforce/ts-types';
 
 import SfCommand from '../../sf-command';
-import { loginFunctions } from '../../utils';
+import { Browser, loginFunctions } from '../../utils';
 
 export default class FunctionsLogin extends SfCommand {
   public static description = 'login to a Salesforce functions account';
@@ -21,7 +21,8 @@ export default class FunctionsLogin extends SfCommand {
 
   public static flags = {
     browser: Flags.string({
-      description: 'browser to open SSO with (example: "firefox", "safari")',
+      description: 'browser to open SSO with',
+      options: [Browser.CHROME, Browser.FIREFOX, Browser.SAFARI],
     }),
     'jwt-file': Flags.string({
       char: 'f',
