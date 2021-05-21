@@ -12,7 +12,7 @@ import SfCommand from '../../sf-command';
 import { Browser, loginOrg } from '../../utils';
 
 export default class OrgLogin extends SfCommand {
-  public static description = 'login to a Salesforce functions account';
+  public static description = 'login to a Salesforce account';
 
   public static examples = ['sf login org --login-url https://<mydomain>.my.salesforce.com'];
 

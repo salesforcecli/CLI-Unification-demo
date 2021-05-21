@@ -24,6 +24,9 @@ export class FunctionsDeployer extends Deployer {
         for (const localFunction of localFunctions) {
           deployers.push(new FunctionsDeployer(localFunction, `./functions/${localFunction}`, options));
         }
+      } else if (path.dirname(process.cwd()).endsWith('functions')) {
+        const dirName = path.basename(process.cwd());
+        deployers.push(new FunctionsDeployer(dirName, `./functions/${dirName}`, options));
       } else {
         deployers.push(
           new FunctionsDeployer('updateEstMonthlyPayments', './functions/updateEstMonthlyPayments', options)
