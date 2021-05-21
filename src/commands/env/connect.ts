@@ -15,11 +15,11 @@ import Aliases from '../../configs/aliases';
 export default class EnvConnect extends SfCommand {
   public static description = `connect to a remote enviornment
 
-  
+
   `;
 
   public static examples = [];
-
+  public static hidden = true;
   public static flags = {
     name: Flags.string({
       description: 'name of the remote environment to connect to',

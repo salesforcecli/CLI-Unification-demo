@@ -45,11 +45,24 @@ export class SalesforceDeployer extends Deployer {
       },
     ]);
   }
+
   public async deploy(): Promise<string> {
     return (
       'Open your Salesforce App in your browser with ' +
       blue('sf env open -u ' + this.environment.name) +
       ' or visit http://wise-koala-7i3w1u.lightning.force.com'
     );
+  }
+}
+
+export class SalesforceOrgDeployer extends SalesforceDeployer {
+  public static async analyze(options: DeployerOptions): Promise<Deployer[]> {
+    const deployers: Deployer[] = [];
+    deployers.push(new SalesforceOrgDeployer('Dreamhouse', options.path, options));
+    return deployers;
+  }
+
+  public async setup(): Promise<void> {
+    // do nothing
   }
 }

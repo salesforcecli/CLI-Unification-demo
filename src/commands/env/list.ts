@@ -8,7 +8,7 @@
 import { Flags, Interfaces } from '@oclif/core';
 import { AnyJson } from '@salesforce/ts-types';
 import { cli } from 'cli-ux';
-import { bold, green, red } from 'chalk';
+import { bold, cyan, green, red } from 'chalk';
 import SfCommand from '../../sf-command';
 import { Environment } from '../../configs/environments';
 
@@ -109,20 +109,39 @@ export default class EnvList extends SfCommand {
       return;
     }
 
-    cli.table(
-      allEnvironments,
-      {
-        name: {},
-        aliases: {},
-        status: {},
-        type: {},
-        context: {},
-      },
-      {
-        ...flags,
+    const groupedByContext = allEnvironments.reduce((x, y) => {
+      const type = y.type || 'unknown';
+      if (x[type]) {
+        x[type] = [...x[type], y];
+      } else {
+        x[y.type] = [y];
       }
-    );
+      return x;
+    }, {} as Record<string, Environment[]>);
 
+    const typeToHeader = {
+      org: 'Salesforce Orgs',
+      compute: 'Compute Environments',
+      unknown: 'Unknown',
+    };
+
+    for (const [type, envionments] of Object.entries(groupedByContext)) {
+      this.log(bold(cyan(typeToHeader[type])));
+      cli.table(
+        envionments,
+        {
+          name: {},
+          aliases: {},
+          status: {},
+          type: {},
+          context: {},
+        },
+        {
+          ...flags,
+        }
+      );
+      this.log();
+    }
     return { flags, args };
   }
 }
