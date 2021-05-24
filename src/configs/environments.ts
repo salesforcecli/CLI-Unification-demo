@@ -21,6 +21,8 @@ export type Environment = {
   context?: string;
   // Other auth information can be stored on the environement
   token?: string;
+  orgId?: string;
+  connectedOrg?: string;
 };
 
 export type OrgEnvironment = {
