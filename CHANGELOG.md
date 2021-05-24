@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.4.1](https://github.com/salesforcecli/cli-taxonomy-experiment/compare/v1.4.0...v1.4.1) (2021-05-24)
+
+
+### Bug Fixes
+
+* update columns on env list ([9582ecb](https://github.com/salesforcecli/cli-taxonomy-experiment/commit/9582ecbe367c3b20348a93e5f5dfc348baf48d0f))
+
 ## [1.4.0](https://github.com/salesforcecli/cli-taxonomy-experiment/compare/v1.3.1...v1.4.0) (2021-05-21)
 
 
