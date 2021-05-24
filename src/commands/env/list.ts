@@ -12,7 +12,7 @@ import { bold, cyan, green, red } from 'chalk';
 import SfCommand from '../../sf-command';
 import { Environment } from '../../configs/environments';
 
-type DisplayEnvironment = Environment & { aliases: string };
+type DisplayEnvironment = Environment & { alias: string };
 export default class EnvList extends SfCommand {
   public static description = `list connected enviornment
 
@@ -43,13 +43,28 @@ export default class EnvList extends SfCommand {
   ): DisplayEnvironment {
     // First merge defaults and the environment in a copy.
     const copy = Object.assign({}, defaults, environment);
-
-    // Override values on the copy to look nicer in the CLI table.
-    return Object.assign(copy, {
-      name: bold(name),
-      aliases: this.aliases.getKeysByValue(name).join(', '),
-      status: copy.connected ? green(copy.status) : red(copy.status),
-    });
+    if (copy.type === 'org') {
+      // Override values on the copy to look nicer in the CLI table.
+      return Object.assign(copy, {
+        name,
+        username: bold(name),
+        alias: this.aliases.getKeysByValue(name)[0] || '',
+        status: copy.connected ? green(copy.status) : red(copy.status),
+        orgId: copy.orgId || 'Unknown',
+      });
+    } else if (copy.type === 'compute') {
+      // Override values on the copy to look nicer in the CLI table.
+      const orgId = (this.environments.getContents()[copy.connectedOrg] as Environment).orgId;
+      const orgAlias = this.aliases.getKeysByValue(copy.connectedOrg)[0];
+      return Object.assign(copy, {
+        name,
+        alias: this.aliases.getKeysByValue(name)[0] || '',
+        projectName: bold(name),
+        orgAlias,
+        orgId,
+        status: copy.connected ? green(copy.status) : red(copy.status),
+      });
+    }
   }
 
   public retrieveRemoteEnvironments(): DisplayEnvironment[] {
@@ -75,6 +90,7 @@ export default class EnvList extends SfCommand {
 
         return this.convertEnvironment(environmentsName, {
           name: environmentsName,
+          connectedOrg: account.user,
           type,
           context,
         });
@@ -109,7 +125,7 @@ export default class EnvList extends SfCommand {
       return;
     }
 
-    const groupedByContext = allEnvironments.reduce((x, y) => {
+    const groupedByType = allEnvironments.reduce((x, y) => {
       const type = y.type || 'unknown';
       if (x[type]) {
         x[type] = [...x[type], y];
@@ -125,23 +141,37 @@ export default class EnvList extends SfCommand {
       unknown: 'Unknown',
     };
 
-    for (const [type, envionments] of Object.entries(groupedByContext)) {
-      this.log(bold(cyan(typeToHeader[type])));
-      cli.table(
-        envionments,
-        {
-          name: {},
-          aliases: {},
-          status: {},
-          type: {},
-          context: {},
-        },
-        {
-          ...flags,
-        }
-      );
-      this.log();
-    }
+    // Salesforce Orgs
+    this.log(bold(cyan(typeToHeader.org)));
+    cli.table(
+      groupedByType.org,
+      {
+        alias: {},
+        username: {},
+        orgId: { header: 'Org ID' },
+        status: {},
+      },
+      {
+        ...flags,
+      }
+    );
+
+    // Compute Environments
+    this.log(bold(cyan(typeToHeader.compute)));
+    cli.table(
+      groupedByType.compute,
+      {
+        alias: {},
+        projectName: { header: 'Project Name' },
+        orgAlias: { header: 'Connected Org Alias' },
+        orgId: { header: 'Connected Org ID' },
+        status: {},
+      },
+      {
+        ...flags,
+      }
+    );
+    this.log();
     return { flags, args };
   }
 }

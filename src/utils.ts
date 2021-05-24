@@ -28,6 +28,20 @@ export type LoginArgs = {
   jwtFile?: string;
 };
 
+export function generateOrgId(): string {
+  function randIntBetween(min: number, max: number): number {
+    return Math.floor(Math.random() * (max - min) + min);
+  }
+
+  function randomLetter(): string {
+    const alphabet = 'abcdefghijklmnopqrstuvwxyz';
+    return alphabet[Math.floor(Math.random() * alphabet.length)].toUpperCase();
+  }
+
+  const fourRandomLetters = [randomLetter(), randomLetter(), randomLetter(), randomLetter()].join('');
+  return `00${randomLetter()}${randIntBetween(1, 10)}00${randIntBetween(1, 10)}0000${fourRandomLetters}`;
+}
+
 export async function login(
   domain = 'https://login.salesforce.com',
   user: string,
@@ -65,6 +79,7 @@ export async function login(
       connected: true,
       status: 'Connected',
       type: 'org',
+      orgId: generateOrgId(),
       // You could imagine a post auth step to get this sort of information from the enviornment.
       context: !user.includes('sandbox') ? 'hub' : 'sandbox',
     });
@@ -81,6 +96,7 @@ export async function login(
       status: 'Connected',
       type: 'compute',
       context: 'functions',
+      connectedOrg: user,
     });
     environments.set('functions-env-2', {
       name: 'functions-env-2',
@@ -88,14 +104,15 @@ export async function login(
       status: 'Connected',
       type: 'compute',
       context: 'functions',
+      connectedOrg: user,
     });
-    environments.set('functions-env-3', {
-      name: 'functions-env-3',
-      connected: true,
-      status: 'Connected',
-      type: 'compute',
-      context: 'functions',
-    });
+    // environments.set('functions-env-3', {
+    //   name: 'functions-env-3',
+    //   connected: true,
+    //   status: 'Connected',
+    //   type: 'compute',
+    //   context: 'functions',
+    // });
 
     await environments.write();
   }
