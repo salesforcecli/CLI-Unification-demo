@@ -457,9 +457,9 @@
     tslib "^2.0.0"
 
 "@oclif/core@^0.5.5":
-  version "0.5.5"
-  resolved "https://registry.yarnpkg.com/@oclif/core/-/core-0.5.5.tgz#ccbf9fcdc160cf707e2c9f87f2a61333ee4c9162"
-  integrity sha512-Iv8BzqXGkkwJQDoZpWnIGnc1nydyEtC8Is03hfnzVscFhzx2+YhhzbXS8CWUcVxACcGegRukmANCWOzmpP4NzQ==
+  version "0.5.10"
+  resolved "https://registry.yarnpkg.com/@oclif/core/-/core-0.5.10.tgz#63e0d1f26b64972996790ecc9912ecb2c039c66a"
+  integrity sha512-CbeMktVzyVjkikIL0a+tS/EXqNYagsYuGFt86WjI8E4ushQJLMkcN/8DPCY37CLYisnklKzeclsdIdFeHCA/9w==
   dependencies:
     "@oclif/linewrap" "^1.0.0"
     chalk "^4.1.0"
@@ -467,6 +467,7 @@
     cli-ux "^5.1.0"
     debug "^4.1.1"
     fs-extra "^9.0.1"
+    get-package-type "^0.1.0"
     globby "^11.0.1"
     indent-string "^4.0.0"
     is-wsl "^2.1.1"
