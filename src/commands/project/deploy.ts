@@ -9,7 +9,7 @@ import { Flags } from '@oclif/core';
 import { Duration, sleep } from '@salesforce/kit';
 import { AnyJson } from '@salesforce/ts-types';
 import { cli } from 'cli-ux';
-import { cyan, green } from 'chalk';
+import { cyan, green, red } from 'chalk';
 import { prompt, Answers } from 'inquirer';
 
 import SfCommand from '../../sf-command';
@@ -56,6 +56,12 @@ export default class ProjectDeploy extends SfCommand {
 
   public async run(): Promise<AnyJson> {
     const { flags } = await this.parse(ProjectDeploy);
+
+    if (!this.accounts.has('hub')) {
+      process.exitCode = 1;
+      this.log(red('You have not authorized any accounts. Please run "sf login" first.'));
+      return {};
+    }
 
     cli.action.start('Analyzing project');
     // Make it seem a little real.

@@ -63,14 +63,14 @@ export default class ProjectDeployOrg extends SfCommand {
     await sleep(Duration.milliseconds(400));
     cli.action.stop();
 
-    const environement = this.loadEnvironment(flags['target-env']);
+    const environment = this.loadEnvironment(flags['target-env']);
     const flagsSpecified = flags.directory || flags.manifest || flags.metadata;
     const deployers = flagsSpecified
-      ? await SalesforceOrgDeployer.analyze({ path: '', interactive: false, environments: [environement] })
+      ? await SalesforceOrgDeployer.analyze({ path: '', interactive: false, environments: [environment] })
       : await SalesforceOrgDeployer.analyze({
           path: 'force-app',
           interactive: false,
-          environments: [environement],
+          environments: [environment],
         });
 
     for (const deployer of deployers) {
