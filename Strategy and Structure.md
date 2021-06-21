@@ -19,7 +19,7 @@ For actions that that only exist for a given product, the commands will be avail
 
 Instead of starting fresh, we think it’s best to evolve the Salesforce CLI into the single CLI for all the Salesforce brands and products. To do this, we are introducing a new executable `sf` that we are bundling with `sfdx` that brings a new taxonomy and standards to the Salesforce CLI experience. 
 
-Creating a new executable allows us to make some different decisions about the structure of the CLI without breaking existing scripts. We want to be more strategic about how we build the information hierarchy as we think about unifying all Salesforce brands into one CLI. But we also want to bring more consistency and stability for current users.  For example, `sf` will have consistent tables, terminal output, and JSON schema, which will make scripting and developing easier. But making these types of standards changes in sfdx would break pre-existing scripts. 
+Creating a new executable allows us to make some different decisions about the structure of the CLI without breaking existing scripts. We want to be more strategic about how we build the information hierarchy as we think about unifying all Salesforce brands into one CLI. But we also want to bring more consistency and stability for current users.  For example, `sf` will have consistent tables, terminal output, and JSON schema, which will make scripting and developing easier. But making these types of standards changes in `sfdx` would break pre-existing scripts. 
 
 ## Overall CLI Improvements 
 
