@@ -2,7 +2,7 @@
 
 ## What
 
-CLI Unification is an evolution of Salesforce’s CLI strategy. We are unifying all the CLIs across Salesforce’s many brands as our first step in providing a unified cross-cloud developer experience. Our ultimate goal is to provide one set of tools for all Salesforce developers to write and deploy their Salesforce Apps. 
+CLI Unification is an evolution of Salesforce’s CLI strategy. We're unifying all the CLIs across Salesforce’s many brands as our first step in providing a unified cross-cloud developer experience. Our ultimate goal is to provide one set of tools for all Salesforce developers to write and deploy their Salesforce apps. 
 
 We're evolving the taxonomy of our Salesforce CLI to bring together existing capabilities from Salesforce CLI and other CLIs, such as the Heroku CLI, MuleSoft CLI, etc., to deliver net new, cross-cloud commands under the new executable, `sf`. The new executable will come bundled with `sfdx` in the same installer and work in conjunction with `sfdx` commands, until sf reaches full feature parity with sfdx.
 
@@ -33,4 +33,3 @@ When designing CLI Unification we took the opportunity to improve the overall ex
     * JSON schema
 * Prompting when a required flag is not included instead of erring out 
 * Interactive commands
-
