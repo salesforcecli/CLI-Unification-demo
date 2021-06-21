@@ -20,7 +20,7 @@ By default, this command uses the global out-of-the-box connected app in your or
  
    sf login org
    
--If you log in to your Dev Hub, set an alias so you can reference it later when you create a scratch org:
+- If you log in to your Dev Hub, set an alias so you can reference it later when you create a scratch org:
  
    sf login org --alias dev-hub
   
