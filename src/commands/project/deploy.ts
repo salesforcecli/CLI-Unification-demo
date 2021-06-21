@@ -12,18 +12,18 @@ import { cli } from 'cli-ux';
 import { cyan, green, red } from 'chalk';
 import { prompt, Answers } from 'inquirer';
 
+import { Messages } from '@salesforce/core';
 import SfCommand from '../../sf-command';
 import { Deployer, Deployers } from '../../project';
 import { Environment } from '../../configs/environments';
 import { generateTableChoices } from '../../utils';
 
+Messages.importMessagesDirectory(__dirname);
+const messages = Messages.loadMessages('@salesforce/sf-demo', 'project.deploy');
+
 export default class ProjectDeploy extends SfCommand {
-  public static description = `deploy a Salesforce project
-
-  Deploy a project, including org metadata and functions. Be default, the deploy analyize your project and assume sensible defaults when possible, otherwise it will prompt. To always prompt and not assume defaults, use "--interctive".
-
-  To run specialized deploys, especially when interactivity isn't an option like continuious deployment, used the scoped deploy commands like "sf project deploy org" or "sf project deploy functions"
-  `;
+  public static summary = messages.getMessage('summary');
+  public static description = messages.getMessage('description');
 
   public static examples = ['sf project deploy', 'sf project deploy --target-env=devhub'];
 
@@ -36,7 +36,7 @@ export default class ProjectDeploy extends SfCommand {
       multiple: true,
     }),
     interactive: Flags.boolean({
-      description: 'set ',
+      summary: messages.getMessage('flags.interactive.summary'),
     }),
   };
 
