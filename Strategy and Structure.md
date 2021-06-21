@@ -31,5 +31,5 @@ When designing CLI Unification we took the opportunity to improve the overall ex
     * Tables
     * Terminal output
     * JSON schema
-* Prompting when a required flag is not included instead of erring out 
+* Prompting when a required flag isn't included instead of returning an error 
 * Interactive commands
