@@ -1,6 +1,6 @@
 # summary
 
-Deploy source to an org.
+Deploy source and metadata to an org.
 
 # description
 
