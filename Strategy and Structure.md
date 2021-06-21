@@ -26,7 +26,7 @@ Creating a new executable allows us to make some different decisions about the s
 When designing CLI Unification we took the opportunity to improve the overall experience of using Salesforce CLI. We focused on consistency, discoverability/navigation, and speed with the following enhancements: 
 
 * Spaces as a separator 
-* Expanded help output, no need to go to the documentation
+* Expanded help output, with less need to go to the online documentation
 * Consistent standards on:
     * Tables
     * terminal output
