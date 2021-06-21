@@ -5,7 +5,7 @@
  * For full license text, see LICENSE.txt file in the repo root or https://opensource.org/licenses/BSD-3-Clause
  */
 
-import SfCommand from '../../../../sf-command';
+import SfCommand from '../../../sf-command';
 
 export default class ProjectRetrieveOrg extends SfCommand {
   public static description = 'Retrieve a SF org';
