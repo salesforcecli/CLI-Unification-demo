@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.5.0](https://github.com/salesforcecli/cli-taxonomy-experiment/compare/v1.4.2...v1.5.0) (2021-06-21)
+
+
+### Features
+
+* update help example ([f6e49c8](https://github.com/salesforcecli/cli-taxonomy-experiment/commit/f6e49c8e76816ec6f341a98d9ff90e21510bbc58))
+* update to latest commands for tdx demo ([051bdc4](https://github.com/salesforcecli/cli-taxonomy-experiment/commit/051bdc4a8901bc1db998eab6f4538bad552bb9e7))
+* update to md help ([c33ec9d](https://github.com/salesforcecli/cli-taxonomy-experiment/commit/c33ec9d73133f65f2dab31ee7855009bf918f602))
+
+
+### Bug Fixes
+
+* use only SfCommand ([4beef40](https://github.com/salesforcecli/cli-taxonomy-experiment/commit/4beef400e330caa88b56cd24718cb7d56ed31cc2))
+
 ### [1.4.2](https://github.com/salesforcecli/cli-taxonomy-experiment/compare/v1.4.1...v1.4.2) (2021-06-04)
 
 

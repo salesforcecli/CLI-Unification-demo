@@ -55,41 +55,59 @@ To use your plugin, run using the local `./bin/dev` or `./bin/dev.cmd` file. To 
 * [`sf config:list`](#sf-configlist)
 * [`sf config:set`](#sf-configset)
 * [`sf config:unset`](#sf-configunset)
-* [`sf data:export`](#sf-dataexport)
-* [`sf data:import`](#sf-dataimport)
-* [`sf data:query`](#sf-dataquery)
-* [`sf data:record`](#sf-datarecord)
-* [`sf data:schema:describe`](#sf-dataschemadescribe)
+* [`sf data:data`](#sf-datadata)
 * [`sf env:alias:set [ALIAS]`](#sf-envaliasset-alias)
 * [`sf env:alias:unset [ALIAS]`](#sf-envaliasunset-alias)
 * [`sf env:create:compute [ENVNAME]`](#sf-envcreatecompute-envname)
 * [`sf env:create:org [ENVNAME]`](#sf-envcreateorg-envname)
 * [`sf env:display`](#sf-envdisplay)
 * [`sf env:list`](#sf-envlist)
+* [`sf env:log:get`](#sf-envlogget)
+* [`sf env:log:list`](#sf-envloglist)
+* [`sf env:log:tail`](#sf-envlogtail)
+* [`sf env:logdrain:add`](#sf-envlogdrainadd)
+* [`sf env:logdrain:list`](#sf-envlogdrainlist)
+* [`sf env:logdrain:remove`](#sf-envlogdrainremove)
 * [`sf env:open`](#sf-envopen)
-* [`sf env:setup`](#sf-envsetup)
 * [`sf env:usage`](#sf-envusage)
-* [`sf event:create:event`](#sf-eventcreateevent)
-* [`sf event:create:topic`](#sf-eventcreatetopic)
-* [`sf event:list`](#sf-eventlist)
-* [`sf event:send`](#sf-eventsend)
-* [`sf event:subscribe`](#sf-eventsubscribe)
-* [`sf event:unsubscribe`](#sf-eventunsubscribe)
+* [`sf env:var:get`](#sf-envvarget)
+* [`sf env:var:list`](#sf-envvarlist)
+* [`sf env:var:set`](#sf-envvarset)
+* [`sf env:var:unset`](#sf-envvarunset)
+* [`sf event:event`](#sf-eventevent)
+* [`sf generate:analytics:template`](#sf-generateanalyticstemplate)
+* [`sf generate:apex:class`](#sf-generateapexclass)
+* [`sf generate:apex:test`](#sf-generateapextest)
+* [`sf generate:apex:trigger`](#sf-generateapextrigger)
+* [`sf generate:community`](#sf-generatecommunity)
 * [`sf generate:function`](#sf-generatefunction)
+* [`sf generate:lightning:component`](#sf-generatelightningcomponent)
+* [`sf generate:lightning:event`](#sf-generatelightningevent)
+* [`sf generate:lightning:interface`](#sf-generatelightninginterface)
+* [`sf generate:project`](#sf-generateproject)
+* [`sf heroku:heroku`](#sf-herokuheroku)
 * [`sf login`](#sf-login)
 * [`sf login:functions`](#sf-loginfunctions)
 * [`sf login:jwt`](#sf-loginjwt)
 * [`sf login:org`](#sf-loginorg)
 * [`sf logout`](#sf-logout)
-* [`sf package:create`](#sf-packagecreate)
-* [`sf package:install`](#sf-packageinstall)
-* [`sf package:list`](#sf-packagelist)
-* [`sf package:update`](#sf-packageupdate)
+* [`sf package:package`](#sf-packagepackage)
+* [`sf plugins`](#sf-plugins)
+* [`sf plugins:inspect PLUGIN...`](#sf-pluginsinspect-plugin)
+* [`sf plugins:install PLUGIN...`](#sf-pluginsinstall-plugin)
+* [`sf plugins:link PLUGIN`](#sf-pluginslink-plugin)
+* [`sf plugins:uninstall PLUGIN...`](#sf-pluginsuninstall-plugin)
+* [`sf plugins:update`](#sf-pluginsupdate)
 * [`sf project:deploy`](#sf-projectdeploy)
+* [`sf project:deploy:functions`](#sf-projectdeployfunctions)
 * [`sf project:deploy:org`](#sf-projectdeployorg)
+* [`sf project:deploy:retrieve:org`](#sf-projectdeployretrieveorg)
 * [`sf reset`](#sf-reset)
+* [`sf run:apex`](#sf-runapex)
 * [`sf run:function`](#sf-runfunction)
 * [`sf run:function:start`](#sf-runfunctionstart)
+* [`sf test:apex`](#sf-testapex)
+* [`sf test:function`](#sf-testfunction)
 * [`sf usage`](#sf-usage)
 * [`sf whoami`](#sf-whoami)
 
@@ -108,7 +126,7 @@ EXAMPLE
   sf config get
 ```
 
-_See code: [src/commands/config/get.ts](https://github.com/salesforcecli/cli-taxonomy-experiment/blob/v1.4.1/src/commands/config/get.ts)_
+_See code: [src/commands/config/get.ts](https://github.com/salesforcecli/cli-taxonomy-experiment/blob/v1.4.2/src/commands/config/get.ts)_
 
 ## `sf config:list`
 
@@ -125,7 +143,7 @@ EXAMPLE
   sf config list
 ```
 
-_See code: [src/commands/config/list.ts](https://github.com/salesforcecli/cli-taxonomy-experiment/blob/v1.4.1/src/commands/config/list.ts)_
+_See code: [src/commands/config/list.ts](https://github.com/salesforcecli/cli-taxonomy-experiment/blob/v1.4.2/src/commands/config/list.ts)_
 
 ## `sf config:set`
 
@@ -142,7 +160,7 @@ EXAMPLE
   sf config set
 ```
 
-_See code: [src/commands/config/set.ts](https://github.com/salesforcecli/cli-taxonomy-experiment/blob/v1.4.1/src/commands/config/set.ts)_
+_See code: [src/commands/config/set.ts](https://github.com/salesforcecli/cli-taxonomy-experiment/blob/v1.4.2/src/commands/config/set.ts)_
 
 ## `sf config:unset`
 
@@ -159,92 +177,21 @@ EXAMPLE
   sf config unset
 ```
 
-_See code: [src/commands/config/unset.ts](https://github.com/salesforcecli/cli-taxonomy-experiment/blob/v1.4.1/src/commands/config/unset.ts)_
+_See code: [src/commands/config/unset.ts](https://github.com/salesforcecli/cli-taxonomy-experiment/blob/v1.4.2/src/commands/config/unset.ts)_
 
-## `sf data:export`
+## `sf data:data`
 
-export data
-
-```
-USAGE
-  $ sf data:export
-
-DESCRIPTION
-  Export data.
-
-EXAMPLE
-  sf data export
-```
-
-_See code: [src/commands/data/export.ts](https://github.com/salesforcecli/cli-taxonomy-experiment/blob/v1.4.1/src/commands/data/export.ts)_
-
-## `sf data:import`
-
-import data
+Placeholder topic
 
 ```
 USAGE
-  $ sf data:import
-
-DESCRIPTION
-  import data.
+  $ sf data:data
 
 EXAMPLE
-  sf data import
+  sf data ...
 ```
 
-_See code: [src/commands/data/import.ts](https://github.com/salesforcecli/cli-taxonomy-experiment/blob/v1.4.1/src/commands/data/import.ts)_
-
-## `sf data:query`
-
-query data
-
-```
-USAGE
-  $ sf data:query
-
-DESCRIPTION
-  Query data.
-
-EXAMPLE
-  sf data query
-```
-
-_See code: [src/commands/data/query.ts](https://github.com/salesforcecli/cli-taxonomy-experiment/blob/v1.4.1/src/commands/data/query.ts)_
-
-## `sf data:record`
-
-record data
-
-```
-USAGE
-  $ sf data:record
-
-DESCRIPTION
-  Record data.
-
-EXAMPLE
-  sf data record
-```
-
-_See code: [src/commands/data/record.ts](https://github.com/salesforcecli/cli-taxonomy-experiment/blob/v1.4.1/src/commands/data/record.ts)_
-
-## `sf data:schema:describe`
-
-describe the data schema
-
-```
-USAGE
-  $ sf data:schema:describe
-
-DESCRIPTION
-  Describe the data schema.
-
-EXAMPLE
-  sf data schema describe
-```
-
-_See code: [src/commands/data/schema/describe.ts](https://github.com/salesforcecli/cli-taxonomy-experiment/blob/v1.4.1/src/commands/data/schema/describe.ts)_
+_See code: [src/commands/data/data.ts](https://github.com/salesforcecli/cli-taxonomy-experiment/blob/v1.4.2/src/commands/data/data.ts)_
 
 ## `sf env:alias:set [ALIAS]`
 
@@ -256,6 +203,7 @@ USAGE
 
 OPTIONS
   -t, --targetEnv=targetEnv  The environment to set an alias for
+  --json                     format output as json
 
 DESCRIPTION
   Set an alias for an environment.
@@ -264,7 +212,7 @@ EXAMPLE
   sf env alias set [alias] -t [env]
 ```
 
-_See code: [src/commands/env/alias/set.ts](https://github.com/salesforcecli/cli-taxonomy-experiment/blob/v1.4.1/src/commands/env/alias/set.ts)_
+_See code: [src/commands/env/alias/set.ts](https://github.com/salesforcecli/cli-taxonomy-experiment/blob/v1.4.2/src/commands/env/alias/set.ts)_
 
 ## `sf env:alias:unset [ALIAS]`
 
@@ -276,6 +224,7 @@ USAGE
 
 OPTIONS
   -t, --targetEnv=targetEnv  The environment to unset an alias for
+  --json                     format output as json
 
 DESCRIPTION
   Unset an alias for an environment.
@@ -284,7 +233,7 @@ EXAMPLE
   sf env alias unset [alias] -t [env]
 ```
 
-_See code: [src/commands/env/alias/unset.ts](https://github.com/salesforcecli/cli-taxonomy-experiment/blob/v1.4.1/src/commands/env/alias/unset.ts)_
+_See code: [src/commands/env/alias/unset.ts](https://github.com/salesforcecli/cli-taxonomy-experiment/blob/v1.4.2/src/commands/env/alias/unset.ts)_
 
 ## `sf env:create:compute [ENVNAME]`
 
@@ -301,7 +250,7 @@ EXAMPLE
   sf env create compute
 ```
 
-_See code: [src/commands/env/create/compute.ts](https://github.com/salesforcecli/cli-taxonomy-experiment/blob/v1.4.1/src/commands/env/create/compute.ts)_
+_See code: [src/commands/env/create/compute.ts](https://github.com/salesforcecli/cli-taxonomy-experiment/blob/v1.4.2/src/commands/env/create/compute.ts)_
 
 ## `sf env:create:org [ENVNAME]`
 
@@ -318,7 +267,7 @@ EXAMPLE
   sf env create org
 ```
 
-_See code: [src/commands/env/create/org.ts](https://github.com/salesforcecli/cli-taxonomy-experiment/blob/v1.4.1/src/commands/env/create/org.ts)_
+_See code: [src/commands/env/create/org.ts](https://github.com/salesforcecli/cli-taxonomy-experiment/blob/v1.4.2/src/commands/env/create/org.ts)_
 
 ## `sf env:display`
 
@@ -335,7 +284,7 @@ EXAMPLE
   sf env display
 ```
 
-_See code: [src/commands/env/display.ts](https://github.com/salesforcecli/cli-taxonomy-experiment/blob/v1.4.1/src/commands/env/display.ts)_
+_See code: [src/commands/env/display.ts](https://github.com/salesforcecli/cli-taxonomy-experiment/blob/v1.4.2/src/commands/env/display.ts)_
 
 ## `sf env:list`
 
@@ -350,6 +299,7 @@ OPTIONS
   --columns=columns       only show provided columns (comma-separated)
   --csv                   output is csv format [alias: --output=csv]
   --filter=filter         filter property by partial string matching, ex: name=foo
+  --json                  format output as json
   --no-header             hide table header from output
   --no-truncate           do not truncate output to fit screen
   --output=csv|json|yaml  output in a more machine friendly format
@@ -365,7 +315,91 @@ EXAMPLES
   sf env list --remote
 ```
 
-_See code: [src/commands/env/list.ts](https://github.com/salesforcecli/cli-taxonomy-experiment/blob/v1.4.1/src/commands/env/list.ts)_
+_See code: [src/commands/env/list.ts](https://github.com/salesforcecli/cli-taxonomy-experiment/blob/v1.4.2/src/commands/env/list.ts)_
+
+## `sf env:log:get`
+
+Get env logs
+
+```
+USAGE
+  $ sf env:log:get
+
+EXAMPLE
+  sf env log get
+```
+
+_See code: [src/commands/env/log/get.ts](https://github.com/salesforcecli/cli-taxonomy-experiment/blob/v1.4.2/src/commands/env/log/get.ts)_
+
+## `sf env:log:list`
+
+List env logs
+
+```
+USAGE
+  $ sf env:log:list
+
+EXAMPLE
+  sf env log list
+```
+
+_See code: [src/commands/env/log/list.ts](https://github.com/salesforcecli/cli-taxonomy-experiment/blob/v1.4.2/src/commands/env/log/list.ts)_
+
+## `sf env:log:tail`
+
+Stream env logs
+
+```
+USAGE
+  $ sf env:log:tail
+
+EXAMPLE
+  sf env log tail
+```
+
+_See code: [src/commands/env/log/tail.ts](https://github.com/salesforcecli/cli-taxonomy-experiment/blob/v1.4.2/src/commands/env/log/tail.ts)_
+
+## `sf env:logdrain:add`
+
+Adds a log drain or log handler
+
+```
+USAGE
+  $ sf env:logdrain:add
+
+EXAMPLE
+  sf env logdrain add
+```
+
+_See code: [src/commands/env/logdrain/add.ts](https://github.com/salesforcecli/cli-taxonomy-experiment/blob/v1.4.2/src/commands/env/logdrain/add.ts)_
+
+## `sf env:logdrain:list`
+
+Lists log drains
+
+```
+USAGE
+  $ sf env:logdrain:list
+
+EXAMPLE
+  sf env logdrain list
+```
+
+_See code: [src/commands/env/logdrain/list.ts](https://github.com/salesforcecli/cli-taxonomy-experiment/blob/v1.4.2/src/commands/env/logdrain/list.ts)_
+
+## `sf env:logdrain:remove`
+
+Removes a log drain or log handler
+
+```
+USAGE
+  $ sf env:logdrain:remove
+
+EXAMPLE
+  sf env logdrain remove
+```
+
+_See code: [src/commands/env/logdrain/remove.ts](https://github.com/salesforcecli/cli-taxonomy-experiment/blob/v1.4.2/src/commands/env/logdrain/remove.ts)_
 
 ## `sf env:open`
 
@@ -377,6 +411,7 @@ USAGE
 
 OPTIONS
   --browser=browser  browser to open env with (example: "firefox", "safari")
+  --json             format output as json
 
 DESCRIPTION
   Open an envioronment on the browser.
@@ -385,24 +420,7 @@ EXAMPLE
   sf env open --browser chrome
 ```
 
-_See code: [src/commands/env/open.ts](https://github.com/salesforcecli/cli-taxonomy-experiment/blob/v1.4.1/src/commands/env/open.ts)_
-
-## `sf env:setup`
-
-setup env
-
-```
-USAGE
-  $ sf env:setup
-
-DESCRIPTION
-  Setup environment.
-
-EXAMPLE
-  sf env setup
-```
-
-_See code: [src/commands/env/setup.ts](https://github.com/salesforcecli/cli-taxonomy-experiment/blob/v1.4.1/src/commands/env/setup.ts)_
+_See code: [src/commands/env/open.ts](https://github.com/salesforcecli/cli-taxonomy-experiment/blob/v1.4.2/src/commands/env/open.ts)_
 
 ## `sf env:usage`
 
@@ -420,109 +438,155 @@ DESCRIPTION
   Show usage and limits for a specific environment.
 ```
 
-_See code: [src/commands/env/usage.ts](https://github.com/salesforcecli/cli-taxonomy-experiment/blob/v1.4.1/src/commands/env/usage.ts)_
+_See code: [src/commands/env/usage.ts](https://github.com/salesforcecli/cli-taxonomy-experiment/blob/v1.4.2/src/commands/env/usage.ts)_
 
-## `sf event:create:event`
+## `sf env:var:get`
 
-create an event
-
-```
-USAGE
-  $ sf event:create:event
-
-DESCRIPTION
-  Create an event.
-
-EXAMPLE
-  sf event create event
-```
-
-_See code: [src/commands/event/create/event.ts](https://github.com/salesforcecli/cli-taxonomy-experiment/blob/v1.4.1/src/commands/event/create/event.ts)_
-
-## `sf event:create:topic`
-
-create an event topic
+Gets an environment variable from a remote environment
 
 ```
 USAGE
-  $ sf event:create:topic
-
-DESCRIPTION
-  Create an event topic.
+  $ sf env:var:get
 
 EXAMPLE
-  sf event create topic
+  sf env var get
 ```
 
-_See code: [src/commands/event/create/topic.ts](https://github.com/salesforcecli/cli-taxonomy-experiment/blob/v1.4.1/src/commands/event/create/topic.ts)_
+_See code: [src/commands/env/var/get.ts](https://github.com/salesforcecli/cli-taxonomy-experiment/blob/v1.4.2/src/commands/env/var/get.ts)_
 
-## `sf event:list`
+## `sf env:var:list`
 
-list events
+Lists environment variables from a remote environment
 
 ```
 USAGE
-  $ sf event:list
-
-DESCRIPTION
-  List events.
+  $ sf env:var:list
 
 EXAMPLE
-  sf event list
+  sf env var list
 ```
 
-_See code: [src/commands/event/list.ts](https://github.com/salesforcecli/cli-taxonomy-experiment/blob/v1.4.1/src/commands/event/list.ts)_
+_See code: [src/commands/env/var/list.ts](https://github.com/salesforcecli/cli-taxonomy-experiment/blob/v1.4.2/src/commands/env/var/list.ts)_
 
-## `sf event:send`
+## `sf env:var:set`
 
-send events
+Sets an environment variable in a remote environment
 
 ```
 USAGE
-  $ sf event:send
-
-DESCRIPTION
-  Send events.
+  $ sf env:var:set
 
 EXAMPLE
-  sf event send
+  sf env var set
 ```
 
-_See code: [src/commands/event/send.ts](https://github.com/salesforcecli/cli-taxonomy-experiment/blob/v1.4.1/src/commands/event/send.ts)_
+_See code: [src/commands/env/var/set.ts](https://github.com/salesforcecli/cli-taxonomy-experiment/blob/v1.4.2/src/commands/env/var/set.ts)_
 
-## `sf event:subscribe`
+## `sf env:var:unset`
 
-subscribe to an event
+Unsets an environment variable from a remote environment
 
 ```
 USAGE
-  $ sf event:subscribe
-
-DESCRIPTION
-  Subscribe to an event.
+  $ sf env:var:unset
 
 EXAMPLE
-  sf event subscribe
+  sf env var unset
 ```
 
-_See code: [src/commands/event/subscribe.ts](https://github.com/salesforcecli/cli-taxonomy-experiment/blob/v1.4.1/src/commands/event/subscribe.ts)_
+_See code: [src/commands/env/var/unset.ts](https://github.com/salesforcecli/cli-taxonomy-experiment/blob/v1.4.2/src/commands/env/var/unset.ts)_
 
-## `sf event:unsubscribe`
+## `sf event:event`
 
-unsubscribe to an event
+Placeholder topic
 
 ```
 USAGE
-  $ sf event:unsubscribe
-
-DESCRIPTION
-  Unsubscribe to an event.
+  $ sf event:event
 
 EXAMPLE
-  sf event unsubscribe
+  sf event ...
 ```
 
-_See code: [src/commands/event/unsubscribe.ts](https://github.com/salesforcecli/cli-taxonomy-experiment/blob/v1.4.1/src/commands/event/unsubscribe.ts)_
+_See code: [src/commands/event/event.ts](https://github.com/salesforcecli/cli-taxonomy-experiment/blob/v1.4.2/src/commands/event/event.ts)_
+
+## `sf generate:analytics:template`
+
+create an analytics template
+
+```
+USAGE
+  $ sf generate:analytics:template
+
+EXAMPLE
+  sf generate analytics template
+```
+
+_See code: [src/commands/generate/analytics/template.ts](https://github.com/salesforcecli/cli-taxonomy-experiment/blob/v1.4.2/src/commands/generate/analytics/template.ts)_
+
+## `sf generate:apex:class`
+
+create an apex class
+
+```
+USAGE
+  $ sf generate:apex:class
+
+OPTIONS
+  -n, --name=name  class name
+  --json           format output as json
+
+EXAMPLE
+  sf generate apex class
+```
+
+_See code: [src/commands/generate/apex/class.ts](https://github.com/salesforcecli/cli-taxonomy-experiment/blob/v1.4.2/src/commands/generate/apex/class.ts)_
+
+## `sf generate:apex:test`
+
+create an apex test
+
+```
+USAGE
+  $ sf generate:apex:test
+
+EXAMPLE
+  sf generate apex test
+```
+
+_See code: [src/commands/generate/apex/test.ts](https://github.com/salesforcecli/cli-taxonomy-experiment/blob/v1.4.2/src/commands/generate/apex/test.ts)_
+
+## `sf generate:apex:trigger`
+
+create an apex trigger
+
+```
+USAGE
+  $ sf generate:apex:trigger
+
+EXAMPLE
+  sf generate apex trigger
+```
+
+_See code: [src/commands/generate/apex/trigger.ts](https://github.com/salesforcecli/cli-taxonomy-experiment/blob/v1.4.2/src/commands/generate/apex/trigger.ts)_
+
+## `sf generate:community`
+
+create a community
+
+```
+USAGE
+  $ sf generate:community
+
+OPTIONS
+  -n, --name=name  community name
+  --json           format output as json
+
+EXAMPLE
+  sf generate community
+```
+
+_See code: [src/commands/generate/community.ts](https://github.com/salesforcecli/cli-taxonomy-experiment/blob/v1.4.2/src/commands/generate/community.ts)_
 
 ## `sf generate:function`
 
@@ -535,13 +599,88 @@ USAGE
 OPTIONS
   -l, --language=node|java  function language
   -n, --name=name           function module name
+  --json                    format output as json
 
 EXAMPLES
   sf generate function -l node mynodefunction
   sf generate function -l java myjavafunction
 ```
 
-_See code: [src/commands/generate/function.ts](https://github.com/salesforcecli/cli-taxonomy-experiment/blob/v1.4.1/src/commands/generate/function.ts)_
+_See code: [src/commands/generate/function.ts](https://github.com/salesforcecli/cli-taxonomy-experiment/blob/v1.4.2/src/commands/generate/function.ts)_
+
+## `sf generate:lightning:component`
+
+create a lightning component
+
+```
+USAGE
+  $ sf generate:lightning:component
+
+EXAMPLE
+  sf generate lightning component
+```
+
+_See code: [src/commands/generate/lightning/component.ts](https://github.com/salesforcecli/cli-taxonomy-experiment/blob/v1.4.2/src/commands/generate/lightning/component.ts)_
+
+## `sf generate:lightning:event`
+
+create a lightning event
+
+```
+USAGE
+  $ sf generate:lightning:event
+
+EXAMPLE
+  sf generate lightning event
+```
+
+_See code: [src/commands/generate/lightning/event.ts](https://github.com/salesforcecli/cli-taxonomy-experiment/blob/v1.4.2/src/commands/generate/lightning/event.ts)_
+
+## `sf generate:lightning:interface`
+
+create a lightning interface
+
+```
+USAGE
+  $ sf generate:lightning:interface
+
+EXAMPLE
+  sf generate lightning interface
+```
+
+_See code: [src/commands/generate/lightning/interface.ts](https://github.com/salesforcecli/cli-taxonomy-experiment/blob/v1.4.2/src/commands/generate/lightning/interface.ts)_
+
+## `sf generate:project`
+
+create a Salesforce project
+
+```
+USAGE
+  $ sf generate:project
+
+OPTIONS
+  -n, --name=name  project name
+  --json           format output as json
+
+EXAMPLE
+  sf generate project
+```
+
+_See code: [src/commands/generate/project.ts](https://github.com/salesforcecli/cli-taxonomy-experiment/blob/v1.4.2/src/commands/generate/project.ts)_
+
+## `sf heroku:heroku`
+
+Placeholder topic
+
+```
+USAGE
+  $ sf heroku:heroku
+
+EXAMPLE
+  sf heroku ...
+```
+
+_See code: [src/commands/heroku/heroku.ts](https://github.com/salesforcecli/cli-taxonomy-experiment/blob/v1.4.2/src/commands/heroku/heroku.ts)_
 
 ## `sf login`
 
@@ -551,11 +690,14 @@ Log in interactively to Salesforce orgs and other services.
 USAGE
   $ sf login
 
+OPTIONS
+  --json  format output as json
+
 EXAMPLE
   sf login
 ```
 
-_See code: [src/commands/login.ts](https://github.com/salesforcecli/cli-taxonomy-experiment/blob/v1.4.1/src/commands/login.ts)_
+_See code: [src/commands/login.ts](https://github.com/salesforcecli/cli-taxonomy-experiment/blob/v1.4.2/src/commands/login.ts)_
 
 ## `sf login:functions`
 
@@ -569,13 +711,14 @@ OPTIONS
   -f, --jwt-file=jwt-file          file containing the JWT private key
   -i, --client-id=client-id        OAuth client ID (sometimes called the consumer key)
   --browser=chrome|firefox|safari  browser to open SSO with
+  --json                           format output as json
 
 EXAMPLES
   sf login functions
   sf login functions --jwt-file=./jwt.key --client-id XXXXXXXXXXXXXXX
 ```
 
-_See code: [src/commands/login/functions.ts](https://github.com/salesforcecli/cli-taxonomy-experiment/blob/v1.4.1/src/commands/login/functions.ts)_
+_See code: [src/commands/login/functions.ts](https://github.com/salesforcecli/cli-taxonomy-experiment/blob/v1.4.2/src/commands/login/functions.ts)_
 
 ## `sf login:jwt`
 
@@ -591,6 +734,7 @@ OPTIONS
   -r, --login-url=login-url                [default: https://login.salesforce.com] the login url of the auth provider
   -u, --username=username                  (required) authentication username
   --alias=alias                            set an alias for the account or environment
+  --json                                   format output as json
 
 DESCRIPTION
   headlessly login to a Salesforce organization using JSON Web Tokens
@@ -602,7 +746,7 @@ EXAMPLE
   sf login -i <client-id> -f <path-to-key-file> -u <username> -r https://<mydomain>.my.salesforce.com
 ```
 
-_See code: [src/commands/login/jwt.ts](https://github.com/salesforcecli/cli-taxonomy-experiment/blob/v1.4.1/src/commands/login/jwt.ts)_
+_See code: [src/commands/login/jwt.ts](https://github.com/salesforcecli/cli-taxonomy-experiment/blob/v1.4.2/src/commands/login/jwt.ts)_
 
 ## `sf login:org`
 
@@ -618,12 +762,16 @@ OPTIONS
   --alias=alias                    set an alias for the environment - see all aliases using `sf env alias list`
   --browser=chrome|firefox|safari  browser to open SSO with
   --expires-in=expires-in          duration of token in seconds if supported by the auth provider (default 1 year)
+  --json                           format output as json
 
-EXAMPLE
+EXAMPLES
+  Example one
+  sf login org
+  The login-url parameter allows you to choose which domain to log into
   sf login org --login-url https://<mydomain>.my.salesforce.com
 ```
 
-_See code: [src/commands/login/org.ts](https://github.com/salesforcecli/cli-taxonomy-experiment/blob/v1.4.1/src/commands/login/org.ts)_
+_See code: [src/commands/login/org.ts](https://github.com/salesforcecli/cli-taxonomy-experiment/blob/v1.4.2/src/commands/login/org.ts)_
 
 ## `sf logout`
 
@@ -641,75 +789,159 @@ EXAMPLES
   sf logout [user]
 ```
 
-_See code: [src/commands/logout.ts](https://github.com/salesforcecli/cli-taxonomy-experiment/blob/v1.4.1/src/commands/logout.ts)_
+_See code: [src/commands/logout.ts](https://github.com/salesforcecli/cli-taxonomy-experiment/blob/v1.4.2/src/commands/logout.ts)_
 
-## `sf package:create`
+## `sf package:package`
 
-create packages
-
-```
-USAGE
-  $ sf package:create
-
-DESCRIPTION
-  Create packages.
-
-EXAMPLE
-  sf package create
-```
-
-_See code: [src/commands/package/create.ts](https://github.com/salesforcecli/cli-taxonomy-experiment/blob/v1.4.1/src/commands/package/create.ts)_
-
-## `sf package:install`
-
-install packages
+Placeholder topic
 
 ```
 USAGE
-  $ sf package:install
-
-DESCRIPTION
-  Install packages.
+  $ sf package:package
 
 EXAMPLE
-  sf package install
+  sf package ...
 ```
 
-_See code: [src/commands/package/install.ts](https://github.com/salesforcecli/cli-taxonomy-experiment/blob/v1.4.1/src/commands/package/install.ts)_
+_See code: [src/commands/package/package.ts](https://github.com/salesforcecli/cli-taxonomy-experiment/blob/v1.4.2/src/commands/package/package.ts)_
 
-## `sf package:list`
+## `sf plugins`
 
-list packages
+list installed plugins
 
 ```
 USAGE
-  $ sf package:list
+  $ sf plugins
 
-DESCRIPTION
-  List packages.
+OPTIONS
+  --core  show core plugins
 
 EXAMPLE
-  sf package list
+  $ sf plugins
 ```
 
-_See code: [src/commands/package/list.ts](https://github.com/salesforcecli/cli-taxonomy-experiment/blob/v1.4.1/src/commands/package/list.ts)_
+_See code: [@oclif/plugin-plugins](https://github.com/oclif/plugin-plugins/blob/v1.10.0/src/commands/plugins/index.ts)_
 
-## `sf package:update`
+## `sf plugins:inspect PLUGIN...`
 
-update packages
+displays installation properties of a plugin
 
 ```
 USAGE
-  $ sf package:update
+  $ sf plugins:inspect PLUGIN...
 
-DESCRIPTION
-  Update packages.
+ARGUMENTS
+  PLUGIN  [default: .] plugin to inspect
+
+OPTIONS
+  -h, --help     show CLI help
+  -v, --verbose
 
 EXAMPLE
-  sf package update
+  $ sf plugins:inspect myplugin
 ```
 
-_See code: [src/commands/package/update.ts](https://github.com/salesforcecli/cli-taxonomy-experiment/blob/v1.4.1/src/commands/package/update.ts)_
+_See code: [@oclif/plugin-plugins](https://github.com/oclif/plugin-plugins/blob/v1.10.0/src/commands/plugins/inspect.ts)_
+
+## `sf plugins:install PLUGIN...`
+
+installs a plugin into the CLI
+
+```
+USAGE
+  $ sf plugins:install PLUGIN...
+
+ARGUMENTS
+  PLUGIN  plugin to install
+
+OPTIONS
+  -f, --force    yarn install with force flag
+  -h, --help     show CLI help
+  -v, --verbose
+
+DESCRIPTION
+  Can be installed from npm or a git url.
+
+  Installation of a user-installed plugin will override a core plugin.
+
+  e.g. If you have a core plugin that has a 'hello' command, installing a user-installed plugin with a 'hello' command 
+  will override the core plugin implementation. This is useful if a user needs to update core plugin functionality in 
+  the CLI without the need to patch and update the whole CLI.
+
+ALIASES
+  $ sf plugins:add
+
+EXAMPLES
+  $ sf plugins:install myplugin 
+  $ sf plugins:install https://github.com/someuser/someplugin
+  $ sf plugins:install someuser/someplugin
+```
+
+_See code: [@oclif/plugin-plugins](https://github.com/oclif/plugin-plugins/blob/v1.10.0/src/commands/plugins/install.ts)_
+
+## `sf plugins:link PLUGIN`
+
+links a plugin into the CLI for development
+
+```
+USAGE
+  $ sf plugins:link PLUGIN
+
+ARGUMENTS
+  PATH  [default: .] path to plugin
+
+OPTIONS
+  -h, --help     show CLI help
+  -v, --verbose
+
+DESCRIPTION
+  Installation of a linked plugin will override a user-installed or core plugin.
+
+  e.g. If you have a user-installed or core plugin that has a 'hello' command, installing a linked plugin with a 'hello' 
+  command will override the user-installed or core plugin implementation. This is useful for development work.
+
+EXAMPLE
+  $ sf plugins:link myplugin
+```
+
+_See code: [@oclif/plugin-plugins](https://github.com/oclif/plugin-plugins/blob/v1.10.0/src/commands/plugins/link.ts)_
+
+## `sf plugins:uninstall PLUGIN...`
+
+removes a plugin from the CLI
+
+```
+USAGE
+  $ sf plugins:uninstall PLUGIN...
+
+ARGUMENTS
+  PLUGIN  plugin to uninstall
+
+OPTIONS
+  -h, --help     show CLI help
+  -v, --verbose
+
+ALIASES
+  $ sf plugins:unlink
+  $ sf plugins:remove
+```
+
+_See code: [@oclif/plugin-plugins](https://github.com/oclif/plugin-plugins/blob/v1.10.0/src/commands/plugins/uninstall.ts)_
+
+## `sf plugins:update`
+
+update installed plugins
+
+```
+USAGE
+  $ sf plugins:update
+
+OPTIONS
+  -h, --help     show CLI help
+  -v, --verbose
+```
+
+_See code: [@oclif/plugin-plugins](https://github.com/oclif/plugin-plugins/blob/v1.10.0/src/commands/plugins/update.ts)_
 
 ## `sf project:deploy`
 
@@ -722,6 +954,7 @@ USAGE
 OPTIONS
   --directory=directory    directory to deploy
   --interactive            set
+  --json                   format output as json
   --target-env=target-env  set
 
 DESCRIPTION
@@ -737,7 +970,21 @@ EXAMPLES
   sf project deploy --target-env=devhub
 ```
 
-_See code: [src/commands/project/deploy.ts](https://github.com/salesforcecli/cli-taxonomy-experiment/blob/v1.4.1/src/commands/project/deploy.ts)_
+_See code: [src/commands/project/deploy.ts](https://github.com/salesforcecli/cli-taxonomy-experiment/blob/v1.4.2/src/commands/project/deploy.ts)_
+
+## `sf project:deploy:functions`
+
+Deploys a SF function
+
+```
+USAGE
+  $ sf project:deploy:functions
+
+EXAMPLE
+  sf project deploy functions
+```
+
+_See code: [src/commands/project/deploy/functions.ts](https://github.com/salesforcecli/cli-taxonomy-experiment/blob/v1.4.2/src/commands/project/deploy/functions.ts)_
 
 ## `sf project:deploy:org`
 
@@ -751,6 +998,7 @@ OPTIONS
   -d, --directory=directory  list of paths to the local source files to deploy
   -m, --metadata=metadata    list of metadata component names
   -x, --manifest=manifest    file path for manifest (package.xml) of components to deploy
+  --json                     format output as json
   --target-env=target-env    (required) environment you want to deploy to
 
 EXAMPLES
@@ -760,7 +1008,21 @@ EXAMPLES
   sf project deploy org --manifest package.xml --target-env=devhub
 ```
 
-_See code: [src/commands/project/deploy/org.ts](https://github.com/salesforcecli/cli-taxonomy-experiment/blob/v1.4.1/src/commands/project/deploy/org.ts)_
+_See code: [src/commands/project/deploy/org.ts](https://github.com/salesforcecli/cli-taxonomy-experiment/blob/v1.4.2/src/commands/project/deploy/org.ts)_
+
+## `sf project:deploy:retrieve:org`
+
+Retrieve a SF org
+
+```
+USAGE
+  $ sf project:deploy:retrieve:org
+
+EXAMPLE
+  sf project retrieve org
+```
+
+_See code: [src/commands/project/deploy/retrieve/org.ts](https://github.com/salesforcecli/cli-taxonomy-experiment/blob/v1.4.2/src/commands/project/deploy/retrieve/org.ts)_
 
 ## `sf reset`
 
@@ -771,7 +1033,21 @@ USAGE
   $ sf reset
 ```
 
-_See code: [src/commands/reset.ts](https://github.com/salesforcecli/cli-taxonomy-experiment/blob/v1.4.1/src/commands/reset.ts)_
+_See code: [src/commands/reset.ts](https://github.com/salesforcecli/cli-taxonomy-experiment/blob/v1.4.2/src/commands/reset.ts)_
+
+## `sf run:apex`
+
+Run Apex in a SF org
+
+```
+USAGE
+  $ sf run:apex
+
+EXAMPLE
+  sf run apex
+```
+
+_See code: [src/commands/run/apex.ts](https://github.com/salesforcecli/cli-taxonomy-experiment/blob/v1.4.2/src/commands/run/apex.ts)_
 
 ## `sf run:function`
 
@@ -785,6 +1061,7 @@ OPTIONS
   -h, --headers=headers  Set headers of payload request
   -l, --url=url          the local URL endpoint of the Function to be invoked
   -p, --payload=payload  The data to send to the function. Also accepts @file.txt format
+  --json                 format output as json
   --structured           Send data as JSON
 
 EXAMPLES
@@ -794,7 +1071,7 @@ EXAMPLES
   sf run function -u http://localhost:8080 (http://localhost:8080/) -p '{"id": 12345}' --structured
 ```
 
-_See code: [src/commands/run/function.ts](https://github.com/salesforcecli/cli-taxonomy-experiment/blob/v1.4.1/src/commands/run/function.ts)_
+_See code: [src/commands/run/function.ts](https://github.com/salesforcecli/cli-taxonomy-experiment/blob/v1.4.2/src/commands/run/function.ts)_
 
 ## `sf run:function:start`
 
@@ -812,6 +1089,7 @@ OPTIONS
   -v, --verbose                      Output additional logs
   --builder=builder                  Set custom builder image
   --clear-cache                      Clear associated cache before executing
+  --json                             format output as json
 
   --network=network                  Connect and build containers to a network. This can be useful to build containers
                                      which require a local resource
@@ -824,7 +1102,35 @@ EXAMPLES
   sf run function start --network host --no-pull --clear-cache --debug-port 9000
 ```
 
-_See code: [src/commands/run/function/start.ts](https://github.com/salesforcecli/cli-taxonomy-experiment/blob/v1.4.1/src/commands/run/function/start.ts)_
+_See code: [src/commands/run/function/start.ts](https://github.com/salesforcecli/cli-taxonomy-experiment/blob/v1.4.2/src/commands/run/function/start.ts)_
+
+## `sf test:apex`
+
+Run Apex tests in a SF org
+
+```
+USAGE
+  $ sf test:apex
+
+EXAMPLE
+  sf test apex
+```
+
+_See code: [src/commands/test/apex.ts](https://github.com/salesforcecli/cli-taxonomy-experiment/blob/v1.4.2/src/commands/test/apex.ts)_
+
+## `sf test:function`
+
+Runs Function testing suite
+
+```
+USAGE
+  $ sf test:function
+
+EXAMPLE
+  sf test function
+```
+
+_See code: [src/commands/test/function.ts](https://github.com/salesforcecli/cli-taxonomy-experiment/blob/v1.4.2/src/commands/test/function.ts)_
 
 ## `sf usage`
 
@@ -841,7 +1147,7 @@ DESCRIPTION
   Show usage and limits across all Salesforce accounts.
 ```
 
-_See code: [src/commands/usage.ts](https://github.com/salesforcecli/cli-taxonomy-experiment/blob/v1.4.1/src/commands/usage.ts)_
+_See code: [src/commands/usage.ts](https://github.com/salesforcecli/cli-taxonomy-experiment/blob/v1.4.2/src/commands/usage.ts)_
 
 ## `sf whoami`
 
@@ -855,5 +1161,5 @@ DESCRIPTION
   Get information on accounts that have been logged into.
 ```
 
-_See code: [src/commands/whoami.ts](https://github.com/salesforcecli/cli-taxonomy-experiment/blob/v1.4.1/src/commands/whoami.ts)_
+_See code: [src/commands/whoami.ts](https://github.com/salesforcecli/cli-taxonomy-experiment/blob/v1.4.2/src/commands/whoami.ts)_
 <!-- commandsstop -->
