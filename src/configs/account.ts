@@ -40,7 +40,7 @@ export default class Accounts extends ConfigFile<Dictionary<string>> {
   }
 
   public set(key: string, value: Account): Optional<Account> {
-    return super.set(key, value) as Optional<Account>;
+    return (super.set(key, value) as unknown) as Optional<Account>;
   }
 
   public unset(key: string): boolean {
