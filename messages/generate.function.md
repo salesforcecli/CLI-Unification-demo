@@ -8,6 +8,6 @@ Specify the function's programming language, such as Typescript or Javascript, w
 
 # examples
 
-- Create a Typescript function called myFunction:
+- Generate a Typescript function called myFunction:
 
   sf generate function --name=myFunction --language=typescript
