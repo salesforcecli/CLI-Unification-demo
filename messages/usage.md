@@ -1,3 +1,3 @@
 # summary
 
-Displays overall usage of your compute spend.
+Display overall usage of your compute spend.
