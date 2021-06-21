@@ -29,7 +29,7 @@ When designing CLI Unification we took the opportunity to improve the overall ex
 * Expanded help output, with less need to go to the online documentation
 * Consistent standards on:
     * Tables
-    * terminal output
+    * Terminal output
     * JSON schema
 * Prompting when a required flag is not included instead of erring out 
 * Interactive commands
