@@ -6,12 +6,13 @@
  */
 
 import { URL } from 'url';
-import { Flags, Command } from '@oclif/core';
 import { AnyJson } from '@salesforce/ts-types';
+import { Flags } from '@oclif/core';
+import SfCommand from '../../sf-command';
 
 import Aliases from '../../configs/aliases';
 
-export default class JWT extends Command {
+export default class JWT extends SfCommand {
   public static description = `
   headlessly login to a Salesforce organization using JSON Web Tokens
 
