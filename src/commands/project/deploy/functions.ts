@@ -5,12 +5,16 @@
  * For full license text, see LICENSE.txt file in the repo root or https://opensource.org/licenses/BSD-3-Clause
  */
 
+import { Messages } from '@salesforce/core';
 import SfCommand from '../../../sf-command';
 
-export default class ProjectDeployFunctions extends SfCommand {
-  public static description = 'Deploys a SF function';
+Messages.importMessagesDirectory(__dirname);
+const messages = Messages.loadMessages('@salesforce/sf-demo', 'project.deploy.functions');
 
-  public static examples = ['sf project deploy functions'];
+export default class ProjectDeployFunctions extends SfCommand {
+  public static summary = messages.getMessage('summary');
+
+  public static examples = messages.getMessages('examples');
 
   public async run(): Promise<void> {
     this.log('Deploying function...');
