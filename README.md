@@ -1,6 +1,10 @@
-# clidoscope-demo
+# Develop Across Salesforce With One CLI
 
-An experiment to explore a new taxonomy for all Salesforce clouds.
+Welcome to the Salesforce CLI Unification Demo CLI repo. We’re designing a new taxonomy and structure for Salesforce CLI with the intention of unifying all of Salesforce’s products under one CLI. Our goal is to provide a seamless developer experience when building applications on any Salesforce product as well as across products. The demo CLI is an interactive simulation setup with the new taxonomy and common workflows, it doesn't actually do anything or change your environment. Only a handful of commands have full help content. Please test it out and tell us what you think.
+
+## Strategy
+
+See Strategy and Structure for more details 
 
 ## Install
 
@@ -8,45 +12,38 @@ An experiment to explore a new taxonomy for all Salesforce clouds.
 npm install --global @salesforce/sf-demo
 sf help
 ```
+## Feedback
 
-## Contributing
+We built this demo CLI because we want feedback from the Salesforce Developer Community on the new structure. We also want to know whether our new design feels natural and is what you'd expect in a unified CLI experience. To provide feedback, use the issues tab in this repository.
 
-1. Please read our [Code of Conduct](CODE_OF_CONDUCT.md)
-2. Create a new issue before starting your project so that we can keep track of
-   what you are trying to add/fix. That way, we can also offer suggestions or
-   let you know if there is already an effort in progress.
-3. Fork this repository.
-4. [Build the plugin locally](#build)
-5. Create a _topic_ branch in your fork. Note, this step is recommended but technically not required if contributing using a fork.
-6. Edit the code in your fork.
-7. Write appropriate tests for your changes. Try to achieve at least 95% code coverage on any new code. No pull request will be accepted without unit tests.
-8. Sign CLA (see [CLA](#cla) below).
-9. Send us a pull request when you are done. We'll review your code, suggest any needed changes, and merge it in.
+Here’s the type of feedback we’re looking for:
 
-### CLA
+* Overall impressions.
+* How your experience could be improved. In particular:
+    * Was it easy to navigate?
+    * The commands: `project deploy`, `sf login`, and `env list` (along with a few others) have the updated help structure and output, is the help output useful?
+    * `sf login`, `sf env list`, and `sf project deploy` all simulate the cross cloud experience. Is this what you expected? What did you like? How could they be better? 
+* Are there `sfdx` commands that you use often but are missing from this demo CLI?  (Note that this demo CLI doesn’t include all the commands that we plan to have in `sf`. )
+* What did you like?
+* What could be better?
 
-External contributors will be required to sign a Contributor's License
-Agreement. You can do so by going to https://cla.salesforce.com/sign-cla.
+## Demo
 
-### Build
+There are two types of commands in this demo:
 
-To build the plugin locally, make sure to have yarn installed and run the following commands:
+1. Commands that simulate real workflows.
+2. Static commands provided to showcase the overall design, structure, and direction.
 
-```bash
-# Clone the repository
-git clone git@github.com:salesforcecli/cli-taxonomy-experiment
+*Simulation commands*
+Try running running the following commands:
 
-# Install the dependencies and compile
-yarn install
-yarn build
-```
+* sf login
+* sf project deploy
+* sf env list
+* sf whoami
 
-To use your plugin, run using the local `./bin/dev` or `./bin/dev.cmd` file. To run off compiled code, use `./bin/run` or `./bin/run.cmd`.
-
-```bash
-# Run using local run file.
-./bin/run <REPLACE_ME>
-```
+*Static commands*
+These topics are speculative and are provided as an example of the types of topics that we expect to deliver, please review and provide feedback. Run --help  with different levels of the demo CLI to navigate the tree, i.e. sf --help shows the top-level topics and commands, sf project --help shows the subtopics and commands under "project", etc.
 
 ## Commands
 
