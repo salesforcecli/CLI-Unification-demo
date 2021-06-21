@@ -5,9 +5,9 @@
  * For full license text, see LICENSE.txt file in the repo root or https://opensource.org/licenses/BSD-3-Clause
  */
 
-import { Command } from '@oclif/core';
+import SfCommand from '../../sf-command';
 
-export default class Event extends Command {
+export default class Event extends SfCommand {
   public static description = 'Placeholder topic';
 
   public static examples = ['sf event ...'];

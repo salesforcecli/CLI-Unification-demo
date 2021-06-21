@@ -5,13 +5,14 @@
  * For full license text, see LICENSE.txt file in the repo root or https://opensource.org/licenses/BSD-3-Clause
  */
 
-import { Flags, Errors, Command } from '@oclif/core';
+import { Flags, Errors } from '@oclif/core';
 import { AnyJson } from '@salesforce/ts-types';
 import { blue, cyan } from 'chalk';
+import SfCommand from '../../sf-command';
 import Environments from '../../configs/environments';
 import Aliases from '../../configs/aliases';
 
-export default class EnvConnect extends Command {
+export default class EnvConnect extends SfCommand {
   public static description = 'Delete an environment';
 
   public static examples = [];

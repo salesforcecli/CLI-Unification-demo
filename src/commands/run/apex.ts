@@ -5,9 +5,9 @@
  * For full license text, see LICENSE.txt file in the repo root or https://opensource.org/licenses/BSD-3-Clause
  */
 
-import { Command } from '@oclif/core';
+import SfCommand from '../../sf-command';
 
-export default class RunApex extends Command {
+export default class RunApex extends SfCommand {
   public static description = 'Run Apex in a SF org';
 
   public static examples = ['sf run apex'];

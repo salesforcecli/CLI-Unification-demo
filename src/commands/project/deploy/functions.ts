@@ -5,9 +5,9 @@
  * For full license text, see LICENSE.txt file in the repo root or https://opensource.org/licenses/BSD-3-Clause
  */
 
-import { Command } from '@oclif/core';
+import SfCommand from '../../../sf-command';
 
-export default class ProjectDeployFunctions extends Command {
+export default class ProjectDeployFunctions extends SfCommand {
   public static description = 'Deploys a SF function';
 
   public static examples = ['sf project deploy functions'];
