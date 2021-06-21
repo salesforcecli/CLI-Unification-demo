@@ -20,15 +20,15 @@ Complete these steps before you run this command:
 
 # examples
 
-This example shows a user with username jdoe@example.org logging into an org on the default instance URL (https://login.salesforce.org). The private key is stored in the file /Users/jdoe/JWT/server.key and the command uses the connected app with consumer key (client id) 04580y4051234051.  
+- This example shows a user with username jdoe@example.org logging into an org on the default instance URL (https://login.salesforce.org). The private key is stored in the file /Users/jdoe/JWT/server.key and the command uses the connected app with consumer key (client id) 04580y4051234051.  
  
    sf login org jwt --username jdoe@example.org --jwt-key-file /Users/jdoe/JWT/server.key --clientid 04580y4051234051
      
-SSet the org as the default and gives it an alias:
+- Set the org as the default and gives it an alias:
 
    sf login org jwt --username jdoe@example.org  --jwt-key-file /Users/jdoe/JWT/server.key --clientid 04580y4051234051  --alias ci-org --set-default
      
-Use the --instance-url flag log in to a sandbox:
+- Use the --instance-url flag log in to a sandbox:
   
      sf login org jwt --username jdoe@example.org --jwt-key-file /Users/jdoe/JWT/server.key --clientid 04580y4051234051 --alias ci-org --set-default --instance-url https://test.salesforce.com
    
