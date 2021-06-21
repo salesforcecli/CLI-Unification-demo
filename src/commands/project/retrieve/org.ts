@@ -5,12 +5,16 @@
  * For full license text, see LICENSE.txt file in the repo root or https://opensource.org/licenses/BSD-3-Clause
  */
 
+import { Messages } from '@salesforce/core';
 import SfCommand from '../../../sf-command';
 
-export default class ProjectRetrieveOrg extends SfCommand {
-  public static description = 'Retrieve a SF org';
+Messages.importMessagesDirectory(__dirname);
+const messages = Messages.loadMessages('@salesforce/sf-demo', 'project.retrieve.org');
 
-  public static examples = ['sf project retrieve org'];
+export default class ProjectRetrieveOrg extends SfCommand {
+  public static summary = messages.getMessage('summary');
+  public static description = messages.getMessage('description');
+  public static examples = messages.getMessages('examples');
 
   public async run(): Promise<void> {
     this.log('Retrieving org...');

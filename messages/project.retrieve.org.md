@@ -1,5 +1,5 @@
 # summary
-  
+
 Retrieve source from an org.
 
 # description
@@ -40,8 +40,10 @@ You must run this command from wihin a project.
 
       sf project retrieve org --manifest path/to/package.xml
 
-- Retrieve metadata from a package or multiple packages:
+- Retrieve metadata from a package:
 
       sf project retrieve org --package-names MyPackageName
+
+- Retrieve metadata from multiple packages:
 
       sf project retrieve org --package-names "Package1, PackageName With Spaces, Package3"
