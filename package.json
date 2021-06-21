@@ -44,16 +44,16 @@
         "description": "Manage events."
       },
       "generate": {
-        "description": "Generate local code artifacts, such as a project or Apex class."
+        "description": "Generate local code, such as a project or Apex class."
       },
       "project": {
-        "description": "Deploy and retrieve code to and from environments."
+        "description": "Deploy and retrieve code between your project and an environment."
       },
       "run": {
         "description": "Run code, such as anonymous Apex."
       },
       "test": {
-        "description": "Invoke tests on an environment."
+        "description": "Invoke tests in an environment."
       }
     }
   },
