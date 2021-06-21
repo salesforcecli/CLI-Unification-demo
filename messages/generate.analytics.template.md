@@ -1,6 +1,6 @@
 # summary
   
-Create a simple analytics template.
+Generate a simple analytics template.
 
 # description
 
@@ -10,6 +10,6 @@ The outputdir can be an absolute path or relative to the current working directo
 
 # examples
 
-- Create an analytics template called MyTemplate:
+- Generate an analytics template called MyTemplate:
 
   sf generate analytics template --template-name MyTemplate
