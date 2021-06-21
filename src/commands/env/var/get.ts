@@ -5,17 +5,14 @@
  * For full license text, see LICENSE.txt file in the repo root or https://opensource.org/licenses/BSD-3-Clause
  */
 
-import SfCommand from '../../sf-command';
+import SfCommand from '../../../sf-command';
 
-export default class ConfigSet extends SfCommand {
-  public static description = `set configs
+export default class EnvVarGet extends SfCommand {
+  public static description = 'Gets an environment variable from a remote environment';
 
-  Set configs.
-  `;
-
-  public static examples = ['sf config set'];
+  public static examples = ['sf env var get'];
 
   public async run(): Promise<void> {
-    this.log('Setting Config...');
+    this.log('Getting env var...');
   }
 }

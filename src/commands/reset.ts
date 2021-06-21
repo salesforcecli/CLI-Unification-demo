@@ -5,12 +5,12 @@
  * For full license text, see LICENSE.txt file in the repo root or https://opensource.org/licenses/BSD-3-Clause
  */
 
-import { Command } from '@oclif/core';
 import { AnyJson } from '@salesforce/ts-types';
 import { fs } from '@salesforce/core';
+import SfCommand from '../sf-command';
 import { CLI_CONFIG_PATH } from '../configs/constants';
 
-export default class JWT extends Command {
+export default class JWT extends SfCommand {
   public static description = 'reset data created by this CLI';
 
   public async run(): Promise<AnyJson> {

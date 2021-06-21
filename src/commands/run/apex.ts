@@ -5,21 +5,14 @@
  * For full license text, see LICENSE.txt file in the repo root or https://opensource.org/licenses/BSD-3-Clause
  */
 
-// import { Flags } from '@oclif/core';
-
 import SfCommand from '../../sf-command';
 
-export default class EnvSetup extends SfCommand {
-  public static description = `setup env
+export default class RunApex extends SfCommand {
+  public static description = 'Run Apex in a SF org';
 
-  Setup environment.
-  `;
-
-  public static examples = ['sf env setup'];
+  public static examples = ['sf run apex'];
 
   public async run(): Promise<void> {
-    // const { flags, args } = await this.parse(EnvSetup);
-
-    this.log('Setting up env...\n');
+    this.log('Running code...');
   }
 }

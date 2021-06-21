@@ -5,21 +5,14 @@
  * For full license text, see LICENSE.txt file in the repo root or https://opensource.org/licenses/BSD-3-Clause
  */
 
-// import { Flags } from '@oclif/core';
-
 import SfCommand from '../../sf-command';
 
-export default class EventSend extends SfCommand {
-  public static description = `send events
+export default class Package extends SfCommand {
+  public static description = 'Placeholder topic';
 
-  Send events.
-  `;
-
-  public static examples = ['sf event send'];
+  public static examples = ['sf package ...'];
 
   public async run(): Promise<void> {
-    // const { flags, args } = await this.parse(EventSend);
-
-    this.log('Sending event...\n');
+    this.log('This is a placeholder topic for the package plugin...');
   }
 }

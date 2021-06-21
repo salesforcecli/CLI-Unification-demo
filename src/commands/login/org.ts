@@ -7,18 +7,21 @@
 
 import { Flags } from '@oclif/core';
 import { AnyJson } from '@salesforce/ts-types';
+import { Messages } from '@salesforce/core';
 
 import SfCommand from '../../sf-command';
 import { Browser, loginOrg } from '../../utils';
 
-export default class OrgLogin extends SfCommand {
-  public static description = 'login to a Salesforce account';
+Messages.importMessagesDirectory(__dirname);
+const messages = Messages.loadMessages('@salesforce/sf-demo', 'login.org');
 
-  public static examples = ['sf login org --login-url https://<mydomain>.my.salesforce.com'];
+export default class OrgLogin extends SfCommand {
+  public static description = messages.getMessage('description');
+  public static examples = messages.getMessages('examples');
 
   public static flags = {
     alias: Flags.string({
-      description: 'set an alias for the environment - see all aliases using `sf env alias list`',
+      description: messages.getMessage('flags.alias.description'),
     }),
     browser: Flags.string({
       description: 'browser to open SSO with',

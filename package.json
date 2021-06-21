@@ -21,8 +21,11 @@
     "/bin"
   ],
   "oclif": {
-    "commands": "./lib/commands",
     "bin": "sf",
+    "commands": "./lib/commands",
+    "plugins": [
+      "@oclif/plugin-plugins"
+    ],
     "topicSeparator": " ",
     "topics": {
       "env": {
@@ -34,8 +37,9 @@
     }
   },
   "dependencies": {
-    "@oclif/core": "^0.5.5",
-    "@salesforce/core": "^2.15.4",
+    "@oclif/core": "^0.5.14",
+    "@oclif/plugin-plugins": "^1.10.0",
+    "@salesforce/core": "v3",
     "@salesforce/kit": "^1.5.0",
     "chalk": "^4.1.0",
     "cli-ux": "^5.5.1",
