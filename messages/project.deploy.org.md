@@ -1,5 +1,5 @@
 # summary
-  
+
 Deploy source to an org.
 
 # description
@@ -47,21 +47,22 @@ If the comma-separated list you’re supplying contains spaces, enclose the enti
 - Deploy all components listed in a manifest:
 
   sf project deploy org --manifest path/to/package.xml
+
 - Run the tests that aren’t in any managed packages as part of a deployment:
 
   sf project deploy org --metadata ApexClass --test-level RunLocalTests
 
 - Check whether a deployment would succeed (to prepare for Quick Deploy):
 
-  sf project deploy org --metadata ApexClass --test-level  RunAllTestsInOrg --check-only
+  sf project deploy org --metadata ApexClass --test-level RunAllTestsInOrg --check-only
 
 - Deploy an already validated deployment (Quick Deploy):
 
-   sf project deploy org --validated-deploy-request-id 0Af9A00000FTM6pSAH
+  sf project deploy org --validated-deploy-request-id 0Af9A00000FTM6pSAH
 
 - Deploy a .zip file:
 
-   sf project deploy org --zip-file path/to/zip/mypackage.zip
+  sf project deploy org --zip-file path/to/zip/mypackage.zip
 
 - Deploy a .zip file that points to a single package:
 
@@ -88,7 +89,6 @@ Note: A Metadata API deployment that includes Master-Detail relationships delete
 Root of local directory tree of files to deploy.
 
 # flags.deploy-dir.description
-
 
 The root must contain a valid package.xml file describing the entities in the directory structure. This flag is requiredto initiate a deployment if you don’t use --zip-file. If you specify both --zip-file and --deploy-dir, a zip file of the contents of the --deploy-dir directory is written to the location specified by --zip-file.
 
@@ -118,13 +118,13 @@ Deployment Apex testing level.
 
 Valid values are:
 
-   * NoTestRun—No tests are run. This test level applies only to deployments to development environments, such as sandbox, Developer Edition, or trial orgs.  This test level is the default for development environments.
+- NoTestRun — No tests are run. This test level applies only to deployments to development environments, such as sandbox, Developer Edition, or trial orgs. This test level is the default for development environments.
 
-   * RunSpecifiedTests—Runs only the tests that you specify with the --run-tests flag.  Code coverage requirements differ from the default coverage requirements when using this test level. Executed tests must comprise a minimum of 75% code coverage for each class and trigger in the deployment package. This coverage is computed for each class and trigger individually and is different than the overall coverage percentage.
+- RunSpecifiedTests — Runs only the tests that you specify with the --run-tests flag. Code coverage requirements differ from the default coverage requirements when using this test level. Executed tests must comprise a minimum of 75% code coverage for each class and trigger in the deployment package. This coverage is computed for each class and trigger individually and is different than the overall coverage percentage.
 
-   * RunLocalTests—All tests in your org are run, except the ones that originate from installed managed packages. This test level is the default for production deployments that include Apex classes or triggers.
+- RunLocalTests — All tests in your org are run, except the ones that originate from installed managed packages. This test level is the default for production deployments that include Apex classes or triggers.
 
-   * RunAllTestsInOrg—All tests in your org are run, including tests of managed packages.
+- RunAllTestsInOrg — All tests in your org are run, including tests of managed packages.
 
 If you don’t specify a test level, the default behavior depends on the contents of your deployment package. For more information, see “Running Tests in a Deployment” in the Metadata API Developer Guide.
 
@@ -142,15 +142,16 @@ Request ID of the validated deployment to run a Quick Deploy.
 
 # flags.validated-deploy-request-id.description
 
-Specifies the ID of a package with recently validated components to run a Quick Deploy.  Deploying a validation helps you shorten your deployment time because tests aren’t rerun. If you have a recent successful validation, you can deploy the validated components without running tests. A validation doesn’t save any components in the org.
+Specifies the ID of a package with recently validated components to run a Quick Deploy. Deploying a validation helps you shorten your deployment time because tests aren’t rerun. If you have a recent successful validation, you can deploy the validated components without running tests. A validation doesn’t save any components in the org.
 
 You use a validation only to check the success or failure messages that you would receive with an actual deployment. It doesn’t validate your components. This flag sets the checkOnly="true" parameter for your deployment. Before deploying a recent validation, ensure that the following requirements are met:
 
-  1. The components have been validated successfully for the target environment within the last 10 days.
-  2. As part of the validation, Apex tests in the target org have passed.
-  3. Code coverage requirements are met:
-   - If all tests in the org or all local tests are run, overall code coverage is at least 75%, and Apex triggers have some coverage.
-   - If specific tests are run with the RunSpecifiedTests test level, each class and trigger that was deployed is covered by at least 75% individually.
+1. The components have been validated successfully for the target environment within the last 10 days.
+2. As part of the validation, Apex tests in the target org have passed.
+3. Code coverage requirements are met:
+
+- If all tests in the org or all local tests are run, overall code coverage is at least 75%, and Apex triggers have some coverage.
+- If specific tests are run with the RunSpecifiedTests test level, each class and trigger that was deployed is covered by at least 75% individually.
 
 # flags.run-tests.summary
 
