@@ -29,7 +29,12 @@
     "topicSeparator": " ",
     "topics": {
       "env": {
-        "description": "Manage orgs and compute environments."
+        "description": "Manage orgs and compute environments.",
+        "subtopics": {
+              "create": {
+                "description": "Create environments."
+              }
+        }
       },
       "login": {
         "description": "Log into environments."
