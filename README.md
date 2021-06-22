@@ -1,6 +1,10 @@
-# clidoscope-demo
+# Develop Across Salesforce With One CLI
 
-An experiment to explore a new taxonomy for all Salesforce clouds.
+Welcome to the Salesforce CLI Unification Demo CLI repo. We’re designing a new taxonomy and structure for Salesforce CLI with the intention of unifying all of Salesforce’s products under one CLI. Our goal is to provide a seamless developer experience when building applications on any Salesforce product as well as across products. The demo CLI is an interactive simulation that implements the new taxonomy and common workflows, although it doesn't actually do anything or change your environment. Only a handful of commands have full help content. Please test it out and tell us what you think.
+
+## Strategy
+
+See [Strategy and Strucuture](STRATEGY.md) for more details.
 
 ## Install
 
@@ -9,107 +13,102 @@ npm install --global @salesforce/sf-demo
 sf help
 ```
 
-## Contributing
+## Feedback
 
-1. Please read our [Code of Conduct](CODE_OF_CONDUCT.md)
-2. Create a new issue before starting your project so that we can keep track of
-   what you are trying to add/fix. That way, we can also offer suggestions or
-   let you know if there is already an effort in progress.
-3. Fork this repository.
-4. [Build the plugin locally](#build)
-5. Create a _topic_ branch in your fork. Note, this step is recommended but technically not required if contributing using a fork.
-6. Edit the code in your fork.
-7. Write appropriate tests for your changes. Try to achieve at least 95% code coverage on any new code. No pull request will be accepted without unit tests.
-8. Sign CLA (see [CLA](#cla) below).
-9. Send us a pull request when you are done. We'll review your code, suggest any needed changes, and merge it in.
+We built this demo CLI because we want feedback from the Salesforce Developer Community on the new structure. We also want to know whether our new design feels natural and is what you'd expect in a unified CLI experience. To provide feedback, use the issues tab in this repository.
 
-### CLA
+Here’s the type of feedback we’re looking for:
 
-External contributors will be required to sign a Contributor's License
-Agreement. You can do so by going to https://cla.salesforce.com/sign-cla.
+- Overall impressions.
+- How your experience could be improved. In particular:
+  - Was it easy to navigate?
+  - The commands: `sf project deploy`, `sf login`, and `sf env list` (along with a few others) have the updated help structure and output. Is it useful?
+  - `sf login`, `sf env list`, and `sf project deploy` all simulate the cross cloud experience. Is this what you expected? What did you like? How could they be better?
+- Are there `sfdx` commands that you use often but are missing from this demo CLI? (Note that this demo CLI doesn’t include all the commands that we plan to have in `sf`. )
+- What did you like?
+- What could be better?
 
-### Build
+## Demo
 
-To build the plugin locally, make sure to have yarn installed and run the following commands:
+There are two types of commands in this demo:
 
-```bash
-# Clone the repository
-git clone git@github.com:salesforcecli/cli-taxonomy-experiment
+1. Commands that simulate real workflows.
+2. Static commands provided to showcase the overall design, structure, and direction.
 
-# Install the dependencies and compile
-yarn install
-yarn build
-```
+_Simulation commands_
+Try running running the following commands:
 
-To use your plugin, run using the local `./bin/dev` or `./bin/dev.cmd` file. To run off compiled code, use `./bin/run` or `./bin/run.cmd`.
+- sf login
+- sf project deploy
+- sf env list
+- sf whoami
 
-```bash
-# Run using local run file.
-./bin/run <REPLACE_ME>
-```
+_Static commands_
+These topics are speculative and are provided as an example of the types of topics that we expect to deliver. Please review them and provide feedback. Run --help with different levels of the demo CLI to navigate the tree. For example, `sf --help` shows the top-level topics and commands, `sf project --help` shows the subtopics and commands under `project`, and so on.
 
 ## Commands
 
 <!-- commands -->
-* [`sf config:get`](#sf-configget)
-* [`sf config:list`](#sf-configlist)
-* [`sf config:set`](#sf-configset)
-* [`sf config:unset`](#sf-configunset)
-* [`sf data:data`](#sf-datadata)
-* [`sf env:alias:set [ALIAS]`](#sf-envaliasset-alias)
-* [`sf env:alias:unset [ALIAS]`](#sf-envaliasunset-alias)
-* [`sf env:create:compute [ENVNAME]`](#sf-envcreatecompute-envname)
-* [`sf env:create:org [ENVNAME]`](#sf-envcreateorg-envname)
-* [`sf env:display`](#sf-envdisplay)
-* [`sf env:list`](#sf-envlist)
-* [`sf env:log:get`](#sf-envlogget)
-* [`sf env:log:list`](#sf-envloglist)
-* [`sf env:log:tail`](#sf-envlogtail)
-* [`sf env:logdrain:add`](#sf-envlogdrainadd)
-* [`sf env:logdrain:list`](#sf-envlogdrainlist)
-* [`sf env:logdrain:remove`](#sf-envlogdrainremove)
-* [`sf env:open`](#sf-envopen)
-* [`sf env:usage`](#sf-envusage)
-* [`sf env:var:get`](#sf-envvarget)
-* [`sf env:var:list`](#sf-envvarlist)
-* [`sf env:var:set`](#sf-envvarset)
-* [`sf env:var:unset`](#sf-envvarunset)
-* [`sf event:event`](#sf-eventevent)
-* [`sf generate:analytics:template`](#sf-generateanalyticstemplate)
-* [`sf generate:apex:class`](#sf-generateapexclass)
-* [`sf generate:apex:test`](#sf-generateapextest)
-* [`sf generate:apex:trigger`](#sf-generateapextrigger)
-* [`sf generate:community`](#sf-generatecommunity)
-* [`sf generate:function`](#sf-generatefunction)
-* [`sf generate:lightning:component`](#sf-generatelightningcomponent)
-* [`sf generate:lightning:event`](#sf-generatelightningevent)
-* [`sf generate:lightning:interface`](#sf-generatelightninginterface)
-* [`sf generate:project`](#sf-generateproject)
-* [`sf heroku:heroku`](#sf-herokuheroku)
-* [`sf login`](#sf-login)
-* [`sf login:functions`](#sf-loginfunctions)
-* [`sf login:jwt`](#sf-loginjwt)
-* [`sf login:org`](#sf-loginorg)
-* [`sf logout`](#sf-logout)
-* [`sf package:package`](#sf-packagepackage)
-* [`sf plugins`](#sf-plugins)
-* [`sf plugins:inspect PLUGIN...`](#sf-pluginsinspect-plugin)
-* [`sf plugins:install PLUGIN...`](#sf-pluginsinstall-plugin)
-* [`sf plugins:link PLUGIN`](#sf-pluginslink-plugin)
-* [`sf plugins:uninstall PLUGIN...`](#sf-pluginsuninstall-plugin)
-* [`sf plugins:update`](#sf-pluginsupdate)
-* [`sf project:deploy`](#sf-projectdeploy)
-* [`sf project:deploy:functions`](#sf-projectdeployfunctions)
-* [`sf project:deploy:org`](#sf-projectdeployorg)
-* [`sf project:deploy:retrieve:org`](#sf-projectdeployretrieveorg)
-* [`sf reset`](#sf-reset)
-* [`sf run:apex`](#sf-runapex)
-* [`sf run:function`](#sf-runfunction)
-* [`sf run:function:start`](#sf-runfunctionstart)
-* [`sf test:apex`](#sf-testapex)
-* [`sf test:function`](#sf-testfunction)
-* [`sf usage`](#sf-usage)
-* [`sf whoami`](#sf-whoami)
+
+- [`sf config:get`](#sf-configget)
+- [`sf config:list`](#sf-configlist)
+- [`sf config:set`](#sf-configset)
+- [`sf config:unset`](#sf-configunset)
+- [`sf data:data`](#sf-datadata)
+- [`sf env:alias:set [ALIAS]`](#sf-envaliasset-alias)
+- [`sf env:alias:unset [ALIAS]`](#sf-envaliasunset-alias)
+- [`sf env:create:compute [ENVNAME]`](#sf-envcreatecompute-envname)
+- [`sf env:create:org [ENVNAME]`](#sf-envcreateorg-envname)
+- [`sf env:display`](#sf-envdisplay)
+- [`sf env:list`](#sf-envlist)
+- [`sf env:log:get`](#sf-envlogget)
+- [`sf env:log:list`](#sf-envloglist)
+- [`sf env:log:tail`](#sf-envlogtail)
+- [`sf env:logdrain:add`](#sf-envlogdrainadd)
+- [`sf env:logdrain:list`](#sf-envlogdrainlist)
+- [`sf env:logdrain:remove`](#sf-envlogdrainremove)
+- [`sf env:open`](#sf-envopen)
+- [`sf env:usage`](#sf-envusage)
+- [`sf env:var:get`](#sf-envvarget)
+- [`sf env:var:list`](#sf-envvarlist)
+- [`sf env:var:set`](#sf-envvarset)
+- [`sf env:var:unset`](#sf-envvarunset)
+- [`sf event:event`](#sf-eventevent)
+- [`sf generate:analytics:template`](#sf-generateanalyticstemplate)
+- [`sf generate:apex:class`](#sf-generateapexclass)
+- [`sf generate:apex:test`](#sf-generateapextest)
+- [`sf generate:apex:trigger`](#sf-generateapextrigger)
+- [`sf generate:community`](#sf-generatecommunity)
+- [`sf generate:function`](#sf-generatefunction)
+- [`sf generate:lightning:component`](#sf-generatelightningcomponent)
+- [`sf generate:lightning:event`](#sf-generatelightningevent)
+- [`sf generate:lightning:interface`](#sf-generatelightninginterface)
+- [`sf generate:project`](#sf-generateproject)
+- [`sf heroku:heroku`](#sf-herokuheroku)
+- [`sf login`](#sf-login)
+- [`sf login:functions`](#sf-loginfunctions)
+- [`sf login:jwt`](#sf-loginjwt)
+- [`sf login:org`](#sf-loginorg)
+- [`sf logout`](#sf-logout)
+- [`sf package:package`](#sf-packagepackage)
+- [`sf plugins`](#sf-plugins)
+- [`sf plugins:inspect PLUGIN...`](#sf-pluginsinspect-plugin)
+- [`sf plugins:install PLUGIN...`](#sf-pluginsinstall-plugin)
+- [`sf plugins:link PLUGIN`](#sf-pluginslink-plugin)
+- [`sf plugins:uninstall PLUGIN...`](#sf-pluginsuninstall-plugin)
+- [`sf plugins:update`](#sf-pluginsupdate)
+- [`sf project:deploy`](#sf-projectdeploy)
+- [`sf project:deploy:functions`](#sf-projectdeployfunctions)
+- [`sf project:deploy:org`](#sf-projectdeployorg)
+- [`sf project:deploy:retrieve:org`](#sf-projectdeployretrieveorg)
+- [`sf reset`](#sf-reset)
+- [`sf run:apex`](#sf-runapex)
+- [`sf run:function`](#sf-runfunction)
+- [`sf run:function:start`](#sf-runfunctionstart)
+- [`sf test:apex`](#sf-testapex)
+- [`sf test:function`](#sf-testfunction)
+- [`sf usage`](#sf-usage)
+- [`sf whoami`](#sf-whoami)
 
 ## `sf config:get`
 
@@ -307,7 +306,7 @@ OPTIONS
   --sort=sort             property to sort by (prepend '-' for descending)
 
 DESCRIPTION
-  List connected environment including Salesforce orgs, heroku apps, and compute enviornments (functions). Use --remote 
+  List connected environment including Salesforce orgs, heroku apps, and compute enviornments (functions). Use --remote
   to display all environments you have access to.
 
 EXAMPLES
@@ -739,7 +738,7 @@ OPTIONS
 DESCRIPTION
   headlessly login to a Salesforce organization using JSON Web Tokens
 
-     Login using a JSON Web Tokens from a provided username, client id, and private key. Only Salesforce organizations 
+     Login using a JSON Web Tokens from a provided username, client id, and private key. Only Salesforce organizations
   support this flow.
 
 EXAMPLE
@@ -864,15 +863,15 @@ DESCRIPTION
 
   Installation of a user-installed plugin will override a core plugin.
 
-  e.g. If you have a core plugin that has a 'hello' command, installing a user-installed plugin with a 'hello' command 
-  will override the core plugin implementation. This is useful if a user needs to update core plugin functionality in 
+  e.g. If you have a core plugin that has a 'hello' command, installing a user-installed plugin with a 'hello' command
+  will override the core plugin implementation. This is useful if a user needs to update core plugin functionality in
   the CLI without the need to patch and update the whole CLI.
 
 ALIASES
   $ sf plugins:add
 
 EXAMPLES
-  $ sf plugins:install myplugin 
+  $ sf plugins:install myplugin
   $ sf plugins:install https://github.com/someuser/someplugin
   $ sf plugins:install someuser/someplugin
 ```
@@ -897,7 +896,7 @@ OPTIONS
 DESCRIPTION
   Installation of a linked plugin will override a user-installed or core plugin.
 
-  e.g. If you have a user-installed or core plugin that has a 'hello' command, installing a linked plugin with a 'hello' 
+  e.g. If you have a user-installed or core plugin that has a 'hello' command, installing a linked plugin with a 'hello'
   command will override the user-installed or core plugin implementation. This is useful for development work.
 
 EXAMPLE
@@ -958,11 +957,11 @@ OPTIONS
   --target-env=target-env  set
 
 DESCRIPTION
-  Deploy a project, including org metadata and functions. Be default, the deploy analyize your project and assume 
-  sensible defaults when possible, otherwise it will prompt. To always prompt and not assume defaults, use 
+  Deploy a project, including org metadata and functions. Be default, the deploy analyize your project and assume
+  sensible defaults when possible, otherwise it will prompt. To always prompt and not assume defaults, use
   "--interctive".
 
-     To run specialized deploys, especially when interactivity isn't an option like continuious deployment, used the 
+     To run specialized deploys, especially when interactivity isn't an option like continuious deployment, used the
   scoped deploy commands like "sf project deploy org" or "sf project deploy functions"
 
 EXAMPLES
@@ -1162,4 +1161,5 @@ DESCRIPTION
 ```
 
 _See code: [src/commands/whoami.ts](https://github.com/salesforcecli/cli-taxonomy-experiment/blob/v1.5.0/src/commands/whoami.ts)_
+
 <!-- commandsstop -->
