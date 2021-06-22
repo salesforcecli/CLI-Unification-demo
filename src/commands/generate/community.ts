@@ -6,13 +6,18 @@
  */
 
 import { Flags } from '@oclif/core';
+import { Messages } from '@salesforce/core';
 
 import SfCommand from '../../sf-command';
 
-export default class GenerateCommunity extends SfCommand {
-  public static description = 'create a community';
+Messages.importMessagesDirectory(__dirname);
+const messages = Messages.loadMessages('@salesforce/sf-demo', 'generate.community');
 
-  public static examples = ['sf generate community'];
+export default class GenerateCommunity extends SfCommand {
+  public static summary = messages.getMessage('summary');
+  public static description = messages.getMessage('description');
+
+  public static examples = messages.getMessages('examples');
 
   public static flags = {
     name: Flags.string({

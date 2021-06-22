@@ -6,16 +6,21 @@
  */
 
 import { Flags } from '@oclif/core';
+import { Messages } from '@salesforce/core';
 
 import SfCommand from '../../sf-command';
 
-export default class GenerateProject extends SfCommand {
-  public static description = 'create a Salesforce project';
+Messages.importMessagesDirectory(__dirname);
+const messages = Messages.loadMessages('@salesforce/sf-demo', 'generate.function');
 
-  public static examples = ['sf generate project'];
+export default class GenerateProject extends SfCommand {
+  public static summary = messages.getMessage('summary');
+  public static description = messages.getMessage('description');
+
+  public static examples = messages.getMessages('examples');
 
   public static flags = {
-    name: Flags.string({
+    'project-name': Flags.string({
       description: 'project name',
       char: 'n',
     }),
@@ -23,6 +28,6 @@ export default class GenerateProject extends SfCommand {
 
   public async run(): Promise<void> {
     const { flags } = await this.parse(GenerateProject);
-    this.log(`Created project ${flags.name}.`);
+    this.log(`Created project ${flags['project-name']}.`);
   }
 }

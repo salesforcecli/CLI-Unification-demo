@@ -6,16 +6,20 @@
  */
 
 import { Flags } from '@oclif/core';
+import { Messages } from '@salesforce/core';
 
 import SfCommand from '../../../sf-command';
 
-export default class GenerateApexClass extends SfCommand {
-  public static description = 'create an apex class';
+Messages.importMessagesDirectory(__dirname);
+const messages = Messages.loadMessages('@salesforce/sf-demo', 'generate.apex.class');
 
-  public static examples = ['sf generate apex class'];
+export default class GenerateApexClass extends SfCommand {
+  public static summary = messages.getMessage('summary');
+  public static description = messages.getMessage('description');
+  public static examples = messages.getMessages('examples');
 
   public static flags = {
-    name: Flags.string({
+    'class-name': Flags.string({
       description: 'class name',
       char: 'n',
     }),
@@ -23,6 +27,6 @@ export default class GenerateApexClass extends SfCommand {
 
   public async run(): Promise<void> {
     const { flags } = await this.parse(GenerateApexClass);
-    this.log(`Created class ${flags.name}.`);
+    this.log(`Created class ${flags['class-name']}.`);
   }
 }
