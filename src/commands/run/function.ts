@@ -12,10 +12,14 @@ import { AnyJson } from '@salesforce/ts-types';
 import { green } from 'chalk';
 import { cli } from 'cli-ux';
 
+import { Messages } from '@salesforce/core';
 import SfCommand from '../../sf-command';
 
+Messages.importMessagesDirectory(__dirname);
+const messages = Messages.loadMessages('@salesforce/sf-demo', 'run.function');
+
 export default class RunFunction extends SfCommand {
-  public static description = 'run a function locally';
+  public static summary = messages.getMessage('summary');
 
   public static examples = [
     'sf run function -u http://localhost:8080 (http://localhost:8080/) -p \'{"id": 12345}\'',

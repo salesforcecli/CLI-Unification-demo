@@ -5,12 +5,17 @@
  * For full license text, see LICENSE.txt file in the repo root or https://opensource.org/licenses/BSD-3-Clause
  */
 
+import { Messages } from '@salesforce/core';
 import SfCommand from '../../sf-command';
 
-export default class RunApex extends SfCommand {
-  public static description = 'Run Apex in a SF org';
+Messages.importMessagesDirectory(__dirname);
+const messages = Messages.loadMessages('@salesforce/sf-demo', 'run.apex');
 
-  public static examples = ['sf run apex'];
+export default class RunApex extends SfCommand {
+  public static summary = messages.getMessage('summary');
+  public static description = messages.getMessage('description');
+
+  public static examples = messages.getMessages('examples');
 
   public async run(): Promise<void> {
     this.log('Running code...');

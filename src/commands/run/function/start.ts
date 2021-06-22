@@ -10,10 +10,14 @@ import { sleep } from '@salesforce/kit';
 import { AnyJson } from '@salesforce/ts-types';
 import { green } from 'chalk';
 
+import { Messages } from '@salesforce/core';
 import SfCommand from '../../../sf-command';
 
+Messages.importMessagesDirectory(__dirname);
+const messages = Messages.loadMessages('@salesforce/sf-demo', 'run.function.start');
+
 export default class RunFunctionStart extends SfCommand {
-  public static description = 'build and run function image locally';
+  public static summary = messages.getMessage('summary');
 
   public static examples = [
     'sf run function start',
