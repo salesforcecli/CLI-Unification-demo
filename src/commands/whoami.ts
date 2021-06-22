@@ -5,15 +5,16 @@
  * For full license text, see LICENSE.txt file in the repo root or https://opensource.org/licenses/BSD-3-Clause
  */
 
+import { Messages } from '@salesforce/core';
 import { AnyJson } from '@salesforce/ts-types';
 import { green } from 'chalk';
 import SfCommand from '../sf-command';
 
-export default class WhoAmI extends SfCommand {
-  public static description = `who the CLI thinks you are
+Messages.importMessagesDirectory(__dirname);
+const messages = Messages.loadMessages('@salesforce/sf-demo', 'whoami');
 
-  Get information on accounts that have been logged into.
-  `;
+export default class WhoAmI extends SfCommand {
+  public static summary = messages.getMessage('summary');
 
   public async run(): Promise<AnyJson> {
     const hub = this.accounts.get('hub');
