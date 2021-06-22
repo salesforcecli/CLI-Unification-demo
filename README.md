@@ -4,7 +4,7 @@ Welcome to the Salesforce CLI Unification Demo CLI repo. We’re designing a new
 
 ## Strategy
 
-See Strategy and Structure for more details 
+See (Strategy and Strucuture)[STRATEGY.md] for more details.
 
 ## Install
 
