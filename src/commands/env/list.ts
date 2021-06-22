@@ -9,20 +9,22 @@ import { Flags, Interfaces } from '@oclif/core';
 import { AnyJson } from '@salesforce/ts-types';
 import { cli } from 'cli-ux';
 import { bold, cyan, green, red } from 'chalk';
+import { Messages } from '@salesforce/core';
 import SfCommand from '../../sf-command';
 import { Environment } from '../../configs/environments';
 
+Messages.importMessagesDirectory(__dirname);
+const messages = Messages.loadMessages('@salesforce/sf-demo', 'env.list');
+
 type DisplayEnvironment = Environment & { alias: string };
 export default class EnvList extends SfCommand {
-  public static description = `list connected enviornment
+  public static summary = messages.getMessage('summary');
+  public static description = messages.getMessage('description');
 
-  List connected environment including Salesforce orgs, heroku apps, and compute enviornments (functions). Use --remote to display all environments you have access to.
-  `;
-
-  public static examples = ['sf env list', 'sf env list --remote'];
+  public static examples = messages.getMessages('examples');
 
   public static flags = {
-    remote: Flags.boolean({
+    all: Flags.boolean({
       description: 'include enviornments not yet connected',
     }),
     // Hack beause typings has changed in oclif/core. cli-ux needs to be updated, maybe even include cli-ux in core if small enough
@@ -108,7 +110,7 @@ export default class EnvList extends SfCommand {
 
     let allEnvironments = connectedEnvironments;
 
-    if (flags.remote) {
+    if (flags.all) {
       // Remove dups
       const remoteEnvironments = this.retrieveRemoteEnvironments().filter(
         (remoteEnv) => !connectedEnvironments.find((env) => env.name === remoteEnv.name)
@@ -120,7 +122,7 @@ export default class EnvList extends SfCommand {
       this.log('No environements connected. Use "sf login" or "sf env connect" to connected enviornments.');
 
       if (heroku) {
-        this.log('Use "--remote" to see available envionments.');
+        this.log('Use "--all" to see available envionments.');
       }
       return;
     }

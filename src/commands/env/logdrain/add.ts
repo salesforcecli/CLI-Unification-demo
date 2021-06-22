@@ -5,12 +5,16 @@
  * For full license text, see LICENSE.txt file in the repo root or https://opensource.org/licenses/BSD-3-Clause
  */
 
+import { Messages } from '@salesforce/core';
 import SfCommand from '../../../sf-command';
 
-export default class EnvLogdrainAdd extends SfCommand {
-  public static description = 'Adds a log drain or log handler';
+Messages.importMessagesDirectory(__dirname);
+const messages = Messages.loadMessages('@salesforce/sf-demo', 'env.logdrain.add');
 
-  public static examples = ['sf env logdrain add'];
+export default class EnvLogdrainAdd extends SfCommand {
+  public static summary = messages.getMessage('summary');
+
+  public static examples = messages.getMessages('examples');
 
   public async run(): Promise<void> {
     this.log('Adding log drain...');

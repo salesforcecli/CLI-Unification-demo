@@ -8,15 +8,16 @@
 import { AnyJson } from '@salesforce/ts-types';
 import { Flags } from '@oclif/core';
 
+import { Messages } from '@salesforce/core';
 import SfCommand from '../../../sf-command';
 
+Messages.importMessagesDirectory(__dirname);
+const messages = Messages.loadMessages('@salesforce/sf-demo', 'env.alias.unset');
+
 export default class EnvAliasUnset extends SfCommand {
-  public static description = `Unset env alias
+  public static summary = messages.getMessage('summary');
 
-  Unset an alias for an environment.
-  `;
-
-  public static examples = ['sf env alias unset [alias] -t [env]'];
+  public static examples = messages.getMessages('examples');
 
   public static args = [{ name: 'alias' }];
 

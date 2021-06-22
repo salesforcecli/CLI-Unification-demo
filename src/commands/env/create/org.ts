@@ -5,17 +5,18 @@
  * For full license text, see LICENSE.txt file in the repo root or https://opensource.org/licenses/BSD-3-Clause
  */
 
+import { Messages } from '@salesforce/core';
 import Environments from '../../../configs/environments';
 import { Environment, OrgEnvironment } from '../../../configs/environments';
 import SfCommand from '../../../sf-command';
 
+Messages.importMessagesDirectory(__dirname);
+const messages = Messages.loadMessages('@salesforce/sf-demo', 'env.create.org');
 export default class EnvCreateOrg extends SfCommand {
-  public static description = `create a Salesforce org
+  public static summary = messages.getMessage('summary');
+  public static description = messages.getMessage('description');
 
-  Create a Salesforce org.
-  `;
-
-  public static examples = ['sf env create org'];
+  public static examples = messages.getMessages('examples');
 
   public static args = [{ name: 'envName' }];
 

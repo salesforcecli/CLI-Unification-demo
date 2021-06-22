@@ -8,14 +8,20 @@
 import { Flags, Errors } from '@oclif/core';
 import { AnyJson } from '@salesforce/ts-types';
 import { blue, cyan } from 'chalk';
+import { Messages } from '@salesforce/core';
 import SfCommand from '../../sf-command';
 import Environments from '../../configs/environments';
 import Aliases from '../../configs/aliases';
 
-export default class EnvConnect extends SfCommand {
-  public static description = 'Delete an environment';
+Messages.importMessagesDirectory(__dirname);
+const messages = Messages.loadMessages('@salesforce/sf-demo', 'env.delete');
 
-  public static examples = [];
+export default class EnvConnect extends SfCommand {
+  public static summary = messages.getMessage('summary');
+  public static description = messages.getMessage('description');
+
+  public static examples = messages.getMessages('examples');
+
   public static hidden = true;
   public static flags = {
     name: Flags.string({

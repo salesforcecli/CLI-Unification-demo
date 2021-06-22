@@ -5,12 +5,16 @@
  * For full license text, see LICENSE.txt file in the repo root or https://opensource.org/licenses/BSD-3-Clause
  */
 
+import { Messages } from '@salesforce/core';
 import SfCommand from '../../../sf-command';
 
-export default class EnvVarGet extends SfCommand {
-  public static description = 'Gets an environment variable from a remote environment';
+Messages.importMessagesDirectory(__dirname);
+const messages = Messages.loadMessages('@salesforce/sf-demo', 'env.var.get');
 
-  public static examples = ['sf env var get'];
+export default class EnvVarGet extends SfCommand {
+  public static summary = messages.getMessage('summary');
+
+  public static examples = messages.getMessages('examples');
 
   public async run(): Promise<void> {
     this.log('Getting env var...');

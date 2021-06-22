@@ -6,20 +6,36 @@
  */
 
 import { Flags } from '@oclif/core';
+import { Messages } from '@salesforce/core';
 
 import SfCommand from '../../sf-command';
 
+Messages.importMessagesDirectory(__dirname);
+const messages = Messages.loadMessages('@salesforce/sf-demo', 'env.open');
+
 export default class EnvOpen extends SfCommand {
-  public static description = `open an envioronment on the browser
+  public static summary = messages.getMessage('summary');
+  public static description = messages.getMessage('description');
 
-  Open an envioronment on the browser.
-  `;
-
-  public static examples = ['sf env open --browser chrome'];
+  public static examples = messages.getMessages('examples');
 
   public static flags = {
+    path: Flags.string({
+      char: 'p',
+      summary: messages.getMessage('flags.path.summary'),
+    }),
+    'url-only': Flags.boolean({
+      char: 'r',
+      summary: messages.getMessage('flags.url-only.summary'),
+    }),
+    'target-env': Flags.string({
+      char: 'e',
+      summary: messages.getMessage('flags.target-env.summary'),
+      description: messages.getMessage('flags.target-env.description'),
+    }),
     browser: Flags.string({
-      description: 'browser to open env with (example: "firefox", "safari")',
+      summary: messages.getMessage('flags.browser.summary'),
+      description: messages.getMessage('flags.browser.description'),
     }),
   };
 

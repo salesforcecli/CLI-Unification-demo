@@ -5,16 +5,18 @@
  * For full license text, see LICENSE.txt file in the repo root or https://opensource.org/licenses/BSD-3-Clause
  */
 
+import { Messages } from '@salesforce/core';
 import Environments from '../../../configs/environments';
 import { Environment, ComputeEnvironment } from '../../../configs/environments';
 import SfCommand from '../../../sf-command';
+
+Messages.importMessagesDirectory(__dirname);
+const messages = Messages.loadMessages('@salesforce/sf-demo', 'env.create.compute');
 export default class EnvCreateCompute extends SfCommand {
-  public static description = `create a compute env
+  public static summary = messages.getMessage('summary');
+  public static description = messages.getMessage('description');
 
-  Create a compute environment.
-  `;
-
-  public static examples = ['sf env create compute'];
+  public static examples = messages.getMessages('examples');
 
   public static args = [{ name: 'envName' }];
 
