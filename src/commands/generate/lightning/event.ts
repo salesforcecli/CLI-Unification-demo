@@ -5,12 +5,16 @@
  * For full license text, see LICENSE.txt file in the repo root or https://opensource.org/licenses/BSD-3-Clause
  */
 
+import { Messages } from '@salesforce/core';
 import SfCommand from '../../../sf-command';
 
+Messages.importMessagesDirectory(__dirname);
+const messages = Messages.loadMessages('@salesforce/sf-demo', 'generate.lightning.event');
 export default class GenerateLightningEvent extends SfCommand {
-  public static description = 'create a lightning event';
+  public static summary = messages.getMessage('summary');
+  public static description = messages.getMessage('description');
 
-  public static examples = ['sf generate lightning event'];
+  public static examples = messages.getMessages('examples');
 
   public async run(): Promise<void> {
     this.log('Created lightning event.');

@@ -6,18 +6,20 @@
  */
 
 import { Flags } from '@oclif/core';
+import { Messages } from '@salesforce/core';
 import { AnyJson } from '@salesforce/ts-types';
 import { green } from 'chalk';
 
 import SfCommand from '../../sf-command';
 
-export default class GenerateFunction extends SfCommand {
-  public static description = 'create a function with basic scaffolding specific to a given language';
+Messages.importMessagesDirectory(__dirname);
+const messages = Messages.loadMessages('@salesforce/sf-demo', 'generate.function');
 
-  public static examples = [
-    'sf generate function -l node mynodefunction',
-    'sf generate function -l java myjavafunction',
-  ];
+export default class GenerateFunction extends SfCommand {
+  public static summary = messages.getMessage('summary');
+  public static description = messages.getMessage('description');
+
+  public static examples = messages.getMessages('examples');
 
   public static flags = {
     language: Flags.string({

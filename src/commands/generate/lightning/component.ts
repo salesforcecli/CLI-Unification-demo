@@ -5,12 +5,17 @@
  * For full license text, see LICENSE.txt file in the repo root or https://opensource.org/licenses/BSD-3-Clause
  */
 
+import { Messages } from '@salesforce/core';
 import SfCommand from '../../../sf-command';
 
-export default class GenerateLightningComponent extends SfCommand {
-  public static description = 'create a lightning component';
+Messages.importMessagesDirectory(__dirname);
+const messages = Messages.loadMessages('@salesforce/sf-demo', 'generate.lightning.component');
 
-  public static examples = ['sf generate lightning component'];
+export default class GenerateLightningComponent extends SfCommand {
+  public static summary = messages.getMessage('summary');
+  public static description = messages.getMessage('description');
+
+  public static examples = messages.getMessages('examples');
 
   public async run(): Promise<void> {
     this.log('Created lightning component.');
