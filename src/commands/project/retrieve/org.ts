@@ -9,14 +9,14 @@ import { Messages } from '@salesforce/core';
 import SfCommand from '../../../sf-command';
 
 Messages.importMessagesDirectory(__dirname);
-const messages = Messages.loadMessages('@salesforce/sf-demo', 'project.deploy.functions');
+const messages = Messages.loadMessages('@salesforce/sf-demo', 'project.retrieve.org');
 
-export default class ProjectDeployFunctions extends SfCommand {
+export default class ProjectRetrieveOrg extends SfCommand {
   public static summary = messages.getMessage('summary');
-
+  public static description = messages.getMessage('description');
   public static examples = messages.getMessages('examples');
 
   public async run(): Promise<void> {
-    this.log('Deploying function...');
+    this.log('Retrieving org...');
   }
 }
