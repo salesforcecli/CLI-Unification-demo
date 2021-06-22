@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.6.3](https://github.com/salesforcecli/cli-taxonomy-experiment/compare/v1.6.2...v1.6.3) (2021-06-22)
+
+
+### Bug Fixes
+
+* don't ship oclif.manifest.json with package ([d0af8c9](https://github.com/salesforcecli/cli-taxonomy-experiment/commit/d0af8c9521eb82a0f29bd6c5bb9739df080cf080))
+
 ### [1.6.2](https://github.com/salesforcecli/cli-taxonomy-experiment/compare/v1.6.1...v1.6.2) (2021-06-22)
 
 
