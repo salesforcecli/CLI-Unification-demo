@@ -17,7 +17,6 @@
   "files": [
     "/lib",
     "/messages",
-    "/oclif.manifest.json",
     "/bin"
   ],
   "oclif": {
