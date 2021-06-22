@@ -5,10 +5,11 @@
  * For full license text, see LICENSE.txt file in the repo root or https://opensource.org/licenses/BSD-3-Clause
  */
 
+import { EOL } from 'os';
 import { Flags, Interfaces } from '@oclif/core';
 import { AnyJson } from '@salesforce/ts-types';
 import { cli } from 'cli-ux';
-import { bold, cyan, green, red } from 'chalk';
+import { bold, green, red } from 'chalk';
 import { Messages } from '@salesforce/core';
 import SfCommand from '../../sf-command';
 import { Environment } from '../../configs/environments';
@@ -144,7 +145,6 @@ export default class EnvList extends SfCommand {
     };
 
     // Salesforce Orgs
-    this.log(bold(cyan(typeToHeader.org)));
     cli.table(
       groupedByType.org,
       {
@@ -155,11 +155,13 @@ export default class EnvList extends SfCommand {
       },
       {
         ...flags,
+        title: typeToHeader.org,
       }
     );
 
+    console.log(EOL);
+
     // Compute Environments
-    this.log(bold(cyan(typeToHeader.compute)));
     cli.table(
       groupedByType.compute,
       {
@@ -171,6 +173,7 @@ export default class EnvList extends SfCommand {
       },
       {
         ...flags,
+        title: typeToHeader.compute,
       }
     );
     this.log();

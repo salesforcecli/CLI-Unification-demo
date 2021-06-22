@@ -11,7 +11,7 @@ import SfCommand from '../sf-command';
 import { CLI_CONFIG_PATH } from '../configs/constants';
 
 export default class JWT extends SfCommand {
-  public static description = 'reset data created by this CLI';
+  public static description = 'Reset data created by this CLI.';
 
   public async run(): Promise<AnyJson> {
     await fs.rmdir(CLI_CONFIG_PATH, { recursive: true });
