@@ -2,6 +2,24 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.6.0](https://github.com/salesforcecli/cli-taxonomy-experiment/compare/v1.5.1...v1.6.0) (2021-06-22)
+
+
+### Features
+
+* hook up help for run and test commands ([1d23842](https://github.com/salesforcecli/cli-taxonomy-experiment/commit/1d23842e4d0e88ec9354b72fa96d3cdb5f1a3a6b))
+* hook up help md to env commands ([0fec437](https://github.com/salesforcecli/cli-taxonomy-experiment/commit/0fec437fcb358270a601cdefb9c3e46b1ebcd488))
+* hook up help to login and logout commands ([bd3f1e2](https://github.com/salesforcecli/cli-taxonomy-experiment/commit/bd3f1e279a84e95a63ede3f2414a37c25533f9da))
+* hookup help for usage and whoami commands ([d94c2b0](https://github.com/salesforcecli/cli-taxonomy-experiment/commit/d94c2b0dfe2fc2003097deeaa87eb17b1b794f2f))
+* hookup help md to generate commands ([4299e1f](https://github.com/salesforcecli/cli-taxonomy-experiment/commit/4299e1fb6604e8841cd1efa9d6395cd8666cca3c))
+* tie help messages to command for config ([0fbcdb2](https://github.com/salesforcecli/cli-taxonomy-experiment/commit/0fbcdb257b0e05deb23f660a2f72142b694f7b8d))
+
+
+### Bug Fixes
+
+* add project retrieve ([f40a27e](https://github.com/salesforcecli/cli-taxonomy-experiment/commit/f40a27e1955d2808fb53646f816dd36c06da7f92))
+* put retrieve under project topic ([4d5d3e3](https://github.com/salesforcecli/cli-taxonomy-experiment/commit/4d5d3e3fcdda36861478e1b30a71e113169df5b1))
+
 ### [1.5.1](https://github.com/salesforcecli/cli-taxonomy-experiment/compare/v1.5.0...v1.5.1) (2021-06-21)
 
 ## [1.5.0](https://github.com/salesforcecli/cli-taxonomy-experiment/compare/v1.4.2...v1.5.0) (2021-06-21)
