@@ -5,15 +5,15 @@
  * For full license text, see LICENSE.txt file in the repo root or https://opensource.org/licenses/BSD-3-Clause
  */
 
+import { Messages } from '@salesforce/core';
 import SfCommand from '../../sf-command';
 
+Messages.importMessagesDirectory(__dirname);
+const messages = Messages.loadMessages('@salesforce/sf-demo', 'config.list');
+
 export default class ConfigList extends SfCommand {
-  public static description = `list the configs
-
-  List the configs.
-  `;
-
-  public static examples = ['sf config list'];
+  public static summary = messages.getMessage('summary');
+  public static description = messages.getMessage('description');
 
   public async run(): Promise<void> {
     this.log('List Configs...');

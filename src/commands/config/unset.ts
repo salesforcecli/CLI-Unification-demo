@@ -5,15 +5,17 @@
  * For full license text, see LICENSE.txt file in the repo root or https://opensource.org/licenses/BSD-3-Clause
  */
 
+import { Messages } from '@salesforce/core';
 import SfCommand from '../../sf-command';
 
+Messages.importMessagesDirectory(__dirname);
+const messages = Messages.loadMessages('@salesforce/sf-demo', 'config.unset');
+
 export default class ConfigUnset extends SfCommand {
-  public static description = `unset configs
+  public static summary = messages.getMessage('summary');
+  public static description = messages.getMessage('description');
 
-  Unset configs.
-  `;
-
-  public static examples = ['sf config unset'];
+  public static examples = messages.getMessages('examples');
 
   public async run(): Promise<void> {
     this.log('Unsetting Config...');
