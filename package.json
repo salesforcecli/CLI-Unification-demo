@@ -57,6 +57,15 @@
       },
       "test": {
         "description": "Invoke tests in an environment."
+      },
+      "heroku": {
+        "description": "Invoke Heroku commands."
+      },
+      "plugins": {
+        "description": "Manage CLI plug-ins."
+      },
+      "package": {
+        "description": "Develop and install packages."
       }
     }
   },
