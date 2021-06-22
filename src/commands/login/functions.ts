@@ -12,7 +12,7 @@ import SfCommand from '../../sf-command';
 import { Browser, loginFunctions } from '../../utils';
 
 export default class FunctionsLogin extends SfCommand {
-  public static description = 'login to a Salesforce functions account';
+  public static description = 'Log in to a functions account.';
 
   public static examples = [
     'sf login functions',
