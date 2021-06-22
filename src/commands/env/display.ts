@@ -5,15 +5,26 @@
  * For full license text, see LICENSE.txt file in the repo root or https://opensource.org/licenses/BSD-3-Clause
  */
 
+import { Flags } from '@oclif/core';
+import { Messages } from '@salesforce/core';
 import SfCommand from '../../sf-command';
 
+Messages.importMessagesDirectory(__dirname);
+const messages = Messages.loadMessages('@salesforce/sf-demo', 'env.display');
+
 export default class EnvDisplay extends SfCommand {
-  public static description = `display env
+  public static summary = messages.getMessage('summary');
+  public static description = messages.getMessage('description');
 
-  Display environment.
-  `;
+  public static examples = messages.getMessages('examples');
 
-  public static examples = ['sf env display'];
+  public static flags = {
+    environment: Flags.string({
+      description: messages.getMessage('flags.environment.summary'),
+      required: true,
+      char: 'e',
+    }),
+  };
 
   public async run(): Promise<void> {
     this.log('Diplaying env...');

@@ -5,12 +5,14 @@
  * For full license text, see LICENSE.txt file in the repo root or https://opensource.org/licenses/BSD-3-Clause
  */
 
+import { Messages } from '@salesforce/core';
 import SfCommand from '../../../sf-command';
 
-export default class EnvLogGet extends SfCommand {
-  public static description = 'Get env logs';
+Messages.importMessagesDirectory(__dirname);
+const messages = Messages.loadMessages('@salesforce/sf-demo', 'env.log.get');
 
-  public static examples = ['sf env log get'];
+export default class EnvLogGet extends SfCommand {
+  public static summary = messages.getMessage('summary');
 
   public async run(): Promise<void> {
     this.log('Getting env logs...');

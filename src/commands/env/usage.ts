@@ -8,13 +8,15 @@
 import { cli } from 'cli-ux';
 import { Flags } from '@oclif/core';
 
+import { Messages } from '@salesforce/core';
 import SfCommand from '../../sf-command';
 
+Messages.importMessagesDirectory(__dirname);
+const messages = Messages.loadMessages('@salesforce/sf-demo', 'env.usage');
+
 export default class Usage extends SfCommand {
-  public static description = `show usage and limits for a specific environment
-  
-  Show usage and limits for a specific environment.
-  `;
+  public static summary = messages.getMessage('summary');
+  public static description = messages.getMessage('description');
 
   public static flags = {
     // TODO: Add cli.table.flags - https://github.com/oclif/cli-ux#clitable
