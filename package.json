@@ -29,10 +29,31 @@
     "topicSeparator": " ",
     "topics": {
       "env": {
-        "description": "Commands to work with enviornments."
+        "description": "Manage orgs and compute environments."
       },
       "login": {
-        "description": "Commands for specialized login flows."
+        "description": "Log into environments."
+      },
+      "config": {
+        "description": "Configure Salesforce CLI."
+      },
+      "data": {
+        "description": "Manipulate records in your org."
+      },
+      "event": {
+        "description": "Manage events."
+      },
+      "generate": {
+        "description": "Generate local code, such as a project or Apex class."
+      },
+      "project": {
+        "description": "Deploy and retrieve code between your project and an environment."
+      },
+      "run": {
+        "description": "Run code, such as anonymous Apex."
+      },
+      "test": {
+        "description": "Invoke tests in an environment."
       }
     }
   },
