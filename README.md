@@ -21,7 +21,7 @@ Here’s the type of feedback we’re looking for:
 * Overall impressions.
 * How your experience could be improved. In particular:
     * Was it easy to navigate?
-    * The commands: `project deploy`, `sf login`, and `env list` (along with a few others) have the updated help structure and output, is the help output useful?
+    * The commands: `sf project deploy`, `sf login`, and `sf env list` (along with a few others) have the updated help structure and output. Is it useful?
     * `sf login`, `sf env list`, and `sf project deploy` all simulate the cross cloud experience. Is this what you expected? What did you like? How could they be better? 
 * Are there `sfdx` commands that you use often but are missing from this demo CLI?  (Note that this demo CLI doesn’t include all the commands that we plan to have in `sf`. )
 * What did you like?
