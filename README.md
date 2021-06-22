@@ -49,68 +49,67 @@ These topics are speculative and are provided as an example of the types of topi
 ## Commands
 
 <!-- commands -->
-
-- [`sf config get`](#sf-config-get)
-- [`sf config list`](#sf-config-list)
-- [`sf config set`](#sf-config-set)
-- [`sf config unset`](#sf-config-unset)
-- [`sf data data`](#sf-data-data)
-- [`sf env alias set [ALIAS]`](#sf-env-alias-set-alias)
-- [`sf env alias unset [ALIAS]`](#sf-env-alias-unset-alias)
-- [`sf env create compute [ENVNAME]`](#sf-env-create-compute-envname)
-- [`sf env create org [ENVNAME]`](#sf-env-create-org-envname)
-- [`sf env display`](#sf-env-display)
-- [`sf env list`](#sf-env-list)
-- [`sf env log get`](#sf-env-log-get)
-- [`sf env log list`](#sf-env-log-list)
-- [`sf env log tail`](#sf-env-log-tail)
-- [`sf env logdrain add`](#sf-env-logdrain-add)
-- [`sf env logdrain list`](#sf-env-logdrain-list)
-- [`sf env logdrain remove`](#sf-env-logdrain-remove)
-- [`sf env open`](#sf-env-open)
-- [`sf env usage`](#sf-env-usage)
-- [`sf env var get`](#sf-env-var-get)
-- [`sf env var list`](#sf-env-var-list)
-- [`sf env var set`](#sf-env-var-set)
-- [`sf env var unset`](#sf-env-var-unset)
-- [`sf event event`](#sf-event-event)
-- [`sf generate analytics template`](#sf-generate-analytics-template)
-- [`sf generate apex class`](#sf-generate-apex-class)
-- [`sf generate apex test`](#sf-generate-apex-test)
-- [`sf generate apex trigger`](#sf-generate-apex-trigger)
-- [`sf generate community`](#sf-generate-community)
-- [`sf generate function`](#sf-generate-function)
-- [`sf generate lightning component`](#sf-generate-lightning-component)
-- [`sf generate lightning event`](#sf-generate-lightning-event)
-- [`sf generate lightning interface`](#sf-generate-lightning-interface)
-- [`sf generate project`](#sf-generate-project)
-- [`sf heroku heroku`](#sf-heroku-heroku)
-- [`sf login`](#sf-login)
-- [`sf login functions`](#sf-login-functions)
-- [`sf login org`](#sf-login-org)
-- [`sf login org jwt`](#sf-login-org-jwt)
-- [`sf logout`](#sf-logout)
-- [`sf logout org`](#sf-logout-org)
-- [`sf package package`](#sf-package-package)
-- [`sf plugins`](#sf-plugins)
-- [`sf plugins:inspect PLUGIN...`](#sf-pluginsinspect-plugin)
-- [`sf plugins:install PLUGIN...`](#sf-pluginsinstall-plugin)
-- [`sf plugins:link PLUGIN`](#sf-pluginslink-plugin)
-- [`sf plugins:uninstall PLUGIN...`](#sf-pluginsuninstall-plugin)
-- [`sf plugins update`](#sf-plugins-update)
-- [`sf project deploy`](#sf-project-deploy)
-- [`sf project deploy functions`](#sf-project-deploy-functions)
-- [`sf project deploy org`](#sf-project-deploy-org)
-- [`sf project retrieve`](#sf-project-retrieve)
-- [`sf project retrieve org`](#sf-project-retrieve-org)
-- [`sf reset`](#sf-reset)
-- [`sf run apex`](#sf-run-apex)
-- [`sf run function`](#sf-run-function)
-- [`sf run function start`](#sf-run-function-start)
-- [`sf test apex`](#sf-test-apex)
-- [`sf test function`](#sf-test-function)
-- [`sf usage`](#sf-usage)
-- [`sf whoami`](#sf-whoami)
+* [`sf config get`](#sf-config-get)
+* [`sf config list`](#sf-config-list)
+* [`sf config set`](#sf-config-set)
+* [`sf config unset`](#sf-config-unset)
+* [`sf data data`](#sf-data-data)
+* [`sf env alias set [ALIAS]`](#sf-env-alias-set-alias)
+* [`sf env alias unset [ALIAS]`](#sf-env-alias-unset-alias)
+* [`sf env create compute [ENVNAME]`](#sf-env-create-compute-envname)
+* [`sf env create org [ENVNAME]`](#sf-env-create-org-envname)
+* [`sf env display`](#sf-env-display)
+* [`sf env list`](#sf-env-list)
+* [`sf env log get`](#sf-env-log-get)
+* [`sf env log list`](#sf-env-log-list)
+* [`sf env log tail`](#sf-env-log-tail)
+* [`sf env logdrain add`](#sf-env-logdrain-add)
+* [`sf env logdrain list`](#sf-env-logdrain-list)
+* [`sf env logdrain remove`](#sf-env-logdrain-remove)
+* [`sf env open`](#sf-env-open)
+* [`sf env usage`](#sf-env-usage)
+* [`sf env var get`](#sf-env-var-get)
+* [`sf env var list`](#sf-env-var-list)
+* [`sf env var set`](#sf-env-var-set)
+* [`sf env var unset`](#sf-env-var-unset)
+* [`sf event event`](#sf-event-event)
+* [`sf generate analytics template`](#sf-generate-analytics-template)
+* [`sf generate apex class`](#sf-generate-apex-class)
+* [`sf generate apex test`](#sf-generate-apex-test)
+* [`sf generate apex trigger`](#sf-generate-apex-trigger)
+* [`sf generate community`](#sf-generate-community)
+* [`sf generate function`](#sf-generate-function)
+* [`sf generate lightning component`](#sf-generate-lightning-component)
+* [`sf generate lightning event`](#sf-generate-lightning-event)
+* [`sf generate lightning interface`](#sf-generate-lightning-interface)
+* [`sf generate project`](#sf-generate-project)
+* [`sf heroku heroku`](#sf-heroku-heroku)
+* [`sf login`](#sf-login)
+* [`sf login functions`](#sf-login-functions)
+* [`sf login org`](#sf-login-org)
+* [`sf login org jwt`](#sf-login-org-jwt)
+* [`sf logout`](#sf-logout)
+* [`sf logout org`](#sf-logout-org)
+* [`sf package package`](#sf-package-package)
+* [`sf plugins`](#sf-plugins)
+* [`sf plugins:inspect PLUGIN...`](#sf-pluginsinspect-plugin)
+* [`sf plugins:install PLUGIN...`](#sf-pluginsinstall-plugin)
+* [`sf plugins:link PLUGIN`](#sf-pluginslink-plugin)
+* [`sf plugins:uninstall PLUGIN...`](#sf-pluginsuninstall-plugin)
+* [`sf plugins update`](#sf-plugins-update)
+* [`sf project deploy`](#sf-project-deploy)
+* [`sf project deploy functions`](#sf-project-deploy-functions)
+* [`sf project deploy org`](#sf-project-deploy-org)
+* [`sf project retrieve`](#sf-project-retrieve)
+* [`sf project retrieve org`](#sf-project-retrieve-org)
+* [`sf reset`](#sf-reset)
+* [`sf run apex`](#sf-run-apex)
+* [`sf run function`](#sf-run-function)
+* [`sf run function start`](#sf-run-function-start)
+* [`sf test apex`](#sf-test-apex)
+* [`sf test function`](#sf-test-function)
+* [`sf usage`](#sf-usage)
+* [`sf whoami`](#sf-whoami)
 
 ## `sf config get`
 
@@ -241,11 +240,11 @@ USAGE
   $ sf env display
 
 OPTIONS
-  -e, --environment=environment  (required) Environment alias or login user.
+  -e, --environment=environment  (required)
   --json                         format output as json
 
 DESCRIPTION
-  The output depends on the type of environment. For example, scratch org details include the access token, alias,
+  The output depends on the type of environment. For example, scratch org details include the access token, alias, 
   username of the associated Dev Hub, the creation and expiration date, the generated scratch org username, and more.
 
   Compute environment details include the associated orgs, the list of functions, the project name, and more.
@@ -285,12 +284,12 @@ OPTIONS
   --sort=sort             property to sort by (prepend '-' for descending)
 
 DESCRIPTION
-  The output is displayed in multiple tables, one for each environment type.  For example, the Salesforce Orgs table
-  lists the non-scratch orgs you’re logged into, such as sandboxes, Dev Hubs, production orgs, and so on. Scratch orgs
+  The output is displayed in multiple tables, one for each environment type.  For example, the Salesforce Orgs table 
+  lists the non-scratch orgs you’re logged into, such as sandboxes, Dev Hubs, production orgs, and so on. Scratch orgs 
   and compute environments get their own tables.
-
-  For non-scratch orgs, the Username column refers to the user you logged into the org with. For scratch orgs it refers
-  to the username that was generated for you when you created the scratch org. The first column indicates the default
+ 
+  For non-scratch orgs, the Username column refers to the user you logged into the org with. For scratch orgs it refers 
+  to the username that was generated for you when you created the scratch org. The first column indicates the default 
   environment for each type.
 
   Run "sf env display" to view details about a specific environment.
@@ -298,7 +297,7 @@ DESCRIPTION
 EXAMPLES
   List all environments:
   sf env list --all
-  List only connected orgs. Rows from only the Salesforce Orgs table are displayed because it’s the only table with a
+  List only connected orgs. Rows from only the Salesforce Orgs table are displayed because it’s the only table with a 
   "Status" column.
   sf env list --filter="Status=Connected"
   List only scratch orgs that expire after May 30, 2021:
@@ -374,11 +373,11 @@ USAGE
 
 OPTIONS
   -e, --target-env=target-env
-      Specify the login user or alias that’s associated with the environment. For scratch orgs, the login user is
-      generated by the command that created the scratch org. You can also set an alias for the scratch org when you create
+      Specify the login user or alias that’s associated with the environment. For scratch orgs, the login user is 
+      generated by the command that created the scratch org. You can also set an alias for the scratch org when you create 
       it.
 
-      For Dev Hubs, sandboxes, and production orgs, specify the alias you set when you logged into the org with "sf
+      For Dev Hubs, sandboxes, and production orgs, specify the alias you set when you logged into the org with "sf 
       login".
 
   -p, --path=path
@@ -386,7 +385,7 @@ OPTIONS
   -r, --url-only
 
   --browser=browser
-      You can specify that the environment open in one of the following browsers: Firefox, Safari, Google Chrome, or
+      You can specify that the environment open in one of the following browsers: Firefox, Safari, Google Chrome, or 
       Windows Edge. If you don’t specify --browser, the environment opens in your default browser.
 
   --json
@@ -395,8 +394,8 @@ OPTIONS
 DESCRIPTION
   If you run the command without flags, it attempts to open your default environment in your default web browser.
 
-  Each of your environments is associated with an instance URL, such as https://login.salesforce.com. To open a specific
-  web page at that URL, specify the portion of the URL after "<URL>/" with the --path flag, such as /apex/YourPage to
+  Each of your environments is associated with an instance URL, such as https://login.salesforce.com. To open a specific 
+  web page at that URL, specify the portion of the URL after "<URL>/" with the --path flag, such as /apex/YourPage to 
   open a Visualforce page.
 
 EXAMPLES
@@ -561,12 +560,12 @@ OPTIONS
   --json           format output as json
 
 DESCRIPTION
-  When generating a site, template-specific optional parameters can be passed in via the form of
+  When generating a site, template-specific optional parameters can be passed in via the form of 
   templateParams.name=value. Name and values are case-sensitive.
 
 EXAMPLE
   Generate an Experience Cloud site called MyCustomerCommunity with a specified template.
-  sf generate community --name "MyCustomerCommunity" --templatename "Customer Service" --urlpathprefix customers
+  sf generate community --name "MyCustomerCommunity" --templatename "Customer Service" --urlpathprefix customers 
   --description "My customer community"
 ```
 
@@ -601,11 +600,11 @@ DESCRIPTION
 
   The outputdir can be an absolute path or relative to the current working directory.
 
-  If you don’t specify an outputdir, we create a subfolder in your current working directory with the name of your
-  bundle. For example, if the current working directory is force-app and your Lightning bundle is called myBundle, we
+  If you don’t specify an outputdir, we create a subfolder in your current working directory with the name of your 
+  bundle. For example, if the current working directory is force-app and your Lightning bundle is called myBundle, we 
   create force-app/myBundle/ to store the files in the bundle.
 
-  To generate a Lightning web component, pass --type lwc to the command. If you don’t include a --type value, Salesforce
+  To generate a Lightning web component, pass --type lwc to the command. If you don’t include a --type value, Salesforce 
   CLI generates an Aura component by default.
 
 EXAMPLE
@@ -626,8 +625,8 @@ DESCRIPTION
 
   The outputdir can be an absolute path or relative to the current working directory.
 
-  If you don’t specify an outputdir, we create a subfolder in your current working directory with the name of your
-  bundle. For example, if the current working directory is force-app and your Lightning bundle is called myBundle, we
+  If you don’t specify an outputdir, we create a subfolder in your current working directory with the name of your 
+  bundle. For example, if the current working directory is force-app and your Lightning bundle is called myBundle, we 
   create force-app/myBundle/ to store the files in the bundle.
 
 EXAMPLE
@@ -648,8 +647,8 @@ DESCRIPTION
 
   The outputdir can be an absolute path or relative to the current working directory.
 
-  If you don’t specify an outputdir, we create a subfolder in your current working directory with the name of your
-  bundle. For example, if the current working directory is force-app and your Lightning bundle is called myBundle, we
+  If you don’t specify an outputdir, we create a subfolder in your current working directory with the name of your 
+  bundle. For example, if the current working directory is force-app and your Lightning bundle is called myBundle, we 
   create force-app/myBundle/ to store the files in the bundle.
 
 EXAMPLE
@@ -698,13 +697,13 @@ OPTIONS
   --json  format output as json
 
 DESCRIPTION
-  This command is fully interactive and has no flags other than displaying the command line help. Each environment that
-  you can log into has its own command, such as "sf login org". The environment-specific commands sometimes provide more
-  flag options than this interactive command does. For more information about the interactive prompts from this command,
+  This command is fully interactive and has no flags other than displaying the command line help. Each environment that 
+  you can log into has its own command, such as "sf login org". The environment-specific commands sometimes provide more 
+  flag options than this interactive command does. For more information about the interactive prompts from this command, 
   see the help for the environment-specific command, such as "sf login org --help".
 ```
 
-_See code: [src/commands/login.ts](https://github.com/salesforcecli/cli-taxonomy-experiment/blob/v1.6.2/src/commands/login.ts)_
+_See code: [src/commands/login.ts](https://github.com/salesforcecli/cli-taxonomy-experiment/blob/v1.6.3/src/commands/login.ts)_
 
 ## `sf login functions`
 
@@ -737,7 +736,7 @@ OPTIONS
   -i, --client-id=client-id
 
   -r, --instance-url=instance-url
-      [default: https://login.salesforce.com] If you specify --instance-url, the value overrides the sfdcLoginUrl value in
+      [default: https://login.salesforce.com] If you specify --instance-url, the value overrides the sfdcLoginUrl value in 
       your sfdx-project.json file.
 
       To specify a My Domain URL, use the format https://yourcompanyname.my.salesforce.com.
@@ -747,7 +746,7 @@ OPTIONS
   --alias=alias
 
   --browser=chrome|firefox|safari
-      You can specify that you want to log in to an org with one of the following browsers: Firefox, Safari, Google
+      You can specify that you want to log in to an org with one of the following browsers: Firefox, Safari, Google 
       Chrome, or Windows Edge. If you don’t specify --browser, you log in using your default browser.
 
   --json
@@ -756,20 +755,20 @@ OPTIONS
   --set-default
 
 DESCRIPTION
-  Logging into an org authorizes the CLI to run other commands that connect to that org, such as deploying or retrieving
-  a project. You can log into many types of orgs, such as sandboxes, Dev Hubs, Env Hubs, production orgs, and scratch
+  Logging into an org authorizes the CLI to run other commands that connect to that org, such as deploying or retrieving 
+  a project. You can log into many types of orgs, such as sandboxes, Dev Hubs, Env Hubs, production orgs, and scratch 
   orgs.
 
-  We recommend that you set an alias when you log into an org. Aliases make it easy to later reference this org when
-  running commands that require it. If you don’t set an alias, you use the username that you specified when you logged
+  We recommend that you set an alias when you log into an org. Aliases make it easy to later reference this org when 
+  running commands that require it. If you don’t set an alias, you use the username that you specified when you logged 
   in to the org. If you run multiple commands that reference the same org, consider setting the org as your default.
 
-  By default, this command uses the global out-of-the-box connected app in your org. If you need more security or
-  control, such as setting the refresh token timeout or specifying IP ranges, create your own connected app. Then
+  By default, this command uses the global out-of-the-box connected app in your org. If you need more security or 
+  control, such as setting the refresh token timeout or specifying IP ranges, create your own connected app. Then 
   specify its consumer key with the --clientid flag.
 
 EXAMPLES
-  If your org lives on the standard Salesforce login page (https://login.salesforce.com), run the command with no flags
+  If your org lives on the standard Salesforce login page (https://login.salesforce.com), run the command with no flags 
   to log in:
   sf login org
   If you log in to your Dev Hub, set an alias so you can reference it later when you create a scratch org:
@@ -795,7 +794,7 @@ OPTIONS
       (required)
 
   -r, --instance-url=instance-url
-      [default: https://login.salesforce.com] If you specify an --instance-url value, this value overrides the
+      [default: https://login.salesforce.com] If you specify an --instance-url value, this value overrides the 
       sfdcLoginUrl value in your sfdx-project.json file.
 
       To specify a My Domain URL, use the format https://yourcompanyname.my.salesforce.com.
@@ -808,8 +807,8 @@ OPTIONS
   --alias=alias
 
   --audience-url=audience-url
-      Overrides the aud (audience) field used for JWT authentication so that it matches the expected value of the
-      authorization server URL for the org you’re logging into. For example, "http://login.salesforce.com" for a
+      Overrides the aud (audience) field used for JWT authentication so that it matches the expected value of the 
+      authorization server URL for the org you’re logging into. For example, "http://login.salesforce.com" for a 
       production org or "https://test.salesforce.com" for a sandbox.
 
   --json
@@ -820,35 +819,35 @@ OPTIONS
   --set-default
 
 DESCRIPTION
-  Logging into an org authorizes the CLI to run other commands that connect to that org, such as deploying or retrieving
-  a project. You can log into many types of orgs, such as sandboxes, Dev Hubs, Env Hubs, production orgs, and scratch
+  Logging into an org authorizes the CLI to run other commands that connect to that org, such as deploying or retrieving 
+  a project. You can log into many types of orgs, such as sandboxes, Dev Hubs, Env Hubs, production orgs, and scratch 
   orgs.
 
   Complete these steps before you run this command:
 
-  1. Create a digital certificate (also called digital signature) and the private key to sign the certificate. You can
-  use your own key and certificate issued by a certification authority. Or use OpenSSL to create a key and a self-signed
+  1. Create a digital certificate (also called digital signature) and the private key to sign the certificate. You can 
+  use your own key and certificate issued by a certification authority. Or use OpenSSL to create a key and a self-signed 
   digital certificate.
-  2. Store the private key in a file on your computer. When you run this command, you set the --jwt-key-file flag to
+  2. Store the private key in a file on your computer. When you run this command, you set the --jwt-key-file flag to 
   this file.
-  3. Create a custom connected app in your org using the digital certificate. Make note of the consumer key (also called
-  cliend id) that’s generated for you. When you run this command, you set the --clientid flag to the consumer key. Be
+  3. Create a custom connected app in your org using the digital certificate. Make note of the consumer key (also called 
+  cliend id) that’s generated for you. When you run this command, you set the --clientid flag to the consumer key. Be 
   sure the username of the user logging in is approved to use the connected app.
 
-  We recommend that you set an alias when you log into an org. Aliases make it easy to later reference this org when
-  running commands that require it. If you don’t set an alias, you use the username that you specified when you logged
+  We recommend that you set an alias when you log into an org. Aliases make it easy to later reference this org when 
+  running commands that require it. If you don’t set an alias, you use the username that you specified when you logged 
   in to the org. If you run multiple commands that reference the same org, consider setting the org as your default.
 
 EXAMPLES
-  This example shows a user with username jdoe@example.org logging into an org on the default instance URL
-  (https://login.salesforce.org). The private key is stored in the file /Users/jdoe/JWT/server.key and the command uses
+  This example shows a user with username jdoe@example.org logging into an org on the default instance URL 
+  (https://login.salesforce.org). The private key is stored in the file /Users/jdoe/JWT/server.key and the command uses 
   the connected app with consumer key (client id) 04580y4051234051.
   sf login org jwt --username jdoe@example.org --jwt-key-file /Users/jdoe/JWT/server.key --clientid 04580y4051234051
   Set the org as the default and gives it an alias:
-  sf login org jwt --username jdoe@example.org --jwt-key-file /Users/jdoe/JWT/server.key --clientid 04580y4051234051
+  sf login org jwt --username jdoe@example.org --jwt-key-file /Users/jdoe/JWT/server.key --clientid 04580y4051234051 
   --alias ci-org --set-default
   Use the --instance-url flag log in to a sandbox:
-  sf login org jwt --username jdoe@example.org --jwt-key-file /Users/jdoe/JWT/server.key --clientid 04580y4051234051
+  sf login org jwt --username jdoe@example.org --jwt-key-file /Users/jdoe/JWT/server.key --clientid 04580y4051234051 
   --alias ci-org --set-default --instance-url https://test.salesforce.com
 ```
 
@@ -861,7 +860,7 @@ USAGE
   $ sf logout
 ```
 
-_See code: [src/commands/logout.ts](https://github.com/salesforcecli/cli-taxonomy-experiment/blob/v1.6.2/src/commands/logout.ts)_
+_See code: [src/commands/logout.ts](https://github.com/salesforcecli/cli-taxonomy-experiment/blob/v1.6.3/src/commands/logout.ts)_
 
 ## `sf logout org`
 
@@ -949,15 +948,15 @@ DESCRIPTION
 
   Installation of a user-installed plugin will override a core plugin.
 
-  e.g. If you have a core plugin that has a 'hello' command, installing a user-installed plugin with a 'hello' command
-  will override the core plugin implementation. This is useful if a user needs to update core plugin functionality in
+  e.g. If you have a core plugin that has a 'hello' command, installing a user-installed plugin with a 'hello' command 
+  will override the core plugin implementation. This is useful if a user needs to update core plugin functionality in 
   the CLI without the need to patch and update the whole CLI.
 
 ALIASES
   $ sf plugins:add
 
 EXAMPLES
-  $ sf plugins:install myplugin
+  $ sf plugins:install myplugin 
   $ sf plugins:install https://github.com/someuser/someplugin
   $ sf plugins:install someuser/someplugin
 ```
@@ -980,7 +979,7 @@ OPTIONS
 DESCRIPTION
   Installation of a linked plugin will override a user-installed or core plugin.
 
-  e.g. If you have a user-installed or core plugin that has a 'hello' command, installing a linked plugin with a 'hello'
+  e.g. If you have a user-installed or core plugin that has a 'hello' command, installing a linked plugin with a 'hello' 
   command will override the user-installed or core plugin implementation. This is useful for development work.
 
 EXAMPLE
@@ -1035,20 +1034,20 @@ OPTIONS
   --target-env=target-env  set
 
 DESCRIPTION
-  For example, if your local project contains a package directory with metadata source files, the command asks if you
-  want to deploy that Salesforce app to an org. The command lists your connected orgs and asks which one you want to
+  For example, if your local project contains a package directory with metadata source files, the command asks if you 
+  want to deploy that Salesforce app to an org. The command lists your connected orgs and asks which one you want to 
   deploy to.  If the command finds Apex tests, it asks if you want to run them and at which level.
 
-  Similarly, if the command finds a local functions directory, the command prompts if you want to deploy it and to which
-  compute environment. The command prompts and connects you to a compute environment of your choice if you’re not
+  Similarly, if the command finds a local functions directory, the command prompts if you want to deploy it and to which 
+  compute environment. The command prompts and connects you to a compute environment of your choice if you’re not 
   currently connected to any.
 
   This command must be run from within a project.
 
-  The command stores your responses in a local file and uses them as defaults when you rerun the command. Specify
+  The command stores your responses in a local file and uses them as defaults when you rerun the command. Specify 
   --interactive to force the command to reprompt.
 
-  Use this command for quick and simple deploys. For more complicated deployments, use the environment-specific
+  Use this command for quick and simple deploys. For more complicated deployments, use the environment-specific 
   commands, such as "sf project deploy org", that provide additional flags.
 
 EXAMPLES
@@ -1077,29 +1076,29 @@ USAGE
 
 OPTIONS
   -c, --check-only
-      If you change a field type from Master-Detail to Lookup or vice versa, that change isn’t supported when using the
-      --check-only parameter to test a deployment (validation). This kind of change isn’t supported for test deployments
-      to avoid the risk of data loss or corruption. If a change that isn’t supported for test deployments is included in a
+      If you change a field type from Master-Detail to Lookup or vice versa, that change isn’t supported when using the 
+      --check-only parameter to test a deployment (validation). This kind of change isn’t supported for test deployments 
+      to avoid the risk of data loss or corruption. If a change that isn’t supported for test deployments is included in a 
       deployment package, the test deployment fails and issues an error.
 
-      If your deployment package changes a field type from Master-Detail to Lookup or vice versa, you can still validate
-      the changes prior to deploying to Production by performing a full deployment to another test Sandbox. A full
+      If your deployment package changes a field type from Master-Detail to Lookup or vice versa, you can still validate 
+      the changes prior to deploying to Production by performing a full deployment to another test Sandbox. A full 
       deployment includes a validation of the changes as part of the deployment process.
 
-      Note: A Metadata API deployment that includes Master-Detail relationships deletes all detail records in the Recycle
+      Note: A Metadata API deployment that includes Master-Detail relationships deletes all detail records in the Recycle 
       Bin in the following cases.
 
-      1. For a deployment with a new Master-Detail field, soft delete (send to the Recycle Bin) all detail records before
-      proceeding to deploy the Master-Detail field, or the deployment fails. During the deployment, detail records are
+      1. For a deployment with a new Master-Detail field, soft delete (send to the Recycle Bin) all detail records before 
+      proceeding to deploy the Master-Detail field, or the deployment fails. During the deployment, detail records are 
       permanently deleted from the Recycle Bin and cannot be recovered.
 
-      2. For a deployment that converts a Lookup field relationship to a Master-Detail relationship, detail records must
-      reference a master record or be soft-deleted (sent to the Recycle Bin) for the deployment to succeed. However, a
+      2. For a deployment that converts a Lookup field relationship to a Master-Detail relationship, detail records must 
+      reference a master record or be soft-deleted (sent to the Recycle Bin) for the deployment to succeed. However, a 
       successful deployment permanently deletes any detail records in the Recycle Bin.
 
   -d, --deploy-dir=deploy-dir
-      The root must contain a valid package.xml file describing the entities in the directory structure. This flag is
-      requiredto initiate a deployment if you don’t use --zip-file. If you specify both --zip-file and --deploy-dir, a zip
+      The root must contain a valid package.xml file describing the entities in the directory structure. This flag is 
+      requiredto initiate a deployment if you don’t use --zip-file. If you specify both --zip-file and --deploy-dir, a zip 
       file of the contents of the --deploy-dir directory is written to the location specified by --zip-file.
 
       If you specify this flag, don’t specify --metadata or --manifest.
@@ -1112,12 +1111,12 @@ OPTIONS
   --force-overwrite
 
   --ignore-errors
-      The default is to not ignore errors. Don’t specify this flag when deploying to a production org. If you specify the
+      The default is to not ignore errors. Don’t specify this flag when deploying to a production org. If you specify the 
       flag, components without errors are deployed, and components with errors are skipped.
 
   --ignore-warnings
-      The default is to not ignore warnings. If a warning occurs and you specified this flag, the success field in
-      DeployMessage is set to true. If you didn’t specify this flag, success is set to false, and the warning is treated
+      The default is to not ignore warnings. If a warning occurs and you specified this flag, the success field in 
+      DeployMessage is set to true. If you didn’t specify this flag, success is set to false, and the warning is treated 
       like an error.
 
   --json
@@ -1126,12 +1125,12 @@ OPTIONS
   --run-tests=run-tests
 
   --single-package
-      Use this flag with the --zip-file flag. By default, the CLI assumes the directory is structured for a set of
+      Use this flag with the --zip-file flag. By default, the CLI assumes the directory is structured for a set of 
       packages.
 
   --soap-deploy
-      Because SOAP API has a lower .ZIP file size limit (400 MB uncompressed, 39 MB compressed), Salesforce recommends
-      REST API deployment. This flag provides backwards compatibility with API version 50.0 and earlier when deploy used
+      Because SOAP API has a lower .ZIP file size limit (400 MB uncompressed, 39 MB compressed), Salesforce recommends 
+      REST API deployment. This flag provides backwards compatibility with API version 50.0 and earlier when deploy used 
       SOAP API by default.
 
   --target-env=target-env
@@ -1140,56 +1139,56 @@ OPTIONS
   --test-level=(NoTestRun|RunSpecifiedTests|RunLocalTests|RunAllTestsInOrg)
       Valid values are:
 
-      - NoTestRun — No tests are run. This test level applies only to deployments to development environments, such as
+      - NoTestRun — No tests are run. This test level applies only to deployments to development environments, such as 
       sandbox, Developer Edition, or trial orgs. This test level is the default for development environments.
 
-      - RunSpecifiedTests — Runs only the tests that you specify with the --run-tests flag. Code coverage requirements
-      differ from the default coverage requirements when using this test level. Executed tests must comprise a minimum of
-      75% code coverage for each class and trigger in the deployment package. This coverage is computed for each class and
+      - RunSpecifiedTests — Runs only the tests that you specify with the --run-tests flag. Code coverage requirements 
+      differ from the default coverage requirements when using this test level. Executed tests must comprise a minimum of 
+      75% code coverage for each class and trigger in the deployment package. This coverage is computed for each class and 
       trigger individually and is different than the overall coverage percentage.
 
-      - RunLocalTests — All tests in your org are run, except the ones that originate from installed managed packages.
+      - RunLocalTests — All tests in your org are run, except the ones that originate from installed managed packages. 
       This test level is the default for production deployments that include Apex classes or triggers.
 
       - RunAllTestsInOrg — All tests in your org are run, including tests of managed packages.
 
-      If you don’t specify a test level, the default behavior depends on the contents of your deployment package. For more
+      If you don’t specify a test level, the default behavior depends on the contents of your deployment package. For more 
       information, see “Running Tests in a Deployment” in the Metadata API Developer Guide.
 
   --validated-deploy-request-id=validated-deploy-request-id
-      Specifies the ID of a package with recently validated components to run a Quick Deploy. Deploying a validation helps
-      you shorten your deployment time because tests aren’t rerun. If you have a recent successful validation, you can
+      Specifies the ID of a package with recently validated components to run a Quick Deploy. Deploying a validation helps 
+      you shorten your deployment time because tests aren’t rerun. If you have a recent successful validation, you can 
       deploy the validated components without running tests. A validation doesn’t save any components in the org.
 
-      You use a validation only to check the success or failure messages that you would receive with an actual deployment.
-      It doesn’t validate your components. This flag sets the checkOnly="true" parameter for your deployment. Before
+      You use a validation only to check the success or failure messages that you would receive with an actual deployment. 
+      It doesn’t validate your components. This flag sets the checkOnly="true" parameter for your deployment. Before 
       deploying a recent validation, ensure that the following requirements are met:
 
       1. The components have been validated successfully for the target environment within the last 10 days.
       2. As part of the validation, Apex tests in the target org have passed.
       3. Code coverage requirements are met:
 
-      - If all tests in the org or all local tests are run, overall code coverage is at least 75%, and Apex triggers have
+      - If all tests in the org or all local tests are run, overall code coverage is at least 75%, and Apex triggers have 
       some coverage.
-      - If specific tests are run with the RunSpecifiedTests test level, each class and trigger that was deployed is
+      - If specific tests are run with the RunSpecifiedTests test level, each class and trigger that was deployed is 
       covered by at least 75% individually.
 
   --wait=wait
       Default is -1 (no limit).
 
   --zip-file=zip-file
-      You must indicate this flag or --deploy-dir. If you specify both --zip-file and --deploy-dir, a .zip file of the
+      You must indicate this flag or --deploy-dir. If you specify both --zip-file and --deploy-dir, a .zip file of the 
       contents of the deploy directory is created at the path specified for the .zip file.
 
 DESCRIPTION
-  To run the command asynchronously, set --wait to 0, which immediately returns the job ID. This way, you can continue
+  To run the command asynchronously, set --wait to 0, which immediately returns the job ID. This way, you can continue 
   to use the CLI. By default the command waits to finish no matter how long the deployment takes.
 
   To run a quick deploy of a recently validated package, use --validated-deploy-request-id with the validated ID.
 
   You must run this command from wihin a project.
 
-  If the comma-separated list you’re supplying contains spaces, enclose the entire comma-separated list in one set of
+  If the comma-separated list you’re supplying contains spaces, enclose the entire comma-separated list in one set of 
   double quotes. On Windows, if the list contains commas, also enclose the entire list in one set of double quotes.
 
 EXAMPLES
@@ -1198,7 +1197,7 @@ EXAMPLES
   Deploy a specific Apex class and the objects whose source is in a directory:
   sf project deploy org --deploy-dir "path/to/apex/classes/MyClass.cls,path/to/source/objects"
   Deploy source files in a comma-separated list that contains spaces:
-  sf project deploy org --deploy-dir "path/to/objects/MyCustomObject/fields/MyField.field-meta.xml,
+  sf project deploy org --deploy-dir "path/to/objects/MyCustomObject/fields/MyField.field-meta.xml, 
   path/to/apex/classes"
   Deploy all Apex classes:
   sf project deploy org --metadata ApexClass
@@ -1237,10 +1236,10 @@ OPTIONS
 DESCRIPTION
   This command must be run from within a project.
 
-  The command stores your responses in a local file and uses them as defaults when you rerun the command. Specify
+  The command stores your responses in a local file and uses them as defaults when you rerun the command. Specify 
   --interactive to force the command to reprompt.
 
-  Use this command for quick and simple retrieves. For more complicated scenarios, use "sf project retrieve org" which
+  Use this command for quick and simple retrieves. For more complicated scenarios, use "sf project retrieve org" which 
   provides additional flags.
 ```
 
@@ -1253,7 +1252,7 @@ USAGE
   $ sf project retrieve org
 
 DESCRIPTION
-  If the comma-separated list you’re supplying contains spaces, enclose the entire comma-separated list in one set of
+  If the comma-separated list you’re supplying contains spaces, enclose the entire comma-separated list in one set of 
   double quotes. On Windows, if the list contains commas, also enclose the entire list in one set of double quotes.
 
   You must run this command from wihin a project.
@@ -1264,7 +1263,7 @@ EXAMPLES
   Retrieve a specific Apex class and the objects whose source is in a directory:
   sf project retrieve org --source-path "path/to/apex/classes/MyClass.cls,path/to/source/objects"
   Retrieve source files in a comma-separated list that contains spaces:
-  sf project retrieve org --source-path "path/to/objects/MyCustomObject/fields/MyField.field-meta.xml,
+  sf project retrieve org --source-path "path/to/objects/MyCustomObject/fields/MyField.field-meta.xml, 
   path/to/apex/classes"
   Retrieve all Apex classes:
   sf project retrieve org --metadata ApexClass
@@ -1282,14 +1281,14 @@ EXAMPLES
 
 ## `sf reset`
 
-reset data created by this CLI
+Reset data created by this CLI.
 
 ```
 USAGE
   $ sf reset
 ```
 
-_See code: [src/commands/reset.ts](https://github.com/salesforcecli/cli-taxonomy-experiment/blob/v1.6.2/src/commands/reset.ts)_
+_See code: [src/commands/reset.ts](https://github.com/salesforcecli/cli-taxonomy-experiment/blob/v1.6.3/src/commands/reset.ts)_
 
 ## `sf run apex`
 
@@ -1300,7 +1299,7 @@ USAGE
   $ sf run apex
 
 DESCRIPTION
-  To execute your code interactively, run this command with no parameters. At the prompt, enter all your Apex code;
+  To execute your code interactively, run this command with no parameters. At the prompt, enter all your Apex code; 
   press CTRL-D when you're finished. Your code is then executed in a single execute anonymous request.
 
   For more information, see "Anonymous Blocks" in the Apex Developer Guide.
@@ -1366,11 +1365,11 @@ USAGE
   $ sf test apex
 
 DESCRIPTION
-  To see code coverage results, use the --code-cmverage parameter with --result-format. The output displays a high-level
-  summary of the test run and the code coverage values for classes in your org. If you specify human-readable result
+  To see code coverage results, use the --code-cmverage parameter with --result-format. The output displays a high-level 
+  summary of the test run and the code coverage values for classes in your org. If you specify human-readable result 
   format, use the --detailed-coverage parameter to see detailed coverage results for each test method run.
 
-  NOTE: The testRunCoverage value (JSON and JUnit result formats) is a percentage of the covered lines and total lines
+  NOTE: The testRunCoverage value (JSON and JUnit result formats) is a percentage of the covered lines and total lines 
   from all the Apex classes evaluated by the tests in this run.
 
 EXAMPLE
@@ -1397,7 +1396,7 @@ OPTIONS
   --json=json  format output as json
 ```
 
-_See code: [src/commands/usage.ts](https://github.com/salesforcecli/cli-taxonomy-experiment/blob/v1.6.2/src/commands/usage.ts)_
+_See code: [src/commands/usage.ts](https://github.com/salesforcecli/cli-taxonomy-experiment/blob/v1.6.3/src/commands/usage.ts)_
 
 ## `sf whoami`
 
@@ -1408,6 +1407,5 @@ USAGE
   $ sf whoami
 ```
 
-_See code: [src/commands/whoami.ts](https://github.com/salesforcecli/cli-taxonomy-experiment/blob/v1.6.2/src/commands/whoami.ts)_
-
+_See code: [src/commands/whoami.ts](https://github.com/salesforcecli/cli-taxonomy-experiment/blob/v1.6.3/src/commands/whoami.ts)_
 <!-- commandsstop -->
