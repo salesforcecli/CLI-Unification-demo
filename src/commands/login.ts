@@ -5,11 +5,15 @@
  * For full license text, see LICENSE.txt file in the repo root or https://opensource.org/licenses/BSD-3-Clause
  */
 
+import { Messages } from '@salesforce/core';
 import { AnyJson } from '@salesforce/ts-types';
 import { prompt, Answers } from 'inquirer';
 
 import SfCommand from '../sf-command';
 import { loginFunctions, loginHeroku, loginOrg, LoginArgs } from '../utils';
+
+Messages.importMessagesDirectory(__dirname);
+const messages = Messages.loadMessages('@salesforce/sf-demo', 'login');
 
 // eslint-disable-next-line no-shadow
 export enum LoginTarget {
@@ -19,9 +23,8 @@ export enum LoginTarget {
 }
 
 export default class Login extends SfCommand {
-  public static description = 'Log in interactively to Salesforce orgs and other services.';
-
-  public static examples = ['sf login'];
+  public static summary = messages.getMessage('summary');
+  public static description = messages.getMessage('description');
 
   public static flags = {};
 

@@ -5,17 +5,18 @@
  * For full license text, see LICENSE.txt file in the repo root or https://opensource.org/licenses/BSD-3-Clause
  */
 
+import { URL } from 'url';
 import { Flags } from '@oclif/core';
 import { AnyJson } from '@salesforce/ts-types';
 import { Messages } from '@salesforce/core';
+import SfCommand from '../../../sf-command';
 
-import SfCommand from '../../sf-command';
-import { Browser, loginOrg } from '../../utils';
+import Aliases from '../../../configs/aliases';
 
 Messages.importMessagesDirectory(__dirname);
-const messages = Messages.loadMessages('@salesforce/sf-demo', 'login.org');
+const messages = Messages.loadMessages('@salesforce/sf-demo', 'login.org.jwt');
 
-export default class OrgLogin extends SfCommand {
+export default class JWT extends SfCommand {
   public static summary = messages.getMessage('summary');
   public static description = messages.getMessage('description');
 
@@ -25,14 +26,14 @@ export default class OrgLogin extends SfCommand {
     alias: Flags.string({
       summary: messages.getMessage('flags.alias.summary'),
     }),
-    browser: Flags.string({
-      summary: messages.getMessage('flags.browser.summary'),
-      description: messages.getMessage('flags.browser.description'),
-      options: [Browser.CHROME, Browser.FIREFOX, Browser.SAFARI],
+    'audience-url': Flags.string({
+      summary: messages.getMessage('flags.audience-url.summary'),
+      description: messages.getMessage('flags.audience-url.description'),
     }),
     'client-id': Flags.string({
       char: 'i',
       summary: messages.getMessage('flags.client-id.summary'),
+      required: true,
     }),
     'instance-url': Flags.string({
       char: 'r',
@@ -40,19 +41,35 @@ export default class OrgLogin extends SfCommand {
       description: messages.getMessage('flags.instance-url.description'),
       default: 'https://login.salesforce.com',
     }),
+    'jwt-key-file': Flags.string({
+      summary: messages.getMessage('flags.jwt-key-file.summary'),
+    }),
     'set-default': Flags.boolean({
       summary: messages.getMessage('flags.set-default.summary'),
+    }),
+    username: Flags.string({
+      char: 'u',
+      summary: messages.getMessage('flags.username.summary'),
+      required: true,
     }),
   };
 
   public async run(): Promise<AnyJson> {
-    const { flags } = await this.parse(OrgLogin);
+    const { flags, args } = await this.parse(JWT);
 
-    return loginOrg({
-      alias: flags.alias,
-      browser: flags.browser,
-      clientId: flags['client-id'],
-      loginUrl: flags['instance-url'],
-    });
+    const domain = new URL(flags['login-url']).host;
+    const user = flags.username;
+    let status = `Logged in as ${user}`;
+    if (flags.alias) {
+      status += `\n   with alias ${flags.alias}`;
+      const aliases = await Aliases.create({});
+      aliases.set(flags.alias, user);
+      await aliases.write();
+    }
+    if (flags['client-id']) {
+      status += `\n   with connected app ${flags['client-id']}`;
+    }
+    this.log(status);
+    return { flags, args, domain, user };
   }
 }
