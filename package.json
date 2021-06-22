@@ -34,6 +34,9 @@
       "login": {
         "description": "Log into environments."
       },
+      "logout": {
+        "description": "Log out of environments."
+      },
       "config": {
         "description": "Configure Salesforce CLI."
       },

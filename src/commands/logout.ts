@@ -15,7 +15,7 @@ Messages.importMessagesDirectory(__dirname);
 const messages = Messages.loadMessages('@salesforce/sf-demo', 'logout');
 
 export default class Logout extends SfCommand {
-  public static summary = messages.getMessage('summary');
+  public static description = messages.getMessage('summary');
 
   public async run(): Promise<AnyJson> {
     const { args } = await this.parse(Logout);

@@ -14,7 +14,7 @@ Messages.importMessagesDirectory(__dirname);
 const messages = Messages.loadMessages('@salesforce/sf-demo', 'whoami');
 
 export default class WhoAmI extends SfCommand {
-  public static summary = messages.getMessage('summary');
+  public static description = messages.getMessage('summary');
 
   public async run(): Promise<AnyJson> {
     const hub = this.accounts.get('hub');

@@ -14,7 +14,7 @@ import SfCommand from '../sf-command';
 Messages.importMessagesDirectory(__dirname);
 const messages = Messages.loadMessages('@salesforce/sf-demo', 'usage');
 export default class Usage extends SfCommand {
-  public static summary = messages.getMessage('summary');
+  public static description = messages.getMessage('summary');
 
   public static flags = {
     // TODO: Add cli.table.flags - https://github.com/oclif/cli-ux#clitable
