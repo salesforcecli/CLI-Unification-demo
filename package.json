@@ -23,8 +23,14 @@
   "oclif": {
     "bin": "sf",
     "commands": "./lib/commands",
+    "hooks": {
+      "init": "./lib/hooks/readme.js"
+    },
     "plugins": [
       "@oclif/plugin-plugins"
+    ],
+    "devPlugins": [
+      "oclif"
     ],
     "topicSeparator": " ",
     "topics": {
@@ -135,7 +141,7 @@
     "prepare": "sf-install",
     "pretest": "sf-compile-test",
     "test": "sf-test",
-    "version": "oclif-dev readme && git add README.md"
+    "version": "./bin/dev readme && git add README.md"
   },
   "husky": {
     "hooks": {
