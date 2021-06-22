@@ -20,7 +20,7 @@ export default class EnvDisplay extends SfCommand {
 
   public static flags = {
     environment: Flags.string({
-      description: messages.getMessage('flags.environment.summary'),
+      summary: messages.getMessage('flags.environment.summary'),
       required: true,
       char: 'e',
     }),
