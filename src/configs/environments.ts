@@ -108,7 +108,7 @@ export default class Environments extends ConfigFile<Dictionary<string>> {
   }
 
   public set(name: string, value: Environment): Environment {
-    return (super.set(name, value) as unknown) as Environment;
+    return super.set(name, value) as unknown as Environment;
   }
 
   public unset(name: string): boolean {

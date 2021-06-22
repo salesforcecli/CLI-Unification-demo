@@ -26,7 +26,7 @@ export default class EnvList extends SfCommand {
       description: 'include enviornments not yet connected',
     }),
     // Hack beause typings has changed in oclif/core. cli-ux needs to be updated, maybe even include cli-ux in core if small enough
-    ...((cli.table.flags() as unknown) as Interfaces.FlagInput<unknown>),
+    ...(cli.table.flags() as unknown as Interfaces.FlagInput<unknown>),
   };
 
   public convertEnvironmentEntry(entry: [string, Environment]): DisplayEnvironment {
