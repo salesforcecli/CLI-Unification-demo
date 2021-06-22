@@ -43,7 +43,7 @@ Try running running the following commands:
 * sf whoami
 
 *Static commands*
-These topics are speculative and are provided as an example of the types of topics that we expect to deliver, please review and provide feedback. Run --help  with different levels of the demo CLI to navigate the tree, i.e. sf --help shows the top-level topics and commands, sf project --help shows the subtopics and commands under "project", etc.
+These topics are speculative and are provided as an example of the types of topics that we expect to deliver. Please review them and provide feedback. Run --help  with different levels of the demo CLI to navigate the tree. For example, `sf --help` shows the top-level topics and commands, `sf project --help` shows the subtopics and commands under `project`, and so on.
 
 ## Commands
 
