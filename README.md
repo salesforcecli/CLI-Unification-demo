@@ -1,6 +1,6 @@
 # Develop Across Salesforce With One CLI
 
-Welcome to the Salesforce CLI Unification Demo CLI repo. We’re designing a new taxonomy and structure for Salesforce CLI with the intention of unifying all of Salesforce’s products under one CLI. Our goal is to provide a seamless developer experience when building applications on any Salesforce product as well as across products. The demo CLI is an interactive simulation setup with the new taxonomy and common workflows, it doesn't actually do anything or change your environment. Only a handful of commands have full help content. Please test it out and tell us what you think.
+Welcome to the Salesforce CLI Unification Demo CLI repo. We’re designing a new taxonomy and structure for Salesforce CLI with the intention of unifying all of Salesforce’s products under one CLI. Our goal is to provide a seamless developer experience when building applications on any Salesforce product as well as across products. The demo CLI is an interactive simulation that implements the new taxonomy and common workflows, although it doesn't actually do anything or change your environment. Only a handful of commands have full help content. Please test it out and tell us what you think.
 
 ## Strategy
 
