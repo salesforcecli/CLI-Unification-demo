@@ -1,7 +1,7 @@
 {
   "name": "@salesforce/sf-demo",
   "description": "An experiment to explore a new taxonomy for all Salesforce clouds.",
-  "version": "1.6.5",
+  "version": "1.6.6",
   "author": "Salesforce",
   "keywords": [],
   "license": "BSD-3-Clause",

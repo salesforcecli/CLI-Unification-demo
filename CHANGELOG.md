@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.6.6](https://github.com/salesforcecli/cli-taxonomy-experiment/compare/v1.6.5...v1.6.6) (2021-06-22)
+
+
+### Bug Fixes
+
+* change "sf help" to "sf --help" in readme ([5c1a132](https://github.com/salesforcecli/cli-taxonomy-experiment/commit/5c1a1321b18080f3bb8f59a48e206e8765b2e420))
+
 ### [1.6.5](https://github.com/salesforcecli/cli-taxonomy-experiment/compare/v1.6.4...v1.6.5) (2021-06-22)
 
 
