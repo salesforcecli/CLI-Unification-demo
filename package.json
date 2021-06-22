@@ -38,11 +38,28 @@
         "subtopics": {
           "create": {
             "description": "Create environments."
+          },
+          "alias": {
+            "description": "Manage environment aliases."
+          },
+          "log": {
+            "description": "View logs."
+          },
+          "logdrain": {
+            "description": "Manage log drains."
+          },
+          "var": {
+            "description": "Manage environment variables."
           }
         }
       },
       "login": {
-        "description": "Log into environments."
+        "description": "Log into environments.",
+        "subtopics": {
+          "org": {
+            "description": "Log into an org."
+          }
+        }
       },
       "logout": {
         "description": "Log out of environments."
@@ -57,13 +74,37 @@
         "description": "Manage events."
       },
       "generate": {
-        "description": "Generate local code, such as a project or Apex class."
+        "description": "Generate local code, such as a project or Apex class.",
+        "subtopics": {
+          "analytics": {
+            "description": "Create analytics templates."
+          },
+          "apex": {
+            "description": "Create Apex classes and triggers."
+          },
+          "lightning": {
+            "description": "Create Aura and Lightning Web components ."
+          }
+        }
       },
       "project": {
-        "description": "Deploy and retrieve code between your project and an environment."
+        "description": "Deploy and retrieve artifacts between your project and an environment.",
+        "subtopics": {
+          "deploy": {
+            "description": "Deploy artifacts."
+          },
+          "retrieve": {
+            "description": "Retrieve artifacts."
+          }
+        }
       },
       "run": {
-        "description": "Run code, such as anonymous Apex."
+        "description": "Run code, such as anonymous Apex.",
+        "subtopics": {
+          "function": {
+            "description": "Run functions."
+          }
+	      }
       },
       "test": {
         "description": "Invoke tests in an environment."
