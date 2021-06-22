@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.6.4](https://github.com/salesforcecli/cli-taxonomy-experiment/compare/v1.6.3...v1.6.4) (2021-06-22)
+
+
+### Bug Fixes
+
+* add all subtopics to package.json ([f0f8b96](https://github.com/salesforcecli/cli-taxonomy-experiment/commit/f0f8b96024eacfc8fc76a8d1b8b551ef3b241e78))
+
 ### [1.6.3](https://github.com/salesforcecli/cli-taxonomy-experiment/compare/v1.6.2...v1.6.3) (2021-06-22)
 
 

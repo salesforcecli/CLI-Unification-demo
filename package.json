@@ -1,7 +1,7 @@
 {
   "name": "@salesforce/sf-demo",
   "description": "An experiment to explore a new taxonomy for all Salesforce clouds.",
-  "version": "1.6.3",
+  "version": "1.6.4",
   "author": "Salesforce",
   "keywords": [],
   "license": "BSD-3-Clause",
@@ -104,7 +104,7 @@
           "function": {
             "description": "Run functions."
           }
-	      }
+        }
       },
       "test": {
         "description": "Invoke tests in an environment."
