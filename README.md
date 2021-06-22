@@ -10,7 +10,7 @@ See [Strategy and Strucuture](STRATEGY.md) for more details.
 
 ```bash
 npm install --global @salesforce/sf-demo
-sf help
+sf --help
 ```
 
 ## Feedback
