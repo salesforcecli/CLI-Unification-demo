@@ -5,12 +5,14 @@
  * For full license text, see LICENSE.txt file in the repo root or https://opensource.org/licenses/BSD-3-Clause
  */
 
+import { Messages } from '@salesforce/core';
 import SfCommand from '../../sf-command';
 
-export default class TestFunction extends SfCommand {
-  public static description = 'Runs Function testing suite';
+Messages.importMessagesDirectory(__dirname);
+const messages = Messages.loadMessages('@salesforce/sf-demo', 'test.function');
 
-  public static examples = ['sf test function'];
+export default class TestFunction extends SfCommand {
+  public static summary = messages.getMessage('summary');
 
   public async run(): Promise<void> {
     this.log('Testing function...');
