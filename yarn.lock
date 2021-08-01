@@ -455,9 +455,9 @@
     tslib "^2.0.0"
 
 "@oclif/core@^0.5.14":
-  version "0.5.14"
-  resolved "https://registry.yarnpkg.com/@oclif/core/-/core-0.5.14.tgz#eadb9de79cd3cd5f7d1970e3fa37a75d22ec4e58"
-  integrity sha512-UvKAxCX3sV2kAq2rar0+G/7SGlPYG78R99nHjSCarMVk+KAVle+8ZV8OXIs8OHfnHWRKZMuc1Q5sdG2JIRiIZQ==
+  version "0.5.27"
+  resolved "https://registry.yarnpkg.com/@oclif/core/-/core-0.5.27.tgz#d06630d915c746076d34473d6e4772580811dd72"
+  integrity sha512-BfS4REDHx1mr7RnitYkznIQ5fzLBCf0fRbyB/dqgMNPhAVsdzQpjobn5x+dMdcsLhO+2iXisfoMl+x0j9AB9bw==
   dependencies:
     "@oclif/linewrap" "^1.0.0"
     chalk "^4.1.0"
