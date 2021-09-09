@@ -41,7 +41,6 @@ Try running running the following commands:
 - sf login
 - sf project deploy
 - sf env list
-- sf whoami
 
 _Static commands_
 These topics are speculative and are provided as an example of the types of topics that we expect to deliver. Please review them and provide feedback. Run --help with different levels of the demo CLI to navigate the tree. For example, `sf --help` shows the top-level topics and commands, `sf project --help` shows the subtopics and commands under `project`, and so on.
@@ -108,8 +107,6 @@ These topics are speculative and are provided as an example of the types of topi
 * [`sf run function start`](#sf-run-function-start)
 * [`sf test apex`](#sf-test-apex)
 * [`sf test function`](#sf-test-function)
-* [`sf usage`](#sf-usage)
-* [`sf whoami`](#sf-whoami)
 
 ## `sf config get`
 
@@ -1384,28 +1381,4 @@ USAGE
   $ sf test function
 ```
 
-## `sf usage`
-
-Display overall usage of your compute spend.
-
-```
-USAGE
-  $ sf usage
-
-OPTIONS
-  --json=json  format output as json
-```
-
-_See code: [src/commands/usage.ts](https://github.com/salesforcecli/cli-taxonomy-experiment/blob/v1.6.5/src/commands/usage.ts)_
-
-## `sf whoami`
-
-Display details of the current logged-in account and user.
-
-```
-USAGE
-  $ sf whoami
-```
-
-_See code: [src/commands/whoami.ts](https://github.com/salesforcecli/cli-taxonomy-experiment/blob/v1.6.5/src/commands/whoami.ts)_
 <!-- commandsstop -->
