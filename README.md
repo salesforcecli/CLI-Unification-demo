@@ -703,7 +703,7 @@ DESCRIPTION
   see the help for the environment-specific command, such as "sf login org --help".
 ```
 
-_See code: [src/commands/login.ts](https://github.com/salesforcecli/cli-taxonomy-experiment/blob/v1.6.5/src/commands/login.ts)_
+_See code: [src/commands/login.ts](https://github.com/salesforcecli/cli-taxonomy-experiment/blob/v1.6.6/src/commands/login.ts)_
 
 ## `sf login functions`
 
@@ -860,7 +860,7 @@ USAGE
   $ sf logout
 ```
 
-_See code: [src/commands/logout.ts](https://github.com/salesforcecli/cli-taxonomy-experiment/blob/v1.6.5/src/commands/logout.ts)_
+_See code: [src/commands/logout.ts](https://github.com/salesforcecli/cli-taxonomy-experiment/blob/v1.6.6/src/commands/logout.ts)_
 
 ## `sf logout org`
 
@@ -1288,7 +1288,7 @@ USAGE
   $ sf reset
 ```
 
-_See code: [src/commands/reset.ts](https://github.com/salesforcecli/cli-taxonomy-experiment/blob/v1.6.5/src/commands/reset.ts)_
+_See code: [src/commands/reset.ts](https://github.com/salesforcecli/cli-taxonomy-experiment/blob/v1.6.6/src/commands/reset.ts)_
 
 ## `sf run apex`
 
@@ -1396,7 +1396,7 @@ OPTIONS
   --json=json  format output as json
 ```
 
-_See code: [src/commands/usage.ts](https://github.com/salesforcecli/cli-taxonomy-experiment/blob/v1.6.5/src/commands/usage.ts)_
+_See code: [src/commands/usage.ts](https://github.com/salesforcecli/cli-taxonomy-experiment/blob/v1.6.6/src/commands/usage.ts)_
 
 ## `sf whoami`
 
@@ -1407,5 +1407,5 @@ USAGE
   $ sf whoami
 ```
 
-_See code: [src/commands/whoami.ts](https://github.com/salesforcecli/cli-taxonomy-experiment/blob/v1.6.5/src/commands/whoami.ts)_
+_See code: [src/commands/whoami.ts](https://github.com/salesforcecli/cli-taxonomy-experiment/blob/v1.6.6/src/commands/whoami.ts)_
 <!-- commandsstop -->
