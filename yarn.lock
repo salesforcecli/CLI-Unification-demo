@@ -677,11 +677,12 @@
     xunit-file "^1.0.0"
 
 "@salesforce/kit@^1.5.14", "@salesforce/kit@^1.5.8":
-  version "1.5.14"
-  resolved "https://registry.yarnpkg.com/@salesforce/kit/-/kit-1.5.14.tgz#013853ffc53e10e7add2abfa266372b29fda8317"
-  integrity sha512-vGzNltfWo7wtaDR0Drgf3nAMWsJ5ZheM4LODfFZeorsFk4Xj8J6hPJWuMcYUT07yCenECQalOjT0SU3p77QgYA==
+  version "1.5.30"
+  resolved "https://registry.yarnpkg.com/@salesforce/kit/-/kit-1.5.30.tgz#c747f847dcc66bc6b3394133093a5fbc3caa36c4"
+  integrity sha512-6f+b/4s3bZg8iaepvH2uzdcBTDvFb4tqDJJyXZF8108YBxwMV99H0r7laY7WoSC7Np6NcdZ4LHleqoVF5v9Itg==
   dependencies:
-    "@salesforce/ts-types" "^1.5.13"
+    "@salesforce/ts-types" "^1.5.20"
+    shx "^0.3.3"
     tslib "^2.2.0"
 
 "@salesforce/prettier-config@^0.0.2":
@@ -703,10 +704,10 @@
     sinon "^5.1.1"
     tslib "^2.2.0"
 
-"@salesforce/ts-types@^1.5.13", "@salesforce/ts-types@^1.5.17":
-  version "1.5.17"
-  resolved "https://registry.yarnpkg.com/@salesforce/ts-types/-/ts-types-1.5.17.tgz#d69e92dfa716638d84b244a2611be80fb7986024"
-  integrity sha512-zyF1+4EacGsIWtfntbq7PvxjB2XABz33RzKfOhot15JC4tFiQaSFPtNb8d6hj7BkQSjo2Zs3qEeLJwRFcpaEIQ==
+"@salesforce/ts-types@^1.5.13", "@salesforce/ts-types@^1.5.17", "@salesforce/ts-types@^1.5.20":
+  version "1.5.20"
+  resolved "https://registry.yarnpkg.com/@salesforce/ts-types/-/ts-types-1.5.20.tgz#f6875a710ceca48223b240026a14af6d3b39882f"
+  integrity sha512-Ov6um4CWd63EvkRavkHG0J/P9XYL55sdkDWPMr7+AIgqh5flHxDRz09/C4e9M94aX30rzJxW4TVX6EBf4Cu2BQ==
   dependencies:
     tslib "^2.2.0"
 
@@ -6670,6 +6671,15 @@ shelljs@^0.8.0, shelljs@^0.8.4, shelljs@~0.8.4:
     interpret "^1.0.0"
     rechoir "^0.6.2"
 
+shelljs@^0.8.5:
+  version "0.8.5"
+  resolved "https://registry.yarnpkg.com/shelljs/-/shelljs-0.8.5.tgz#de055408d8361bed66c669d2f000538ced8ee20c"
+  integrity sha512-TiwcRcrkhHvbrZbnRcFYMLl30Dfov3HKqzp5tO5b4pt6G/SezKcYhmDg15zXVBswHmctSAQKznqNW2LO5tTDow==
+  dependencies:
+    glob "^7.0.0"
+    interpret "^1.0.0"
+    rechoir "^0.6.2"
+
 shx@0.3.3:
   version "0.3.3"
   resolved "https://registry.yarnpkg.com/shx/-/shx-0.3.3.tgz#681a88c7c10db15abe18525349ed474f0f1e7b9f"
@@ -6677,6 +6687,14 @@ shx@0.3.3:
   dependencies:
     minimist "^1.2.3"
     shelljs "^0.8.4"
+
+shx@^0.3.3:
+  version "0.3.4"
+  resolved "https://registry.yarnpkg.com/shx/-/shx-0.3.4.tgz#74289230b4b663979167f94e1935901406e40f02"
+  integrity sha512-N6A9MLVqjxZYcVn8hLmtneQWIJtp8IKzMP4eMnx+nqkvXoqinUPCbUFLp2UcWTEIUONhlk0ewxr/jaVGlc+J+g==
+  dependencies:
+    minimist "^1.2.3"
+    shelljs "^0.8.5"
 
 signal-exit@^3.0.0, signal-exit@^3.0.2, signal-exit@^3.0.3:
   version "3.0.3"
